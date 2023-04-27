@@ -61,15 +61,19 @@ const isOutsideClicked = (event) => {
 </script>
 
 <template>
-    <div class="layout-topbar">
-        <router-link to="/" class="layout-topbar-logo">
-            <img :src="logoUrl" alt="logo" />
-            <span>KOREM</span>
-        </router-link>
-
-        <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
+    <div class="layout-topbar topBar">
+        <button class="p-link layout-menu-button layout-topbar-button" style="margin-right: 50px; margin-left: 0 !important" @click="onMenuToggle()">
             <i class="pi pi-bars"></i>
         </button>
+
+        <router-link to="/" class="layout-topbar-logo">
+<!--            <img :src="logoUrl" alt="logo" />-->
+            <span style="color: #ffffff">KOREM CPE</span>
+        </router-link>
+
+<!--        <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">-->
+<!--            <i class="pi pi-bars"></i>-->
+<!--        </button>-->
 
         <button class="p-link layout-topbar-menu-button layout-topbar-button" @click="onTopBarMenuButton()">
             <i class="pi pi-ellipsis-v"></i>
@@ -92,4 +96,13 @@ const isOutsideClicked = (event) => {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.topBar{
+    background-color: #152957;
+    color: #ffffff;
+}
+.topBar button{
+  color: #ffffff;
+}
+
+</style>

@@ -15,6 +15,21 @@ const router = createRouter({
                     component: () => import('@/views/Dashboard.vue')
                 },
                 {
+                    path: '/dashboard/analytics1',
+                    name: 'analytics1',
+                    component: () => import('@/views/dashboard/analytics/Analytics1.vue')
+                },
+                {
+                    path: '/dashboard/analytics2',
+                    name: 'analytics2',
+                    component: () => import('@/views/dashboard/analytics/Analytics2.vue')
+                },
+                {
+                    path: '/dashboard/analytics3',
+                    name: 'analytics3',
+                    component: () => import('@/views/dashboard/analytics/Analytics3.vue')
+                },
+                {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
                     component: () => import('@/views/uikit/FormLayout.vue')
@@ -143,6 +158,17 @@ const router = createRouter({
                 }
             ]
         },
+        // {
+        //    path: '/profile',
+        //     children: [
+        //         {
+        //             path: '/energyProducer',
+        //             name: 'energyProducer',
+        //             component: () => import('@/views/uikit/Button.vue')
+        //         },
+        //
+        //     ]
+        // },
         {
             path: '/landing',
             name: 'landing',

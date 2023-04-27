@@ -5,21 +5,43 @@ import AppMenuItem from './AppMenuItem.vue';
 
 const model = ref([
     {
-        label: 'UI Components',
+        label: 'Главная',
+        items: [{ label: 'Главная страница', icon: 'pi pi-fw pi-home', to: '/' }]
+    },
+    {
+        label: 'Электроэнергетика',
         items: [
-            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-            { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
-            { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
-            { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
-            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
-            { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
-            { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
+            { label: 'Кабинет энергопредприятия', icon: 'pi pi-fw pi-id-card', to: '' },
+            { label: 'Кабинет потребителя', icon: 'pi pi-fw pi-check-square', to: '' },
+            { label: 'Система управления рисками', icon: 'pi pi-fw pi-bookmark', to: '' },
+            { label: 'Карта линиии электропередач и подстанции', icon: 'pi pi-fw pi-exclamation-circle', to: '' },
+            { label: 'Цифровая карта генерации', icon: 'pi pi-fw pi-mobile', to: '', class: 'rotated-icon' },
+            { label: 'Карта гидропотенциала', icon: 'pi pi-fw pi-table', to: '' },
+            { label: 'Нормативно правовые акты (НПА)', icon: 'pi pi-fw pi-list', to: '' },
         ]
     },
     {
-        label: 'Главная',
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+        label: 'Функционал надзорного органа',
+        items: [
+            { label: 'Перечень субъектов', icon: 'pi pi-fw pi-id-card', to: '' },
+            { label: 'Система управления рисками', icon: 'pi pi-fw pi-check-square', to: '' },
+            { label: 'Нормативно правовые акты (НПА)', icon: 'pi pi-fw pi-bookmark', to: '' },
+        ]
     },
+    {
+        label: 'Аналитика',
+        items: [
+            { label: 'Дэшборд производства электроэнергии', icon: 'pi pi-fw pi-id-card', to: '/dashboard/analytics1' },
+            { label: 'Аналитика износа оборудования', icon: 'pi pi-fw pi-check-square', to: '/dashboard/analytics2' },
+            { label: 'Аналитика Энергетики', icon: 'pi pi-fw pi-bookmark', to: '/dashboard/analytics3' },
+        ]
+    },
+
+    // {
+    //     label: 'Главная',
+    //     items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+    // },
+
     {
         label: 'UI Components',
         items: [
