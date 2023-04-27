@@ -11,7 +11,7 @@ const model = ref([
     {
         label: 'Электроэнергетика',
         items: [
-            { label: 'Кабинет энергопредприятия', icon: 'pi pi-fw pi-id-card', to: '' },
+            { label: 'Кабинет энергопредприятия', icon: 'pi pi-fw pi-id-card', to: '/dashboard/profile' },
             { label: 'Кабинет потребителя', icon: 'pi pi-fw pi-check-square', to: '' },
             { label: 'Система управления рисками', icon: 'pi pi-fw pi-bookmark', to: '' },
             { label: 'Карта линиии электропередач и подстанции', icon: 'pi pi-fw pi-exclamation-circle', to: '' },

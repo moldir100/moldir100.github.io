@@ -29,6 +29,14 @@ const router = createRouter({
                     name: 'analytics3',
                     component: () => import('@/views/dashboard/analytics/Analytics3.vue')
                 },
+
+                {
+                    path: '/dashboard/profile',
+                    name: 'profile',
+                    component: () => import('@/views/dashboard/profile/ProfileEnergyOrganization.vue')
+                },
+
+
                 {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
