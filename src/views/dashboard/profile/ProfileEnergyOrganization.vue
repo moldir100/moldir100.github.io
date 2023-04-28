@@ -3,93 +3,6 @@
 import ProfileSubheader from "@/components/dashboard/profile/ProfileSubheader.vue";
 import {ref} from "vue";
 
-const panelMenuitems = ref([
-    {
-        label: 'Общие сведения ЭПО',
-        icon: 'pi pi-fw pi-table',
-        items: [
-            {
-                label: 'New',
-                icon: 'pi pi-fw pi-user-plus',
-                items: [
-                    {
-                        label: 'Customer',
-                        icon: 'pi pi-fw pi-plus'
-                    },
-                    {
-                        label: 'Duplicate',
-                        icon: 'pi pi-fw pi-copy'
-                    }
-                ]
-            },
-            {
-                label: 'Edit',
-                icon: 'pi pi-fw pi-user-edit'
-            }
-        ]
-    },
-    {
-        label: 'ТЭП',
-        icon: 'pi pi-fw pi-table',
-        items: [
-            {
-                label: 'View',
-                icon: 'pi pi-fw pi-list'
-            },
-            {
-                label: 'Search',
-                icon: 'pi pi-fw pi-search'
-            }
-        ]
-    },
-    {
-        label: 'Тарифы',
-        icon: 'pi pi-fw pi-envelope',
-        items: [
-            {
-                label: 'Tracker',
-                icon: 'pi pi-fw pi-compass'
-            },
-            {
-                label: 'Map',
-                icon: 'pi pi-fw pi-map-marker'
-            },
-            {
-                label: 'Manage',
-                icon: 'pi pi-fw pi-pencil'
-            }
-        ]
-    },
-    {
-        label: 'Организационная структура',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
-    },
-    {
-        label: 'Мощности цеха, участки',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
-    }
-]);
-
 </script>
 
 
@@ -130,10 +43,7 @@ const panelMenuitems = ref([
                 </div>
             </section>
 
-            <div class="card col-8 md:col-3 mt-2">
-                <h5>PanelMenu</h5>
-                <PanelMenu :model="panelMenuitems" />
-            </div>
+            <router-view></router-view>
 
         </div>
     </div>

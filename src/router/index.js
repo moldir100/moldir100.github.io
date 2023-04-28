@@ -1,5 +1,6 @@
 import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router';
 import AppLayout from '@/layout/AppLayout.vue';
+import ProfileEnergyOrganization from "@/views/dashboard/profile/ProfileEnergyOrganization.vue";
 
 const router = createRouter({
     // history: createWebHashHistory(),
@@ -32,8 +33,42 @@ const router = createRouter({
 
                 {
                     path: '/dashboard/profile',
-                    name: 'profile',
-                    component: () => import('@/views/dashboard/profile/ProfileEnergyOrganization.vue')
+                    // name: 'profile',
+                    component: ProfileEnergyOrganization,
+                    children: [
+                        {
+                            path: '/dashboard/profile',
+                            name: 'profile',
+                            component: () => import('@/views/dashboard/profile/Profile.vue'),
+                        },
+                        {
+                            path: '/dashboard/profile/digitalPassport',
+                            // name: 'digitalPassport',
+                            component: () => import('@/views/dashboard/profile/DigitalPassport.vue'),
+                            children: [
+                                {
+                                    path: '/dashboard/profile/digitalPassport',
+                                    name: 'mainInfo',
+                                    component: () => import('@/components/dashboard/profile/digitalPassport/MainInfo.vue'),
+                                },
+                                {
+                                    path: '/dashboard/profile/digitalPassport/tep',
+                                    name: 'tep',
+                                    component: () => import('@/components/dashboard/profile/digitalPassport/Tep.vue'),
+                                },
+                            ]
+                        },
+                        {
+                            path: '/violations'
+                        },
+                        {
+                            path: '/messages'
+                        },
+                        {
+                            path: '/settings'
+                        },
+
+                    ]
                 },
 
 
