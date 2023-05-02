@@ -55,6 +55,20 @@ const router = createRouter({
                                     path: '/dashboard/profile/digitalPassport/tep',
                                     name: 'tep',
                                     component: () => import('@/components/dashboard/profile/digitalPassport/Tep.vue'),
+                                    children: [
+                                        {
+                                            path: '/dashboard/profile/digitalPassport/tep',
+                                            component: () => import('@/views/dashboard/profile/digitalPassport/All.vue')
+                                        },
+                                        {
+                                            path: '/dashboard/profile/digitalPassport/tep/positive',
+                                            component: () => import('@/views/dashboard/profile/digitalPassport/Positive.vue')
+                                        },
+                                        {
+                                            path: '/dashboard/profile/digitalPassport/tep/negative',
+                                            component: () => import('@/views/dashboard/profile/digitalPassport/Negative.vue')
+                                        },
+                                    ]
                                 },
                             ]
                         },
@@ -201,17 +215,11 @@ const router = createRouter({
                 }
             ]
         },
-        // {
-        //    path: '/profile',
-        //     children: [
-        //         {
-        //             path: '/energyProducer',
-        //             name: 'energyProducer',
-        //             component: () => import('@/views/uikit/Button.vue')
-        //         },
-        //
-        //     ]
-        // },
+        {
+            path: '/auth/register',
+            name: 'register',
+            component: () => import('@/views/pages/auth/Register.vue')
+        },
         {
             path: '/landing',
             name: 'landing',
@@ -222,7 +230,6 @@ const router = createRouter({
             name: 'notfound',
             component: () => import('@/views/pages/NotFound.vue')
         },
-
         {
             path: '/auth/login',
             name: 'login',

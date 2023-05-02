@@ -169,11 +169,11 @@ const panelMenuItems = ref([
 
 <template>
     <div class="flex flex-row">
-        <div class="card col-3 mt-2">
+        <div class="card col-3 lg:col-3 md:col-3 sm:col-3 xs:hidden mt-3">
             <h5>PanelMenu</h5>
             <PanelMenu :model="panelMenuItems"/>
         </div>
-        <div class="card col-9 mt-2">
+        <div class="lg:col-9">
             <router-view></router-view>
         </div>
     </div>
