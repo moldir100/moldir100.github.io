@@ -1,20 +1,38 @@
-<script setup>
-import {ref} from "vue";
+<script>
+import {onMounted, ref} from "vue";
 
-const nestedRouteItems = ref([
-    {
-        label: 'Все',
-        to: '/dashboard/profile/digitalPassport/tep'
-    },
-    {
-        label: 'Положительные',
-        to: '/dashboard/profile/digitalPassport/tep/positive'
-    },
-    {
-        label: 'Отрицательные',
-        to: '/dashboard/profile/digitalPassport/tep/negative'
-    },
-]);
+export default {
+    name: 'Tep',
+    setup() {
+        let negativeTable = ref([])
+        let nestedRouteItems = ref([
+            {
+                label: 'Все',
+                to: '/dashboard/profile/digitalPassport/tep'
+            },
+            {
+                label: 'Положительные',
+                to: '/dashboard/profile/digitalPassport/tep/positive'
+            },
+            {
+                label: 'Отрицательные',
+                to: '/dashboard/profile/digitalPassport/tep/negative'
+            },
+        ]);
+
+        const getNegativeTable = async () => {
+            negativeTable = fetch(`http://localhost:3000/negative`)
+        }
+        console.log("uigbeh")
+
+        onMounted(getNegativeTable)
+
+        return {
+            nestedRouteItems,
+            getNegativeTable,
+        }
+    }
+}
 
 </script>
 

@@ -1,10 +1,12 @@
-<script setup>
-// import 'bootstrap/dist/css/bootstrap.css'
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'
+<script>
+// import {ref} from "vue";
 
-import {ref} from "vue";
+export default {
+    name: 'Negative',
+    setup(){
 
-const customer3 = ref(null);
+    }
+}
 
 </script>
 
