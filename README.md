@@ -27,3 +27,10 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### to run json-server 
+```
+npm install json-server -g
+json-server data-json
+```
+
