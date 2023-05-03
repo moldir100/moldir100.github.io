@@ -20,8 +20,8 @@ const nestedRouteItems = ref([
 <template>
     <div class="container-fluid">
         <div class="row justify-content-center" style="height: 100vh">
-            <div class="col-lg-9">
-                <div class="d-flex justify-content-center m-2">
+            <div class="col-lg-7" >
+                <div class="d-flex justify-content-center" style="margin-top: 13%">
                     <a  href="">
                         <svg width="181" height="58" viewBox="0 0 181 58" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <rect y="0.5" width="181" height="57" fill="url(#pattern0)"/>
@@ -35,29 +35,24 @@ const nestedRouteItems = ref([
                     </a>
                 </div>
 
-                <div class="d-flex justify-content-center position-relative" style="margin-top: 5%;">
-                    <div class="col-7 p-2" >
+                <div class="d-flex justify-content-center position-relative" style="margin-top: 3%;border-top: 7px solid #393988; background-color: #FFFFFF; border-radius: 80px; padding-bottom: 50px; padding-top: 40px">
+
+                    <div class="col-10 p-2" >
                         <h2 class="text-center p-3">Регистрация</h2>
 
 
-                        <form class="p-3">
+                        <form class="">
                             <div class="form__group">
                                 <label for="">Тип учетной записи:</label>
                             </div>
-                            <nav class="mt-3">
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Физическое лицо</button>
-                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Юридическое лицо</button>
-                                </div>
-                            </nav>
-                            <div class="tab-content mt-3" id="nav-tabContent">
-                                <!--                                    1-->
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                            <TabView>
+                                <TabPanel header="Физическое лицо">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form__group">
                                                 <label for="">Фамилия</label>
-                                                <input type="text" required placeholder="Введите...">
+                                                <input class="" type="text" required placeholder="Введите...">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -122,42 +117,25 @@ const nestedRouteItems = ref([
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <!--                                    2-->
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                </TabPanel>
+                                <TabPanel header="Юридическое лицо">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form__group">
                                                 <label for="">Наименование организации</label>
-                                                <input type="text" required>
+                                                <input type="text" required placeholder="Введите...">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form__group">
                                                 <label for="">БИН</label>
-                                                <input type="text" required>
+                                                <input type="text" required placeholder="Введите..." maxlength="12">
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form__group">
-                                                <label for="">Область</label>
-                                                <select name="" id="">
-                                                    <option value="Акмолинская">Акмолинская область</option>
-                                                    <option value="Акмолинская">Акмолинская область</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form__group">
-                                                <label for="">Город</label>
-                                                <select name="" id="">
-                                                    <option value="г.Нур-Султан">г.Нур-Султан</option>
-                                                    <option value="Акмолинская">Акмолинская область</option>
-                                                </select>
+                                                <label for="">Телефон приемной</label>
+                                                <input type="text" required placeholder="+7 (***) *** ** **">
                                             </div>
                                         </div>
                                     </div>
@@ -165,20 +143,20 @@ const nestedRouteItems = ref([
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form__group">
-                                                <label for="">Адрес энергопреприятия</label>
-                                                <input type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Контактный email</label>
-                                                <input type="text" required>
+                                                <label for="">Электронная почта</label>
+                                                <input type="text" required placeholder="e-mail">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form__group">
                                                 <label for="">Контактное лицо</label>
-                                                <input type="text" required>
+                                                <input type="text" required placeholder="Введите...">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">Сайт компании</label>
+                                                <input type="text" required placeholder="Введите...">
                                             </div>
                                         </div>
                                     </div>
@@ -186,28 +164,34 @@ const nestedRouteItems = ref([
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form__group">
-                                                <label for="">Телефон приемной</label>
-                                                <input type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Пароль</label>
-                                                <input type="password" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Группа компании</label>
+                                                <label for="">Область</label>
                                                 <select name="" id="">
-                                                    <option value="Компания">Компания</option>
-                                                    <option value="Акмолинская">Акмолинская область</option>
+                                                    <option value="Компания">Акмолинская область</option>
+                                                    <option value="Акмолинская">Карагандинская область</option>
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">Город</label>
+                                                <select name="" id="">
+                                                    <option value="Компания">Астана</option>
+                                                    <option value="Акмолинская">Алматы</option>
+                                                    <option value="Акмолинская">Актау</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">Адрес</label>
+                                                <input type="text" required placeholder="Введите...">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+
+                                </TabPanel>
+                            </TabView>
+
                         </form>
 
 
@@ -220,6 +204,7 @@ const nestedRouteItems = ref([
                         </div>
                     </div>
                 </div>
+
             </div>
 
 <!--            <div class="d-none d-lg-block d-print-block col-lg-3" style="background-color: #152957; height: auto ">-->
@@ -325,9 +310,9 @@ const nestedRouteItems = ref([
     /*border-left: none;*/
     /*border-top: none;*/
     /*border-right: none;*/
-    /*border: 1px solid #152957;*/
-    /*border-radius: 8px;*/
-    border: none;
+    border: 1px solid #97a4be;
+    border-radius: 8px;
+    /*border: none;*/
     width: 100%;
     height: 37px;
     outline: none;
