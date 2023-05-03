@@ -19,8 +19,8 @@ const nestedRouteItems = ref([
 
 <template>
     <div class="container-fluid">
-        <div class="row" style="height: 100vh">
-            <div class="col-lg-12">
+        <div class="row justify-content-center" style="height: 100vh">
+            <div class="col-lg-9">
                 <div class="d-flex justify-content-center m-2">
                     <a  href="">
                         <svg width="181" height="58" viewBox="0 0 181 58" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -44,7 +44,6 @@ const nestedRouteItems = ref([
                             <div class="form__group">
                                 <label for="">Тип учетной записи:</label>
                             </div>
-                            <TabMenu :model="nestedRouteItems" style="background-color: #c25151" />
                             <nav class="mt-3">
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Физическое лицо</button>
@@ -55,82 +54,71 @@ const nestedRouteItems = ref([
                                 <!--                                    1-->
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form__group">
-                                                <label for="">Наименование организации</label>
-                                                <input type="text" required placeholder="Наименование ">
+                                                <label for="">Фамилия</label>
+                                                <input type="text" required placeholder="Введите...">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form__group">
-                                                <label for="">БИН</label>
-                                                <input type="text" required>
+                                                <label for="">Имя</label>
+                                                <input type="text" required placeholder="Введите...">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">Отчество</label>
+                                                <input type="text" required placeholder="Введите...">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">ИИН</label>
+                                                <input type="text" required placeholder="Введите ИИН" maxlength="12">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">Телефон</label>
+                                                <input type="number" required placeholder="+7 (***) *** ** **" maxlength="12">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form__group">
+                                                <label for="">Электронная почта</label>
+                                                <input type="text" required placeholder="Введите e-mail" maxlength="12">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <div class="form__group">
                                                 <label for="">Область</label>
                                                 <select name="" id="">
-                                                    <option value="Акмолинская">Акмолинская область</option>
-                                                    <option value="Акмолинская">Акмолинская область</option>
+                                                    <option value="Компания">Акмолинская область</option>
+                                                    <option value="Акмолинская">Карагандинская область</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form__group">
                                                 <label for="">Город</label>
                                                 <select name="" id="">
-                                                    <option value="г.Нур-Султан">г.Нур-Султан</option>
-                                                    <option value="Акмолинская">Акмолинская область</option>
+                                                    <option value="Компания">Астана</option>
+                                                    <option value="Акмолинская">Алматы</option>
+                                                    <option value="Акмолинская">Актау</option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form__group">
-                                                <label for="">Адрес энергопреприятия</label>
-                                                <input type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Контактный email</label>
-                                                <input type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Контактное лицо</label>
-                                                <input type="text" required>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Телефон приемной</label>
-                                                <input type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Пароль</label>
-                                                <input type="password" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form__group">
-                                                <label for="">Группа компании</label>
-                                                <select name="" id="">
-                                                    <option value="Компания">Компания</option>
-                                                    <option value="Акмолинская">Акмолинская область</option>
-                                                </select>
+                                                <label for="">Адрес</label>
+                                                <input type="text" required placeholder="Введите...">
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +213,7 @@ const nestedRouteItems = ref([
 
 
                         <div class="form__group text-center mt-3">
-                            <label for="">Уже есть аккаунт? <router-link to="/login">Вход</router-link></label>
+                            <label for="">Уже есть аккаунт? <router-link to="/auth/login">Вход</router-link></label>
                         </div>
                         <div class="d-block text-center justify-content-center">
                             <router-link to="/dashboard/energyProducer/profile"><button class="submitBtn" type="submit">Зарегистрироваться</button></router-link>
