@@ -1,121 +1,134 @@
 <script setup>
 
+import InputLabel from "@/components/Vinput.vue";
+import {ref} from "vue";
+
+const inputItems = ref([
+    {
+        id:1,
+        type: 'select',
+        label: 'Город',
+        icon: 'pi pi-fw pi-user',
+        items: [
+            {
+                name: 'Актау'
+            },
+            {
+                name: 'Астана'
+            },
+            {
+                name: 'Алматы'
+            }
+        ]
+    },
+    {
+        id: 2,
+        type: 'input',
+        label: 'Телефон',
+        style: "lg:w-12 md:w-12 sm:w-100",
+        // icon: 'pi pi-fw pi-table',
+        to: '/dashboard/profile/digitalPassport/tep'
+    },
+    {
+        id: 3,
+        type: 'input',
+        label: 'Дата первичной регистрации',
+        style: "lg:w-12 md:w-12 sm:w-100",
+        icon: 'pi pi-fw pi-envelope',
+    },
+    {
+        id: 4,
+        type: 'input',
+        label: 'Адрес',
+        style: "lg:w-12 md:w-12 sm:w-100",
+        icon: 'pi pi-fw pi-envelope',
+    },
+    {
+        id: 5,
+        type: 'input',
+        label: 'Вид деятельности*',
+        style: "lg:w-12 md:w-12 sm:w-100",
+        icon: 'pi pi-fw pi-user',
+    },
+    {
+        id:6,
+        type: 'select',
+        label: 'Оснащение АСКУЭ',
+        icon: 'pi pi-fw pi-user',
+        style: 'col-2',
+        items: [
+            {
+                name: 'Да'
+            },
+            {
+                name: 'Нет'
+            },
+        ]
+    },
+    {
+        id:7,
+        type: 'select',
+        label: 'Оснащение SKADA',
+        icon: 'pi pi-fw pi-user',
+        style: 'col-2',
+        items: [
+            {
+                name: 'Да'
+            },
+            {
+                name: 'Нет'
+            },
+        ]
+    },
+    {
+        id: 8,
+        type: 'input',
+        label: 'БИН*',
+        style: "lg:w-12 md:w-12 sm:w-100",
+        icon: 'pi pi-fw pi-user',
+    },
+    {
+        id:9,
+        type: 'select',
+        label: 'Предмет деятельности согласно Устава*',
+        icon: 'pi pi-fw pi-user',
+        style: 'lg:w-12 md:w-12 sm:w-100',
+        items: [
+            {
+                name: 'Передача и распределение электрической энергии'
+            },
+            {
+                name: 'Передача и распределение электрической энергии'
+            },
+        ]
+    },
+    {
+        id: 10,
+        type: 'input',
+        label: 'Климатические условия',
+        style: "lg:w-12 md:w-12 sm:w-100",
+        icon: 'pi pi-fw pi-user',
+    },
+]);
+
 </script>
 
 
 <template>
     <div>
-<!--        паспортные данные-->
+ <!--        паспортные данные-->
         <div class="card">
             <h5>Паспортные данные</h5>
-            <div class="container mt-3">
-                <div class="flex flex-row">
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Генеральный директор</label>
-                            <input type="text" required placeholder="Бердалин Ерлан Сайранович">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Группа компании*</label>
-                            <input type="text" required placeholder="Пусто">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Главный инженер*</label>
-                            <input type="text" required placeholder="Пусто">
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Город*</label>
-                            <select name="" id="">
-                                <option value="true">Астана</option>
-                                <option value="false">Алматы</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Телефон</label>
-                            <input type="text" required placeholder="+7 (7172) 620-456">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Дата первичной регистрации</label>
-                            <input type="text" required placeholder="Пусто">
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Адрес*</label>
-                            <input type="text" required placeholder="Ул. Домалак-Ана, 9">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Вид деятельности*</label>
-                            <select>
-                                <option>Энергопроизводящая организация</option>
-                                <option>Энергопередающая организация</option>
-                                <option>Энергоснабжающая организация</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form__group">
-                            <label for="">Оснащение АСКУЭ</label>
-                            <select name="" id="">
-                                <option value="true">Да</option>
-                                <option value="false">Нет</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form__group">
-                            <label for="">Оснащение SKADA</label>
-                            <select name="" id="">
-                                <option value="yes">Да</option>
-                                <option value="no">Нет</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">БИН*</label>
-                            <input type="text" required placeholder="Бердалин Ерлан Сайранович">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Предмет деятельности согласно Устава*</label>
-                            <select>
-                                <option>Передача и распределение электрической энергии</option>
-                                <option>Передача и распределение электрической энергии</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form__group">
-                            <label for="">Климатические условия</label>
-                            <input type="text" required placeholder="Пусто">
-                        </div>
-                    </div>
+            <div class="grid">
+                <div class="col-4" v-for="item in inputItems" :key="item.id">
+                    <InputLabel :label="item.label" :type="item.type" :items="item.items" />
                 </div>
             </div>
         </div>
-
 <!--        Общие сведения-->
         <div class="grid mx-auto">
+
+<!--            Общие сведения-->
             <div class="card  col-12 lg:col-8" >
                 <h5>Общие сведения</h5>
                 <div class="grid">
@@ -224,6 +237,7 @@
             <div class="col-12 lg:col-4">
                 <div class="grid">
 
+<!--                    Количество подстанций-->
                     <div class="card col-6" style="margin-left: auto">
                         <h6>Количество подстанций</h6>
                         <p>Уровни напряжения, ед </p>
@@ -262,6 +276,7 @@
 
                     </div>
 
+<!--                    Персонал-->
                     <div class="card col-5" style="margin-left: auto" >
                         <h6>Персонал</h6>
                         <p>Кол-во администртивного персонала</p>
@@ -288,7 +303,6 @@
                 </div>
             </div>
         </div>
-
 <!--        Вложения-->
         <div class="card">
             <h5>Вложения</h5>

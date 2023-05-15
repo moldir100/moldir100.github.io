@@ -14,34 +14,35 @@ import {ref} from "vue";
                 <ProfileSubheader/>
             </div>
 
-            <section class="container-fluid mt-0">
-                <div class="container">
-                    <div class="flex flex-row justify-content-between avatar__container">
-                        <div class="flex flex-row">
-                            <div class="avatar__container-img"><img src="../../../assets/img/avatar.png" alt=""></div>
-                            <div class="avatar__container-info" style="margin-left: 40px">
-                                <div class="avatar__container-info-left">
-                                    <p>Дата последнего изменения данных: <span>20.08.2022</span> <span>13:23:00</span></p>
-                                    <h1 class="avatar__title">АО “Астана-Энергия” ТЭЦ-2</h1>
-                                    <p>Бин: <span>041140002811</span></p>
-                                    <p>Ссылка: <a href="">https://astana-energy.kz/</a></p>
-                                </div>
-                                <div class="avatar__container-info-right"></div>
+            <div class="card">
+                <div class="flex flex-row justify-content-between ">
+                    <div class="flex flex-row">
+                        <div class="avatar__container-img"><img src="../../../assets/img/avatar.png" alt=""></div>
+                        <div class="avatar__container-info" style="margin-left: 40px">
+                            <div class="avatar__container-info-left">
+                                <p>Дата последнего изменения данных: <span>20.08.2022</span> <span>13:23:00</span></p>
+                                <h1 class="avatar__title">АО “Астана-Энергия” ТЭЦ-2</h1>
+                                <p>Бин: <span>041140002811</span></p>
+                                <p>Ссылка: <a href="">https://astana-energy.kz/</a></p>
                             </div>
+                            <div class="avatar__container-info-right"></div>
                         </div>
+                    </div>
 
-                        <div>
-                            <div class="flex flex-column">
-                                <button class="btn editBtn">
-                                    <i class="pi pi-user-plus"></i>
-                                    Редактировать
-                                </button>
-                                <input class="mt-3" style="height: 40px" type="date"/>
-                            </div>
+                    <div>
+                        <div class="flex flex-column">
+                            <button class="btn editBtn">
+                                <i class="pi pi-user-plus"></i>
+                                Редактировать
+                            </button>
+
+                            <InputDate :labelName="'Дата'"/>
+
+<!--                            <input class="mt-3" style="height: 40px" type="date"/>-->
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <router-view></router-view>
 

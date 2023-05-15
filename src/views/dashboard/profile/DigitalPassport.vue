@@ -168,15 +168,19 @@ const panelMenuItems = ref([
 </script>
 
 <template>
-    <div class="flex flex-row">
-        <div class="card col-3 lg:col-3 md:col-3 sm:col-3 xs:hidden mt-3">
-            <h5>PanelMenu</h5>
-            <PanelMenu :model="panelMenuItems"/>
-        </div>
-        <div class="lg:col-9">
-            <router-view></router-view>
+    <div>
+        <div class="grid">
+            <div class="col-12 md:col-3 lg:col-3">
+                <div class="card">
+                    <PanelMenu :model="panelMenuItems"/>
+                </div>
+            </div>
+            <div class="col-12 md:col-9 lg:col-9">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
+
 </template>
 
 
@@ -184,6 +188,7 @@ const panelMenuItems = ref([
 .card{
     margin-bottom: 0;
 }
+
 
 /*.flex{*/
 /*    display: flex;*/
