@@ -132,6 +132,11 @@ const inputItems = ref([
             <div class="card  col-12 lg:col-8" >
                 <h5>Общие сведения</h5>
                 <div class="grid">
+                    <div class="col-4" v-for="item in inputItems" :key="item.id">
+                        <InputLabel :label="item.label" :type="item.type" :items="item.items" />
+                    </div>
+                </div>
+                <div class="grid">
                     <div class="col-12 lg:col-4">
                         <div class="form__group">
                             <label for="">Генеральный директор</label>
@@ -287,6 +292,7 @@ const inputItems = ref([
                 </div>
 
                 <div class="grid m-auto">
+                <div class="grid m-auto">
                     <div class=" card  mt-2">
                         <div>Протяженность сетей</div>
                         <div class="row">
@@ -311,6 +317,7 @@ const inputItems = ref([
                 <a href="">Акт.ремонтных работ.pdf</a>
             </div>
         </div>
+    </div>
     </div>
 </template>
 
