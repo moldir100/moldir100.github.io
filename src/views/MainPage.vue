@@ -22,7 +22,7 @@ const smoothScroll = (id) => {
 <!--            header-->
             <div style="background: white; height: 60px">
                 <div id="container" class="flex align-items-center  justify-content-between relative lg:static" style="height: 60px">
-                    <a class="flex align-items-center" href="#"> <img src="src/assets/10Adaptive5%201.svg" alt="KOREM Logo" class="mr-0 lg:mr-2"/></a>
+                    <a class="flex align-items-center" href="#"> <img src="src/assets/logo.svg" alt="KOREM Logo" class="mr-0 lg:mr-2"/></a>
                     <div class="align-items-end  justify-content-end   lg:flex  lg:static  left-0  lg:px-0 ">
                         <div class="">
                             <router-link to="/auth/login">

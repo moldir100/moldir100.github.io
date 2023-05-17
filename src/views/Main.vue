@@ -23,7 +23,7 @@ const logoUrl = computed(() => {
     <div class="surface-0 flex justify-content-center">
         <div id="home" class="landing-wrapper overflow-hidden" style="background-color: #F8F9FA">
             <div class="bg-white px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 flex align-items-center justify-content-between relative lg:static " style="height: 60px">
-                <a class="flex align-items-center" href="#"> <img src="src/assets/10Adaptive5%201.svg" alt="KOREM Logo" class="mr-0 lg:mr-2"/></a>
+                <a class="flex align-items-center" href="#"> <img src="src/assets/logo.svg" alt="KOREM Logo" class="mr-0 lg:mr-2"/></a>
                 <div class="align-items-end surface-0  justify-content-end sm:flex sm:static  lg:flex absolute lg:static w-full left-0 px-6 lg:px-0 ">
                     <div class="">
                         <Button label="Войти"
