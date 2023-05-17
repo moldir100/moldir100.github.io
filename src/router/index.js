@@ -2,6 +2,7 @@ import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router';
 import AppLayout from '@/layout/AppLayout.vue';
 import ProfileEnergyOrganization from "@/views/dashboard/profile/ProfileEnergyOrganization.vue";
 import Main from "@/views/Main.vue";
+import MainPage from "@/views/MainPage.vue";
 
 const router = createRouter({
     // history: createWebHashHistory(),
@@ -220,6 +221,11 @@ const router = createRouter({
             path: '/main',
             name: Main,
             component: () => import('@/views/Main.vue')
+        },
+        {
+            path: '/mainpage',
+            name: MainPage,
+            component: () => import('@/views/MainPage.vue')
         },
         {
             path: '/auth/register',

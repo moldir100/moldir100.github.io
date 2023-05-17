@@ -51,7 +51,7 @@ const checked = ref(false);
                         <div class="text-start mb-5">
                             <span class="text-600 font-medium">Вы не зарегистрированы? </span><router-link to="/auth/register" class="font-medium no-underline ml-2 text-right cursor-pointer" style="color:#393988">Регистрация</router-link>
                         </div>
-                        <Button label="Sign In" class="w-full p-3 text-xl"></Button>
+                        <router-link to="/dashboard/profile/digitalPassport"><Button label="Войти" class="w-full p-3 text-xl"></Button></router-link>
                     </div>
                 </div>
             </div>

@@ -200,7 +200,7 @@ const nestedRouteItems = ref([
                             <label for="">Уже есть аккаунт? <router-link to="/auth/login">Вход</router-link></label>
                         </div>
                         <div class="d-block text-center justify-content-center">
-                            <router-link to="/dashboard/energyProducer/profile"><button class="submitBtn" type="submit">Зарегистрироваться</button></router-link>
+                            <router-link to="/dashboard/profile/digitalPassport"><button class="submitBtn" type="submit">Зарегистрироваться</button></router-link>
                         </div>
                     </div>
                 </div>
