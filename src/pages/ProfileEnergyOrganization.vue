@@ -1,6 +1,6 @@
 <script setup>
 
-import ProfileSubheader from "@/components/dashboard/profile/ProfileSubheader.vue";
+import ProfileSubheader from "@/components/base/ProfileSubheader.vue";
 import {ref} from "vue";
 
 </script>
@@ -15,9 +15,9 @@ import {ref} from "vue";
             </div>
 
             <div class="card">
-                <div class="flex flex-row justify-content-between ">
+                <div class="flex flex-row justify-content-between">
                     <div class="flex flex-row">
-                        <div class="avatar__container-img"><img src="../../../assets/img/avatar.png" alt=""></div>
+                        <div class="avatar__container-img"><img src="../assets/img/avatar.png" alt=""></div>
                         <div class="avatar__container-info" style="margin-left: 40px">
                             <div class="avatar__container-info-left">
                                 <p>Дата последнего изменения данных: <span>20.08.2022</span> <span>13:23:00</span></p>
@@ -35,8 +35,6 @@ import {ref} from "vue";
                                 <i class="pi pi-user-plus"></i>
                                 Редактировать
                             </button>
-
-                            <InputDate :labelName="'Дата'"/>
 
 <!--                            <input class="mt-3" style="height: 40px" type="date"/>-->
                         </div>

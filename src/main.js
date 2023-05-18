@@ -105,8 +105,7 @@ import BlockViewer from '@/components/BlockViewer.vue';
 
 
 import '@/assets/styles.scss';
-import InputDate from "@/components/InputDate.vue";
-import Vinput from "@/components/Vinput.vue";
+import Vinput from "@/components/UI/Vinput.vue";
 
 
 
@@ -128,7 +127,6 @@ app.component('CodeHighlight', CodeHighlight);
 app.component('BlockViewer', BlockViewer);
 
 app.component('V-input', Vinput)
-app.component('InputDate', InputDate)
 app.component('Calendar', Calendar)
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);

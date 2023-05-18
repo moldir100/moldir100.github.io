@@ -1,6 +1,6 @@
 <script setup>
 
-import InputLabel from "@/components/Vinput.vue";
+import InputLabel from "@/components/UI/Vinput.vue";
 import {ref} from "vue";
 
 const inputItems = ref([

@@ -1,6 +1,4 @@
 <script setup>
-// import 'bootstrap/dist/css/bootstrap.css'
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'
 
 import {ref} from "vue";
 
@@ -168,8 +166,6 @@ const customer3 = ref(null);
 
 
 <style scoped>
-@import 'bootstrap/dist/css/bootstrap.css';
-/*import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'*/
 
 tr{
     height: 48px;

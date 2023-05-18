@@ -1,12 +1,8 @@
-<script>
-// import {ref} from "vue";
+<script setup>
 
-export default {
-    name: 'Negative',
-    setup(){
+import {ref} from "vue";
 
-    }
-}
+const customer3 = ref(null);
 
 </script>
 
@@ -27,34 +23,17 @@ export default {
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Потребление электроэнергии на СН</td>
-                    <td>540121</td>
-                    <td>540222</td>
-                    <td>да</td>
-                    <td class="decreasing">
-                        <div class="flex justify-content-between">
-                            <span class="text-end">2022</span>
-                            <div class="inline-block">
-                                <svg style="margin-left: 15px; color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
                     <th scope="row">2</th>
                     <td>То же в % к выработке электроэнергии</td>
                     <td>54000</td>
                     <td>БКЗ 16-100</td>
                     <td>00002</td>
-                    <td class="decreasing">
+                    <td class="increasing">
                         <div class="flex justify-content-between">
-                            <span class="text-end">2022</span>
+                            <span>2022</span>
                             <div class="inline-block">
-                                <svg style="margin-left: 15px; color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                <svg style="margin-left: 15px; color: green;" font-weight="bold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up bold" viewBox="0 0 16 16">
+                                    <path  fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                                 </svg>
                             </div>
                         </div>
@@ -66,12 +45,12 @@ export default {
                     <td>Турб.</td>
                     <td>ПТ-60-90</td>
                     <td>00003</td>
-                    <td class="decreasing">
+                    <td class="increasing">
                         <div class="flex justify-content-between">
-                            <span class="text-end">2022</span>
+                            <span>2005</span>
                             <div class="inline-block">
-                                <svg style="margin-left: 15px; color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                <svg style="margin-left: 15px; color: green;" font-weight="bold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up bold" viewBox="0 0 16 16">
+                                    <path  fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                                 </svg>
                             </div>
                         </div>
@@ -83,12 +62,12 @@ export default {
                     <td>Турб.</td>
                     <td>ПТ-60-90</td>
                     <td>00003</td>
-                    <td class="decreasing">
+                    <td class="increasing">
                         <div class="flex justify-content-between">
-                            <span class="text-end">2022</span>
+                            <span>2023</span>
                             <div class="inline-block">
-                                <svg style="margin-left: 15px; color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                <svg style="margin-left: 15px; color: green;" font-weight="bold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up bold" viewBox="0 0 16 16">
+                                    <path  fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                                 </svg>
                             </div>
                         </div>
@@ -100,12 +79,12 @@ export default {
                     <td>Турб.</td>
                     <td>ПТ-60-90</td>
                     <td>00003</td>
-                    <td class="decreasing">
+                    <td class="increasing">
                         <div class="flex justify-content-between">
-                            <span class="text-end">2022</span>
+                            <span>2015</span>
                             <div class="inline-block">
-                                <svg style="margin-left: 15px; color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                <svg style="margin-left: 15px; color: green;" font-weight="bold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up bold" viewBox="0 0 16 16">
+                                    <path  fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                                 </svg>
                             </div>
                         </div>
@@ -117,12 +96,29 @@ export default {
                     <td>Турб.</td>
                     <td>ПТ-60-90</td>
                     <td>00003</td>
-                    <td class="decreasing">
+                    <td class="increasing">
                         <div class="flex justify-content-between">
-                            <span class="text-end">2022</span>
+                            <span>2019</span>
                             <div class="inline-block">
-                                <svg style="margin-left: 15px; color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                <svg style="margin-left: 15px; color: green;" font-weight="bold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up bold" viewBox="0 0 16 16">
+                                    <path  fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>удельный расход электроэнергии на отпусктепла</td>
+                    <td>Турб.</td>
+                    <td>ПТ-60-90</td>
+                    <td>00003</td>
+                    <td class="increasing">
+                        <div class="flex justify-content-between">
+                            <span>2017</span>
+                            <div class="inline-block">
+                                <svg style="margin-left: 15px; color: green;" font-weight="bold" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up bold" viewBox="0 0 16 16">
+                                    <path  fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                                 </svg>
                             </div>
                         </div>
@@ -136,11 +132,9 @@ export default {
 
 
 <style scoped>
-@import 'bootstrap/dist/css/bootstrap.css';
-/*import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'*/
 
 tr{
-    height: 48px;
+    height: 48px !important;
 }
 td, th{
     /*align-items: center;*/
@@ -186,19 +180,7 @@ td, th{
     line-height: 24px;
     align-items: center;
 }
-#seeAll{
-    color:#215A96;
-}
-#seeAll:hover, #seeAll:active{
-    color: #fff;
-    background-color: #215A96;
-    border-color: #215A96;
-    /*.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {*/
-    /*    color: #fff;*/
-    /*    background-color: #00b3db;*/
-    /*    border-color: #285e8e; !*set the color you want here*!*/
-    /*}*/
-}
+
 
 #current th{
     color: #8285AB;
