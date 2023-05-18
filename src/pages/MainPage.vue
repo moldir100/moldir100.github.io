@@ -11,8 +11,6 @@ const smoothScroll = (id) => {
     });
 };
 
-// const logo = '../assets/logo.svg'
-
 //
 // const logoUrl = computed(() => {
 //     return `layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
@@ -25,7 +23,7 @@ const smoothScroll = (id) => {
 <!--            header-->
             <div style="background: white; height: 60px">
                 <div id="container" class="flex align-items-center  justify-content-between relative lg:static" style="height: 60px">
-                    <a class="flex align-items-center" href="#"> <img src="../assets/logo.svg" alt="KOREM Logo" class="mr-0 lg:mr-2"/></a>
+                    <a class="flex align-items-center" href="#"> <img src="@/assets/logo.svg" alt="KOREM Logo" class="mr-0 lg:mr-2"/></a>
                     <div class="align-items-end  justify-content-end   lg:flex  lg:static  left-0  lg:px-0 ">
                         <div class="">
                             <router-link to="/auth/login">
@@ -393,7 +391,7 @@ const smoothScroll = (id) => {
     background-size: cover;
 }
 @media (min-width: 768px) {
-    background: url('ТЭЦ-27 1.png') no-repeat center top;
+    background: url('@/assets/ТЭЦ-27 1.png') no-repeat center top;
 }
 
 .card{

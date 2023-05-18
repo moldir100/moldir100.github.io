@@ -1,7 +1,6 @@
 import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router';
 import AppLayout from '@/layout/AppLayout.vue';
 import ProfileEnergyOrganization from "@/views/dashboard/profile/ProfileEnergyOrganization.vue";
-import Main from "@/views/Main.vue";
 import MainPage from "@/pages/MainPage.vue";
 
 const router = createRouter({
@@ -216,11 +215,6 @@ const router = createRouter({
                     component: () => import('@/views/utilities/Documentation.vue')
                 }
             ]
-        },
-        {
-            path: '/main',
-            name: Main,
-            component: () => import('@/views/Main.vue')
         },
         {
             path: '/mainpage',
