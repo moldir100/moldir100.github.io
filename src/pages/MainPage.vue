@@ -58,7 +58,7 @@ const smoothScroll = (id) => {
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <router-link to="/">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/1.png"/>
+                                    <img alt="" src="@/assets/icons/1.png"/>
                                 </span>
                                 <!--                                <div class="text-900 mb-3 font-medium">Кабинет Энергопредприятия</div>-->
                                 <p>Кабинет Энергопредприятия</p>
@@ -66,87 +66,87 @@ const smoothScroll = (id) => {
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/2.png"/>
+                                    <img alt="" src="@/assets/icons/2.png"/>
                                 </span>
                                 <p>Кабинет потребителя</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/3.png"/>
+                                    <img alt="" src="@/assets/icons/3.png"/>
                                 </span>
                                 <p>Кабинет Гос.органа</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/4.png"/>
+                                    <img alt="" src="@/assets/icons/4.png"/>
                                 </span>
                                 <p>Кабинет Системного оператора</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/5.png"/>
+                                    <img alt="" src="@/assets/icons/5.png"/>
                                 </span>
                                 <p>Кабинет ЭСО</p>
                             </div>
 
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/6.png"/>
+                                    <img alt="" src="@/assets/icons/6.png"/>
                                 </span>
                                 <p>Cloud ЭСО “Смена поставщика э/э”</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/7.png"/>
+                                    <img alt="" src="@/assets/icons/7.png"/>
                                 </span>
                                 <p>Тариф</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/8.png"/>
+                                    <img alt="" src="@/assets/icons/8.png"/>
                                 </span>
                                 <p>Согласование планов ремонтов</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/9.png"/>
+                                    <img alt="" src="@/assets/icons/9.png"/>
                                 </span>
                                 <p>Карта ВИЭ</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/10.png"/>
+                                    <img alt="" src="@/assets/icons/10.png"/>
                                 </span>
                                 <p>Карта линии электропередач и подстанций</p>
                             </div>
 
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/11.png"/>
+                                    <img alt="" src="@/assets/icons/11.png"/>
                                 </span>
                                 <p>Карта Гидропотенциала</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/12.png"/>
+                                    <img alt="" src="@/assets/icons/12.png"/>
                                 </span>
                                 <p>Цифровая карта генерации</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/13.png"/>
+                                    <img alt="" src="@/assets/icons/13.png"/>
                                 </span>
                                 <p>НПА</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/14.png"/>
+                                    <img alt="" src="@/assets/icons/14.png"/>
                                 </span>
                                 <p>База Энергетик. Инвест программы</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/15.png"/>
+                                    <img alt="" src="@/assets/icons/15.png"/>
                                 </span>
                                 <p>ТОиР</p>
 <!--                                <h4 id="hat">2024</h4>-->
@@ -168,7 +168,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0 lg:pr-4 lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/1.png"/>
+                                <img alt="" src="@/assets/icons/analytics/1.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">Дэшборд производства электроэнергии</h5>
@@ -178,7 +178,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0 lg:pr-4 lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/2.png"/>
+                                <img alt="" src="@/assets/icons/analytics/2.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">Дэшборд электропередач</h5>
@@ -188,7 +188,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0 lg:pr-4 lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/3.png"/>
+                                <img alt="" src="@/assets/icons/analytics/3.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">Техническое состояние энергооборудования энергопреприятий</h5>
@@ -198,7 +198,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0  lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/4.png"/>
+                                <img alt="" src="@/assets/icons/analytics/4.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">График ремонтов</h5>
@@ -209,7 +209,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0 lg:pr-4 lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/5.png"/>
+                                <img alt="" src="@/assets/icons/analytics/5.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">База кадров</h5>
@@ -219,7 +219,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0 lg:pr-4 lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/6.png"/>
+                                <img alt="" src="@/assets/icons/analytics/6.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">Показатели АСКУЭ</h5>
@@ -229,7 +229,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0 lg:pr-4 lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/7.png"/>
+                                <img alt="" src="@/assets/icons/analytics/7.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">Потери электроэнергии</h5>
@@ -239,7 +239,7 @@ const smoothScroll = (id) => {
                     <div class="col-12 md:col-6 lg:col-3 p-0  lg:pb-5 mt-4 lg:mt-0" style="height: 160px; padding: 2px; border-radius: 10px;">
                         <div class="p-3 surface-card h-full flex" style="border-radius: 8px">
                             <div class="flex align-items-center justify-content-center ml-3">
-                                <img alt="" src="../assets/icons/analytics/8.png"/>
+                                <img alt="" src="@/assets/icons/analytics/8.png"/>
                             </div>
                             <div class="flex align-items-center justify-content-center ml-4">
                                 <h5 class=" text-900">Безопасность</h5>
@@ -262,32 +262,32 @@ const smoothScroll = (id) => {
                         <div class="grid justify-content-center">
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/1.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/1.png"/>
                                 </span>
                                 <!--                                <div class="text-900 mb-3 font-medium">Кабинет Энергопредприятия</div>-->
                                 <p>Заявки на закуп оборудования</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/2.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/2.png"/>
                                 </span>
                                 <p>Кабинет потребителя</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/3.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/3.png"/>
                                 </span>
                                 <p>Кабинет Гос.органа</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/4.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/4.png"/>
                                 </span>
                                 <p>Кабинет Системного оператора</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/5.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/5.png"/>
                                 </span>
                                 <p>Кабинет ЭСО</p>
                             </div>
@@ -295,31 +295,31 @@ const smoothScroll = (id) => {
 
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/6.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/6.png"/>
                                 </span>
                                 <p>Cloud ЭСО “Смена поставщика э/э”</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/7.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/7.png"/>
                                 </span>
                                 <p>Тариф</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/8.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/8.png"/>
                                 </span>
                                 <p>Согласование планов ремонтов</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/9.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/9.png"/>
                                 </span>
                                 <p>Карта ВИЭ</p>
                             </div>
                             <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
                                 <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="../assets/icons/equipments/10.png"/>
+                                    <img alt="" src="@/assets/icons/equipments/10.png"/>
                                 </span>
                                 <p>Карта линии электропередач и подстанций</p>
                             </div>
