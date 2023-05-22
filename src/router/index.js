@@ -31,12 +31,16 @@ const router = createRouter({
                     name: 'analytics3',
                     component: () => import('@/pages/Analytics3.vue')
                 },
-
                 {
                     path: '/dashboard/profile',
                     // name: 'profile',
                     component: ProfileEnergyOrganization,
                     children: [
+                        {
+                            path: '/dashboard/profile/dashboard',
+                            name: 'dashboard',
+                            component: () => import('@/components/base/energyOrganization/Dashboard.vue'),
+                        },
                         {
                             path: '/dashboard/profile',
                             name: 'profile',
@@ -85,8 +89,6 @@ const router = createRouter({
 
                     ]
                 },
-
-
                 {
                     path: '/uikit/formlayout',
                     name: 'formlayout',

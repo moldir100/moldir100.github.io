@@ -1,18 +1,61 @@
 <script setup>
 
 import ProfileSubheader from "@/components/base/ProfileSubheader.vue";
-import {ref} from "vue";
+import {ref, reactive} from "vue";
 
+const items = reactive([
+    {
+        label: 'Дэшборды',
+        icon: 'pi pi-fw pi-home',
+        to: '/'
+    },
+    {
+        label: 'Цифровой паспорт',
+        icon: 'pi pi-fw pi-calendar',
+        to: '/dashboard/profile/digitalPassport'
+    },
+    {
+        label: 'Журналы',
+        icon: 'pi pi-fw pi-pencil',
+        to: '/edit'
+    },
+    {
+        label: 'Согласование планов ремонта',
+        icon: 'pi pi-fw pi-file',
+        to: '/documentation'
+    },
+    {
+        label: 'Тариф',
+        icon: 'pi pi-fw pi-cog',
+        to: '/settings'
+    },
+    {
+        label: 'Сотрудники',
+        icon: 'pi pi-fw pi-cog',
+        to: '/settings'
+    },
+    {
+        label: 'Настройки',
+        icon: 'pi pi-fw pi-cog',
+        to: '/settings'
+    }
+])
 </script>
 
 
 <template>
     <div class="grid">
         <div class="col-12">
+            <div class="card mb-3">
+                <TabMenu class="border-round-lg" :model="items" />
+            </div>
+
+
             <div class="card card-w-title profileInfo">
 <!--                <h5>Профиль энергопредприятия</h5>-->
                 <ProfileSubheader/>
             </div>
+
 
             <div class="card">
                 <div class="flex flex-row justify-content-between">
@@ -42,6 +85,19 @@ import {ref} from "vue";
                 </div>
             </div>
 
+            <div class="card flex bg-white border-round-lg">
+                <div>
+                    <img src="@/assets/img/1.png" alt="" />
+                </div>
+                <div>
+                    <h1>АО “Астана-Энергия” ТЭЦ-2</h1>
+                    <p>Бин: 041140002811</p>
+                    <p>Ссылка: https://astana-energy.kz/</p>
+                    <p>Дата последнего изменения данных: 20.08.2022 13:23:00</p>
+                    <Button label="Скачать PDF" icon="pi pi-file-pdf" />
+                </div>
+            </div>
+
             <router-view></router-view>
 
         </div>
@@ -53,9 +109,9 @@ import {ref} from "vue";
 .col-12{
     padding: 0;
 }
-.card{
-    margin-bottom: 1rem
-}
+
+
+
 .profileInfo{
     padding: 5px;
 }
