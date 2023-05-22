@@ -66,7 +66,7 @@ const isOutsideClicked = (event) => {
             <i class="pi pi-bars"></i>
         </button>
 
-        <router-link to="/" class="layout-topbar-logo">
+        <router-link to="/mainpage" class="layout-topbar-logo">
 <!--            <img :src="logoUrl" alt="logo" />-->
             <span style="color: #ffffff">KOREM CPE</span>
         </router-link>

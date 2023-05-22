@@ -106,6 +106,7 @@ import BlockViewer from '@/components/BlockViewer.vue';
 
 import '@/assets/styles.scss';
 import Vinput from "@/components/UI/Vinput.vue";
+import CardMain from "@/components/base/CardMain.vue";
 
 
 
@@ -127,6 +128,7 @@ app.component('CodeHighlight', CodeHighlight);
 app.component('BlockViewer', BlockViewer);
 
 app.component('V-input', Vinput)
+app.component('CardMain', CardMain)
 app.component('Calendar', Calendar)
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);

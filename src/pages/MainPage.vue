@@ -11,7 +11,160 @@ const smoothScroll = (id) => {
     });
 };
 
-//
+const items = ref([
+    {
+        id: 1,
+        title: 'Кабинет Энергопредприятия',
+        icon: 'src/assets/icons/1.png',
+        link: '/',
+    },
+    {
+        id: 2,
+        title: 'Кабинет потребителя',
+        icon: 'src/assets/icons/2.png',
+        link: '/',
+    },
+    {
+        id: 3,
+        title: 'Кабинет Гос.органа',
+        icon: 'src/assets/icons/3.png',
+        link: '/',
+    },
+    {
+        id: 4,
+        title: 'Кабинет Системного оператора',
+        icon: 'src/assets/icons/4.png',
+        link: '/'
+    },
+    {
+        id: 5,
+        title: 'Кабинет ЭСО',
+        icon: 'src/assets/icons/5.png',
+        link: '/',
+    },
+    {
+        id: 6,
+        title: 'Cloud ЭСО “Смена поставщика э/э”',
+        icon: 'src/assets/icons/6.png',
+        link: '/',
+    },
+    {
+        id: 7,
+        title: 'Согласование планов ремонтов',
+        icon: 'src/assets/icons/7.png',
+        link: '/',
+    },
+    {
+        id: 8,
+        title: 'Карта ВИЭ',
+        icon: 'src/assets/icons/8.png',
+        link: '/',
+    },
+    {
+        id: 9,
+        title: 'Карта линии электропередач и подстанций',
+        icon: 'src/assets/icons/9.png',
+        link: '/',
+    },
+    {
+        id: 10,
+        title: 'Кабинет Энергопредприятия',
+        icon: 'src/assets/icons/10.png',
+        link: '/',
+    },
+    {
+        id: 11,
+        title: 'scs',
+        icon: 'src/assets/icons/11.png',
+        link: '/',
+    },
+    {
+        id: 12,
+        title: 'Цифровая карта генерации',
+        icon: 'src/assets/icons/12.png',
+        link: '/',
+    },
+    {
+        id: 13,
+        title: 'НПА',
+        icon: 'src/assets/icons/13.png',
+        link: '/',
+    },
+    {
+        id: 14,
+        title: 'База Энергетик. Инвест программы',
+        icon: 'src/assets/icons/14.png',
+        link: '/',
+    },
+    {
+        id: 15,
+        title: 'ТОиР',
+        icon: 'src/assets/icons/15.png',
+        link: '/',
+    }])
+
+const itemsEquipment = ref([
+    {
+        id: 1,
+        title: 'Заявки на закуп оборудования',
+        icon: 'src/assets/icons/equipments/1.png',
+        link: '/',
+    },
+    {
+        id: 2,
+        title: 'Турбины',
+        icon: 'src/assets/icons/equipments/2.png',
+        link: '/',
+    },
+    {
+        id: 3,
+        title: 'Генераторы',
+        icon: 'src/assets/icons/equipments/3.png',
+        link: '/',
+    },
+    {
+        id: 4,
+        title: 'Трансформаторы',
+        icon: 'src/assets/icons/equipments/4.png',
+        link: '/',
+    },
+    {
+        id: 5,
+        title: 'Распределительные оборудования',
+        icon: 'src/assets/icons/equipments/5.png',
+        link: '/',
+    },
+    {
+        id: 6,
+        title: 'Солнечные панели”',
+        icon: 'src/assets/icons/equipments/6.png',
+        link: '/',
+    },
+    {
+        id: 7,
+        title: 'Ветряные установки',
+        icon: 'src/assets/icons/equipments/7.png',
+        link: '/',
+    },
+    {
+        id: 8,
+        title: 'Поставщики оборудования',
+        icon: 'src/assets/icons/equipments/8.png',
+        link: '/',
+    },
+    {
+        id: 9,
+        title: 'Подрядные организации',
+        icon: 'src/assets/icons/equipments/9.png',
+        link: '/',
+    },
+    {
+        id: 10,
+        title: 'Котлоагрегаты',
+        icon: 'src/assets/icons/equipments/10.png',
+        link: '/',
+    }
+    ])
 // const logoUrl = computed(() => {
 //     return `layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
 // });
@@ -45,122 +198,13 @@ const smoothScroll = (id) => {
                 </div>
             </div>
 
-<!--            электроэнергетика-->
-            <div id="container" class="">
-                <div class="grid justify-content-center">
-                    <div class="col-12 text-start mt-4 mb-2">
-                        <p id="title">Электроэнегетика</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="grid justify-content-center">
-
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <router-link to="/">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/1.png"/>
-                                </span>
-                                <!--                                <div class="text-900 mb-3 font-medium">Кабинет Энергопредприятия</div>-->
-                                <p>Кабинет Энергопредприятия</p>
-                                </router-link>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/2.png"/>
-                                </span>
-                                <p>Кабинет потребителя</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/3.png"/>
-                                </span>
-                                <p>Кабинет Гос.органа</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/4.png"/>
-                                </span>
-                                <p>Кабинет Системного оператора</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/5.png"/>
-                                </span>
-                                <p>Кабинет ЭСО</p>
-                            </div>
-
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/6.png"/>
-                                </span>
-                                <p>Cloud ЭСО “Смена поставщика э/э”</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/7.png"/>
-                                </span>
-                                <p>Тариф</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/8.png"/>
-                                </span>
-                                <p>Согласование планов ремонтов</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/9.png"/>
-                                </span>
-                                <p>Карта ВИЭ</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/10.png"/>
-                                </span>
-                                <p>Карта линии электропередач и подстанций</p>
-                            </div>
-
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/11.png"/>
-                                </span>
-                                <p>Карта Гидропотенциала</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/12.png"/>
-                                </span>
-                                <p>Цифровая карта генерации</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/13.png"/>
-                                </span>
-                                <p>НПА</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/14.png"/>
-                                </span>
-                                <p>База Энергетик. Инвест программы</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/15.png"/>
-                                </span>
-                                <p>ТОиР</p>
-<!--                                <h4 id="hat">2024</h4>-->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--            Электроэнегетика-->
+            <CardMain :items="items" :title="'Электроэнегетика'"/>
 
 <!--            аналитика-->
             <div id="container" >
                 <div class="grid ">
-                    <div class="col-12 text-start mt-8 mb-2">
+                    <div class="col-12 text-start mt-4 mb-2">
                         <p id="title">Аналитика</p>
                     </div>
 
@@ -252,81 +296,7 @@ const smoothScroll = (id) => {
             </div>
 
 <!--            База оборудования-->
-            <div id="container" class="">
-                <div class="grid justify-content-center">
-                    <div class="col-12 text-start mt-8 mb-2">
-                        <p id="title">База оборудования</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="grid justify-content-center">
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/1.png"/>
-                                </span>
-                                <!--                                <div class="text-900 mb-3 font-medium">Кабинет Энергопредприятия</div>-->
-                                <p>Заявки на закуп оборудования</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/2.png"/>
-                                </span>
-                                <p>Кабинет потребителя</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/3.png"/>
-                                </span>
-                                <p>Кабинет Гос.органа</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/4.png"/>
-                                </span>
-                                <p>Кабинет Системного оператора</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/5.png"/>
-                                </span>
-                                <p>Кабинет ЭСО</p>
-                            </div>
-
-
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/6.png"/>
-                                </span>
-                                <p>Cloud ЭСО “Смена поставщика э/э”</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/7.png"/>
-                                </span>
-                                <p>Тариф</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/8.png"/>
-                                </span>
-                                <p>Согласование планов ремонтов</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/9.png"/>
-                                </span>
-                                <p>Карта ВИЭ</p>
-                            </div>
-                            <div class="col-12 lg:col-2  sm:col-5 mx-2 lg:mx-4 mb-5 text-center">
-                                <span class="p-3 inline-block surface-card">
-                                    <img alt="" src="@/assets/icons/equipments/10.png"/>
-                                </span>
-                                <p>Карта линии электропередач и подстанций</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <CardMain :items="itemsEquipment" :title="'База оборудования'"/>
 
 <!--            Footer-->
             <div class="py-4 px-4 mx-0 mt-8 " style="background-color: #152957">
@@ -394,44 +364,4 @@ const smoothScroll = (id) => {
     background: url('@/assets/ТЭЦ-27 1.png') no-repeat center top;
 }
 
-.card{
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: none;
-}
-.card p{
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 560;
-    font-size: 16px;
-    line-height: 16px;
-    color: #232859;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#hat {
-    background: red;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    /*right: 0;*/
-    /*top: 0;*/
-    transform: translate(40%,50%);
-    z-index: 1;
-}
-
-/*.text-center {*/
-/*    border-radius: 10px;*/
-/*    text-align: center;*/
-/*    overflow: hidden;*/
-/*    text-overflow: ellipsis;*/
-/*    &:hover {*/
-/*        transition: all 0.2s ease-out;*/
-/*        box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);*/
-/*        border-radius: 10px;*/
-/*        border: 1px solid #cccccc;*/
-/*        background-color: white;*/
-/*    }*/
-/*}*/
 </style>
