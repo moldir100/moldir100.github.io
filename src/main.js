@@ -15,7 +15,7 @@ import Button from 'primevue/button';
 import Breadcrumb from 'primevue/breadcrumb';
 import Calendar from 'primevue/calendar';
 import Card from 'primevue/card';
-import Chart from 'primevue/chart';
+import ChartPrime from 'primevue/chart';
 import CascadeSelect from 'primevue/cascadeselect';
 import Carousel from 'primevue/carousel';
 import Checkbox from 'primevue/checkbox';
@@ -110,6 +110,7 @@ import CardMain from "@/components/base/CardMain.vue";
 
 
 
+
 const app = createApp(App);
 
 app.use(router);
@@ -140,7 +141,7 @@ app.component('BlockUI', BlockUI);
 app.component('Breadcrumb', Breadcrumb);
 app.component('Button', Button);
 app.component('Card', Card);
-app.component('Chart', Chart);
+app.component('Chart', ChartPrime);
 app.component('Carousel', Carousel);
 app.component('CascadeSelect', CascadeSelect);
 app.component('Checkbox', Checkbox);

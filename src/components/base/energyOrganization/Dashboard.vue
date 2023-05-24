@@ -1,6 +1,8 @@
 <script setup>
 
+import Chart from 'primevue/chart';
 import {reactive} from 'vue'
+
 const technicalEconomicIndicators = reactive([
     {
         id: 1,
@@ -807,86 +809,154 @@ const thermalEnergyTariff = reactive([
         }
     }
 ])
+
+const tepHeader = reactive([
+    {
+        field: 'number',
+        header: '№'
+    },
+    {
+        field: 'name_indicators',
+        header: 'Наименование показателей'
+    },
+    {
+        field: 'unit',
+        header: 'Ед. изм.'
+    },
+    {
+        field: 'y2017',
+        header: '2017'
+    },
+    {
+        field: 'y2018',
+        header: '2018'
+    },
+    {
+        field: 'y2019',
+        header: '2019'
+    },
+    {
+        field: 'y2020',
+        header: '2020'
+    },
+    {
+        field: 'y2021',
+        header: '2021'
+    }
+])
+
+const chartOptions = reactive({
+    responsive: true,
+    stacked: true,
+})
+
+const chartDataElectric = reactive({
+    labels: [ '2019', '2020', '2021', '2022'],
+    datasets: [
+        {
+            label: 'План (млн.тенге)',
+            backgroundColor: '#3b82f6',
+            data: [1212190, 993166, 1833819.396, 1356209]
+        },
+        {
+            label: 'Факт (млн.тенге)',
+            backgroundColor: '#e9b308',
+            data: [1212190, 993166, 1833819.396, 1356209]
+        },
+        {
+            label: '-',
+            backgroundColor: 'red',
+            data: [49, 76, 64, 0]
+        }
+    ],
+
+})
+
+const chartDataThermo = reactive({
+    labels: [ '2019', '2020', '2021', '2022'],
+    datasets: [
+        {
+            label: 'План (млн.тенге)',
+            backgroundColor: '#3b82f6',
+            data: [1414303, 774162, 1059965, 1700589]
+        },
+        {
+            label: 'Факт (млн.тенге)',
+            backgroundColor: '#e9b308',
+            data: [1416578, 779191, 1064561, 0]
+        },
+        {
+            label: '-',
+            backgroundColor: 'red',
+            data: [26, 7, 5, 0]
+        }
+    ],
+
+})
+
+const chartDataDoughnut = reactive({
+    labels: ['2019', '2020', '2021', '2022'],
+    datasets: [
+        {
+            backgroundColor: ['#23c560', '#e9b308', '#3b82f6', '#fe3e32'],
+            data: [1913273, 1934020, 1957266, 0]
+        }
+    ]
+})
+
 </script>
 <template>
   <!-- ТЭП -->
-    <h1>Технико-экономические показатели</h1>
-    <div class="card border-round-lg p-4 bg-white">
-        <DataTable showGridlines :value="technicalEconomicIndicators">
-            <Column field="number" header="№"></Column>
-            <Column field="name_indicators" header="Наименование показателей"></Column>
-            <Column field="unit" header="Ед. изм.">
-                <template #body="slotProps">
-                    <div>
-                        {{ slotProps.data.unit.name_1 }}
-                    </div>
-                    <div>
-                        {{ slotProps.data.unit.name_2 }}
-                    </div>
-                </template>
-            </Column>
+    <div class=" border-round-lg p-4 bg-white">
+        <div class="flex flex-row justify-content-between mb-3">
+            <div  class="flex">
+            <h4 class="m-auto">Технико - экономические показатели</h4>
+            </div>
+            <router-link to="">
+                <button  class="seeAll btn btn-outline-secondary">Посметреть все
+                    <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </router-link>
+        </div>
 
-            <Column field="y2017" header="2017">
-                <template #body="slotProps">
-                    <div>
-                        {{ slotProps.data.y2017.number_1 }}
-                    </div>
-                    <div>
-                        {{ slotProps.data.y2017.number_2 }}
-                    </div>
-                </template>
-            </Column>
+            <DataTable showGridlines :value="technicalEconomicIndicators" >
+                <div v-for="(item, idx) in tepHeader" :key="idx">
+                    <Column :field="item.field" :header="item.header">
+                        <template v-if="item.field.hasOwnProperty('u')" #body="slotProps">
+                            <div>
+                                {{ slotProps.data.unit.name_1 }}
+                            </div>
+                            <div>
+                                {{ slotProps.data.unit.name_2 }}
+                            </div>
+                        </template>
 
-            <Column field="y2018" header="2018">
-                <template #body="slotProps">
-                    <div>
-                        {{ slotProps.data.y2018.number_1 }}
-                    </div>
-                    <div>
-                        {{ slotProps.data.y2018.number_2 }}
-                    </div>
-                </template>
-            </Column>
+                        <template v-if="item.field.hasOwnProperty('y20')" #body="slotProps">
+                            <div>
+                                {{ slotProps.data.y2017.number_1 }}
+                            </div>
+                            <div>
+                                {{ slotProps.data.y2017.number_2 }}
+                            </div>
+                        </template>
+                    </Column>
+                </div>
+            </DataTable>
 
-            <Column field="y2019" header="2019">
-                <template #body="slotProps">
-                    <div>
-                        {{ slotProps.data.y2019.number_1 }}
-                    </div>
-                    <div>
-                        {{ slotProps.data.y2019.number_2 }}
-                    </div>
-                </template>
-            </Column>
 
-            <Column field="y2020" header="2020">
-                <template #body="slotProps">
-                    <div>
-                        {{ slotProps.data.y2020.number_1 }}
-                    </div>
-                    <div>
-                        {{ slotProps.data.y2020.number_2 }}
-                    </div>
-                </template>
-            </Column>
-
-            <Column field="y2021" header="2021">
-                <template #body="slotProps">
-                    <div>
-                        {{ slotProps.data.y2021.number_1 }}
-                    </div>
-                    <div>
-                        {{ slotProps.data.y2021.number_2 }}
-                    </div>
-                </template>
-            </Column>
-        </DataTable>
     </div>
   <!-- ТЭП -->
 
   <!-- Краткая справка -->
-    <h1>Краткая справка</h1>
-    <div class="card border-round-lg p-4 bg-white">
+    <div class=" border-round-lg p-4 bg-white mt-3">
+        <div class="flex flex-row justify-content-between mb-3">
+            <div  class="flex">
+                <h4 class="m-auto">Краткая справка</h4>
+            </div>
+
+        </div>
         <p>
             <span class="font-bold">Усть-Каменогорская ТЭЦ</span> — ТОО «Усть-Каменогорская ТЭЦ» -
             теплоэлектроцентраль, расположенная в городе Усть-Каменогорске Восточно-Казахстанской
@@ -901,8 +971,19 @@ const thermalEnergyTariff = reactive([
   <!-- Краткая справка -->
 
   <!-- Паспортные данные -->
-    <h1>Паспортные данные</h1>
-    <div class="card border-round-lg p-4 bg-white">
+    <div class=" border-round-lg p-4 bg-white mt-3">
+        <div class="flex flex-row justify-content-between mb-3">
+            <div  class="flex">
+                <h4 class="m-auto">Паспортные данные</h4>
+            </div>
+            <router-link to="">
+                <button  class="seeAll btn btn-outline-secondary">Посметреть все
+                    <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </router-link>
+        </div>
         <DataTable showGridlines :value="passportData">
             <Column field="number" header="№"></Column>
             <Column field="name" header="Наименование"></Column>
@@ -912,9 +993,20 @@ const thermalEnergyTariff = reactive([
   <!-- Паспортные данные -->
 
   <!-- Тарифы -->
-    <h1>Тарифы</h1>
-    <div class="card border-round-lg p-4 bg-white">
-        <h3>По производству электрической энергии</h3>
+    <div class=" border-round-lg p-4 bg-white mt-3">
+        <div class="flex flex-row justify-content-between mb-3">
+            <div  class="flex">
+                <h4 class="m-auto">Тарифы</h4>
+            </div>
+            <router-link to="">
+                <button  class="seeAll btn btn-outline-secondary">Посметреть все
+                    <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </router-link>
+        </div>
+        <h6>По производству электрической энергии</h6>
         <DataTable showGridlines :value="thermalEnergyTariff">
             <Column field="number" header="№"></Column>
             <Column field="name_indicators" header="Наименование показателей"></Column>
@@ -998,9 +1090,63 @@ const thermalEnergyTariff = reactive([
     </div>
   <!-- Тарифы -->
 
+<!-- Инвестиционная программа/Электрическая энергия -->
+    <div class=" border-round-lg p-4 bg-white mt-3">
+        <div class="flex flex-row justify-content-between mb-3">
+            <div  class="flex">
+                <h4 class="m-auto">Инвестиционная программа</h4>
+            </div>
+        </div>
+
+        <h6>Инвестиционная программа по электрической энергии</h6>
+
+        <div class="flex">
+            <div class="col-12 lg:col-8">
+                <Chart type="bar" :data="chartDataElectric" :options="chartOptions" class="w-full h-30rem" style="width: 100%"  />
+            </div>
+            <div class="col-12 lg:col-4">
+                <Chart type="doughnut" :data="chartDataDoughnut" :options="chartOptions" class="w-full h-30rem" />
+            </div>
+        </div>
+
+
+    </div>
+<!-- Инвестиционная программа -->
+
+<!-- Инвестиционная программа/Тепловая энергия -->
+    <div class=" border-round-lg p-4 bg-white mt-3">
+
+        <h6>Инвестиционная программа по тепловой энергии:</h6>
+
+        <div class="flex">
+            <div class="col-12 lg:col-8">
+                <Chart type="bar" :data="chartDataThermo" :options="chartOptions" class="w-full h-30rem" />
+            </div>
+            <div class="col-12 lg:col-4">
+                <Chart type="doughnut" :data="chartDataDoughnut" :options="chartOptions" class="w-full h-30rem"  />
+            </div>
+        </div>
+
+
+    </div>
+<!-- Инвестиционная программа -->
+
 </template>
 
 
 <style scoped>
+.seeAll{
+    background-color: white;
+    height: 45px;
+    width: 150px;
+    box-sizing: border-box;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+}
 
+.seeAll:hover, .settings:active{
+    color: #fff;
+    background-color: #215A96;
+    border-color: #215A96;
+}
 </style>

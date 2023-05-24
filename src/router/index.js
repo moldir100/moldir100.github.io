@@ -37,14 +37,9 @@ const router = createRouter({
                     component: ProfileEnergyOrganization,
                     children: [
                         {
-                            path: '/dashboard/profile/dashboard',
-                            name: 'dashboard',
-                            component: () => import('@/components/base/energyOrganization/Dashboard.vue'),
-                        },
-                        {
                             path: '/dashboard/profile',
-                            name: 'profile',
-                            component: () => import('@/components/base/energyOrganization/Profile.vue'),
+                            name: 'dashboardProfile',
+                            component: () => import('@/components/base/energyOrganization/Dashboard.vue'),
                         },
                         {
                             path: '/dashboard/profile/digitalPassport',

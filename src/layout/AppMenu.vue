@@ -4,23 +4,22 @@ import { ref } from 'vue';
 import AppMenuItem from './AppMenuItem.vue';
 
 const model = ref([
-    {
-        label: 'Главная',
-        items: [
-            // { label: 'Главная страница', icon: 'pi pi-fw pi-home', to: '/main' },
-            { label: 'Главная страница', icon: 'pi pi-fw pi-home', to: '/mainpage' }
-        ]
-    },
+
     {
         label: 'Электроэнергетика',
         items: [
             { label: 'Кабинет энергопредприятия', icon: 'pi pi-fw pi-id-card', to: '/dashboard/profile' },
-            { label: 'Кабинет потребителя', icon: 'pi pi-fw pi-check-square', to: '' },
-            { label: 'Система управления рисками', icon: 'pi pi-fw pi-bookmark', to: '' },
-            { label: 'Карта линиии электропередач и подстанции', icon: 'pi pi-fw pi-exclamation-circle', to: '' },
-            { label: 'Цифровая карта генерации', icon: 'pi pi-fw pi-mobile', to: '', class: 'rotated-icon' },
-            { label: 'Карта гидропотенциала', icon: 'pi pi-fw pi-table', to: '' },
-            { label: 'Нормативно правовые акты (НПА)', icon: 'pi pi-fw pi-list', to: '' },
+            { label: 'Кабинет потребителя', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/1.png'},
+            { label: 'Cloud ЭСО “Смена поставщика э/э”', to: '', src: '../src/assets/icons/sidebar/2.png' },
+            { label: 'Тариф', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/3.png' },
+            { label: 'Согласование планов ремонтов', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/4.png'},
+            { label: 'Карта ВИЭ', icon: 'pi pi-fw pi-id-card', to: '' , src: '../src/assets/icons/sidebar/5.png'},
+            { label: 'Карта линии электропередач и подстанций', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/6.png' },
+            { label: 'Карта гидропотенциала', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/7.png' },
+            { label: 'Цифровая карта генерации', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/8.png' },
+            { label: 'Нормативно правовые акты (НПА)', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/9.png' },
+            { label: 'База Энергетик.Инвест программы', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/10.png' },
+            { label: 'ТОиР', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/11.png' },
         ]
     },
     {
@@ -39,12 +38,6 @@ const model = ref([
             { label: 'Аналитика Энергетики', icon: 'pi pi-fw pi-bookmark', to: '/dashboard/analytics3' },
         ]
     },
-
-    // {
-    //     label: 'Главная',
-    //     items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
-    // },
-
     {
         label: 'UI Components',
         items: [

@@ -38,7 +38,7 @@ watch(() => route.path, () => {
 <template>
     <div>
         <p style="display: none">Current route name: {{ route.name }}</p>
-        <ul class="surface-card m-0 list-none flex overflow-x-auto select-none">
+        <ul class="menu surface-card m-0 list-none flex overflow-x-auto select-none">
             <li class="pr-3"><router-link to="/dashboard/profile" v-bind:class="{active: isProfile}"
                     class="item cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150 p-ripple text-700"><i
                     class="pi pi-home mr-2"></i><span class="font-medium">Профиль энергопредприятия</span><span class="p-ink"
@@ -116,5 +116,30 @@ watch(() => route.path, () => {
 .flex{
     display: flex;
     justify-content: space-around;
+}
+
+.menu{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+/* width */
+.menu::-webkit-scrollbar {
+    margin-top: 15px;
+    width: 5px;   /* vertical scrollbar width */
+    height: 5px;
+}
+
+/* Track */
+.menu::-webkit-scrollbar-track {
+//box-shadow: inset 0 0 5px grey;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* Handle */
+.menu::-webkit-scrollbar-thumb {
+    background: #7e808b;
+    border-radius: 10px;
+    min-height: 50px;
 }
 </style>
