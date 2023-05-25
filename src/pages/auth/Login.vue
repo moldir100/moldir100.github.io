@@ -57,7 +57,6 @@ const checked = ref(false);
             </div>
         </div>
     </div>
-    <AppConfig simple />
 </template>
 
 <style scoped>
