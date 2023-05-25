@@ -27,7 +27,7 @@ const inputItems = ref([
         label: 'Телефон',
         style: "lg:w-12 md:w-12 sm:w-100",
         // icon: 'pi pi-fw pi-table',
-        to: '/dashboard/profile/digitalPassport/tep'
+        to: '/profile/digitalPassport/tep'
     },
     {
         id: 3,

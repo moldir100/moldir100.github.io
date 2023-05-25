@@ -8,15 +8,15 @@ export default {
         let nestedRouteItems = ref([
             {
                 label: 'Все',
-                to: '/dashboard/profile/digitalPassport/tep'
+                to: '/profile/digitalPassport/tep'
             },
             {
                 label: 'Положительные',
-                to: '/dashboard/profile/digitalPassport/tep/positive'
+                to: '/profile/digitalPassport/tep/positive'
             },
             {
                 label: 'Отрицательные',
-                to: '/dashboard/profile/digitalPassport/tep/negative'
+                to: '/profile/digitalPassport/tep/negative'
             },
         ]);
 

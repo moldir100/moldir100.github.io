@@ -1,7 +1,7 @@
 <script setup>
 
 import Chart from 'primevue/chart';
-import {reactive} from 'vue'
+import {computed, reactive, ref} from 'vue'
 
 const technicalEconomicIndicators = reactive([
     {
@@ -904,16 +904,41 @@ const chartDataDoughnut = reactive({
     ]
 })
 
+const technicalEconomicIndicatorsSorted = computed(() => {
+    if(showMore.value === false){
+        return technicalEconomicIndicators.slice(0,5)
+    }else
+        return technicalEconomicIndicators
+})
+
+const passportDataSorted = computed(() => {
+    if(showMore2.value === false){
+        return passportData.slice(0,5)
+    }else
+        return passportData
+})
+
+const thermalEnergyTariffSorted = computed(() => {
+    if(showMore3.value === false){
+        return thermalEnergyTariff.slice(0,5)
+    }else
+        return thermalEnergyTariff
+})
+
+const showMore = ref(false)
+const showMore2 = ref(false)
+const showMore3 = ref(false)
+
 </script>
 <template>
   <!-- ТЭП -->
     <div class=" border-round-lg p-4 bg-white">
         <div class="flex flex-row justify-content-between mb-3">
             <div  class="flex">
-            <h4 class="m-auto">Технико - экономические показатели</h4>
+                <h4 class="m-auto">Технико - экономические показатели</h4>
             </div>
             <router-link to="">
-                <button  class="seeAll btn btn-outline-secondary">Посметреть все
+                <button @click="showMore =! showMore"  class="seeAll btn btn-outline-secondary">Посметреть все
                     <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -921,10 +946,10 @@ const chartDataDoughnut = reactive({
             </router-link>
         </div>
 
-            <DataTable showGridlines :value="technicalEconomicIndicators" >
+        <DataTable :class="{showMore:showMore === true}"  showGridlines :value="technicalEconomicIndicatorsSorted" >
                 <div v-for="(item, idx) in tepHeader" :key="idx">
                     <Column :field="item.field" :header="item.header">
-                        <template v-if="item.field.hasOwnProperty('u')" #body="slotProps">
+                        <template v-if="item.field.hasOwnProperty('unit')" #body="slotProps">
                             <div>
                                 {{ slotProps.data.unit.name_1 }}
                             </div>
@@ -944,7 +969,6 @@ const chartDataDoughnut = reactive({
                     </Column>
                 </div>
             </DataTable>
-
 
     </div>
   <!-- ТЭП -->
@@ -977,14 +1001,14 @@ const chartDataDoughnut = reactive({
                 <h4 class="m-auto">Паспортные данные</h4>
             </div>
             <router-link to="">
-                <button  class="seeAll btn btn-outline-secondary">Посметреть все
+                <button @click="showMore2 =! showMore2"  class="seeAll btn btn-outline-secondary">Посметреть все
                     <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </router-link>
         </div>
-        <DataTable showGridlines :value="passportData">
+        <DataTable showGridlines :value="passportDataSorted">
             <Column field="number" header="№"></Column>
             <Column field="name" header="Наименование"></Column>
             <Column field="description" header="Описание"></Column>
@@ -999,7 +1023,7 @@ const chartDataDoughnut = reactive({
                 <h4 class="m-auto">Тарифы</h4>
             </div>
             <router-link to="">
-                <button  class="seeAll btn btn-outline-secondary">Посметреть все
+                <button @click="showMore3 =! showMore3"  class="seeAll btn btn-outline-secondary">Посметреть все
                     <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -1007,7 +1031,7 @@ const chartDataDoughnut = reactive({
             </router-link>
         </div>
         <h6>По производству электрической энергии</h6>
-        <DataTable showGridlines :value="thermalEnergyTariff">
+        <DataTable showGridlines :value="thermalEnergyTariffSorted">
             <Column field="number" header="№"></Column>
             <Column field="name_indicators" header="Наименование показателей"></Column>
             <Column field="unit" header="Ед. изм.">
@@ -1148,5 +1172,19 @@ const chartDataDoughnut = reactive({
     color: #fff;
     background-color: #215A96;
     border-color: #215A96;
+}
+
+.description-info {
+    width: 400px;
+}
+.readLess {
+    height: 109px;
+    overflow: hidden;
+}
+.read-more, .read-less {
+    display: inline-block;
+}
+.showMore{
+    height: 100%
 }
 </style>

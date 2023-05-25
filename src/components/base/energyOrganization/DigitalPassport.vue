@@ -5,12 +5,12 @@ const panelMenuItems = ref([
     {
         label: 'Общие сведения ЭПО',
         // icon: 'pi pi-fw pi-table',
-        to: '/dashboard/profile/digitalPassport',
+        to: '/profile/digitalPassport',
     },
     {
         label: 'ТЭП',
         // icon: 'pi pi-fw pi-table',
-        to: '/dashboard/profile/digitalPassport/tep'
+        to: '/profile/digitalPassport/tep'
     },
     {
         label: 'Тарифы',

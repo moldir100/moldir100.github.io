@@ -7,12 +7,12 @@ const items = reactive([
     {
         label: 'Дэшборды',
         icon: 'pi pi-fw pi-home',
-        to: '/dashboard/profile'
+        to: '/profile'
     },
     {
         label: 'Цифровой паспорт',
         icon: 'pi pi-fw pi-calendar',
-        to: '/dashboard/profile/digitalPassport'
+        to: '/profile/digitalPassport'
     },
     {
         label: 'Журналы',

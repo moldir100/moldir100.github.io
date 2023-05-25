@@ -9,11 +9,11 @@ const route = useRoute()
 let isProfile = ref(false)
 let isDigitalPassport = ref(false)
 
-if(route.path === '/dashboard/profile'){
+if(route.path === '/profile'){
     isProfile = true
     isDigitalPassport = false
 }
-if(route.path === '/dashboard/profile/digitalPassport'){
+if(route.path === '/profile/digitalPassport'){
     isDigitalPassport = true
     isProfile = false
 }
@@ -21,11 +21,11 @@ if(route.path === '/dashboard/profile/digitalPassport'){
 // You can watch the property for triggering some other action on change
 watch(() => route.path, () => {
     // Do something here...
-    if(route.path === '/dashboard/profile'){
+    if(route.path === '/profile'){
         isProfile = true
         isDigitalPassport = false
     }
-    if(route.path === '/dashboard/profile/digitalPassport'){
+    if(route.path === '/profile/digitalPassport'){
         isDigitalPassport = true
         isProfile = false
     }
@@ -39,7 +39,7 @@ watch(() => route.path, () => {
     <div>
         <p style="display: none">Current route name: {{ route.name }}</p>
         <ul class="menu surface-card m-0 list-none flex overflow-x-auto select-none">
-            <li class="pr-3"><router-link to="/dashboard/profile" v-bind:class="{active: isProfile}"
+            <li class="pr-3"><router-link to="/profile" v-bind:class="{active: isProfile}"
                     class="item cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150 p-ripple text-700"><i
                     class="pi pi-home mr-2"></i><span class="font-medium">Профиль энергопредприятия</span><span class="p-ink"
                                                                                                role="presentation"
@@ -57,7 +57,7 @@ watch(() => route.path, () => {
             <li class="flex align-items-center">
                 <div class="border-right-1 surface-border" style="width: 1px; height: 50%;"></div>
             </li>
-            <li class="px-3"><router-link to="/dashboard/profile/digitalPassport" v-bind:class="{active: isDigitalPassport}"
+            <li class="px-3"><router-link to="/profile/digitalPassport" v-bind:class="{active: isDigitalPassport}"
                     class="item cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150 p-ripple text-700"><i
                     class="pi pi-shopping-cart mr-2"></i><span class="font-medium">Цифровой паспорт</span><span class="p-ink"
                                                                                                      role="presentation"

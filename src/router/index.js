@@ -32,40 +32,40 @@ const router = createRouter({
                     component: () => import('@/pages/Analytics3.vue')
                 },
                 {
-                    path: '/dashboard/profile',
+                    path: '/profile',
                     // name: 'profile',
                     component: ProfileEnergyOrganization,
                     children: [
                         {
-                            path: '/dashboard/profile',
+                            path: '/profile',
                             name: 'dashboardProfile',
                             component: () => import('@/components/base/energyOrganization/Dashboard.vue'),
                         },
                         {
-                            path: '/dashboard/profile/digitalPassport',
+                            path: '/profile/digitalPassport',
                             // name: 'digitalPassport',
                             component: () => import('@/components/base/energyOrganization/DigitalPassport.vue'),
                             children: [
                                 {
-                                    path: '/dashboard/profile/digitalPassport',
+                                    path: '/profile/digitalPassport',
                                     name: 'mainInfo',
                                     component: () => import('@/components/base/energyOrganization/MainInfo.vue'),
                                 },
                                 {
-                                    path: '/dashboard/profile/digitalPassport/tep',
+                                    path: '/profile/digitalPassport/tep',
                                     name: 'tep',
                                     component: () => import('@/components/base/energyOrganization/Tep.vue'),
                                     children: [
                                         {
-                                            path: '/dashboard/profile/digitalPassport/tep',
+                                            path: '/profile/digitalPassport/tep',
                                             component: () => import('@/components/base/energyOrganization/tep/All.vue')
                                         },
                                         {
-                                            path: '/dashboard/profile/digitalPassport/tep/positive',
+                                            path: '/profile/digitalPassport/tep/positive',
                                             component: () => import('@/components/base/energyOrganization/tep/Positive.vue')
                                         },
                                         {
-                                            path: '/dashboard/profile/digitalPassport/tep/negative',
+                                            path: '/profile/digitalPassport/tep/negative',
                                             component: () => import('@/components/base/energyOrganization/tep/Negative.vue')
                                         },
                                     ]

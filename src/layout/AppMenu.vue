@@ -8,7 +8,7 @@ const model = ref([
     {
         label: 'Электроэнергетика',
         items: [
-            { label: 'Кабинет энергопредприятия', icon: 'pi pi-fw pi-id-card', to: '/dashboard/profile' },
+            { label: 'Кабинет энергопредприятия',  icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/1.png' },
             { label: 'Кабинет потребителя', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/1.png'},
             { label: 'Cloud ЭСО “Смена поставщика э/э”', to: '', src: '../src/assets/icons/sidebar/2.png' },
             { label: 'Тариф', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/3.png' },
