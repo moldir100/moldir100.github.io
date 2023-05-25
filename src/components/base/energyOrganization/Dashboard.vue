@@ -947,27 +947,94 @@ const showMore3 = ref(false)
         </div>
 
         <DataTable :class="{showMore:showMore === true}"  showGridlines :value="technicalEconomicIndicatorsSorted" >
-                <div v-for="(item, idx) in tepHeader" :key="idx">
-                    <Column :field="item.field" :header="item.header">
-                        <template v-if="item.field.hasOwnProperty('unit')" #body="slotProps">
-                            <div>
-                                {{ slotProps.data.unit.name_1 }}
-                            </div>
-                            <div>
-                                {{ slotProps.data.unit.name_2 }}
-                            </div>
-                        </template>
+            <Column field="number" header="№"></Column>
+            <Column field="name_indicators" header="Наименование показателей"></Column>
+            <Column field="unit" header="Ед. изм.">
+                <template #body="slotProps">
+                    <div>
+                        {{ slotProps.data.unit.name_1 }}
+                    </div>
+                    <div>
+                        {{ slotProps.data.unit.name_2 }}
+                    </div>
+                </template>
+            </Column>
 
-                        <template v-if="item.field.hasOwnProperty('y20')" #body="slotProps">
-                            <div>
-                                {{ slotProps.data.y2017.number_1 }}
-                            </div>
-                            <div>
-                                {{ slotProps.data.y2017.number_2 }}
-                            </div>
-                        </template>
-                    </Column>
-                </div>
+            <Column field="y2017" header="2017">
+                <template #body="slotProps">
+                    <div>
+                        {{ slotProps.data.y2017.number_1 }}
+                    </div>
+                    <div>
+                        {{ slotProps.data.y2017.number_2 }}
+                    </div>
+                </template>
+            </Column>
+
+            <Column field="y2018" header="2018">
+                <template #body="slotProps">
+                    <div>
+                        {{ slotProps.data.y2018.number_1 }}
+                    </div>
+                    <div>
+                        {{ slotProps.data.y2018.number_2 }}
+                    </div>
+                </template>
+            </Column>
+
+            <Column field="y2019" header="2019">
+                <template #body="slotProps">
+                    <div>
+                        {{ slotProps.data.y2019.number_1 }}
+                    </div>
+                    <div>
+                        {{ slotProps.data.y2019.number_2 }}
+                    </div>
+                </template>
+            </Column>
+
+            <Column field="y2020" header="2020">
+                <template #body="slotProps">
+                    <div>
+                        {{ slotProps.data.y2020.number_1 }}
+                    </div>
+                    <div>
+                        {{ slotProps.data.y2020.number_2 }}
+                    </div>
+                </template>
+            </Column>
+
+            <Column field="y2021" header="2021">
+                <template #body="slotProps">
+                    <div>
+                        {{ slotProps.data.y2021.number_1 }}
+                    </div>
+                    <div>
+                        {{ slotProps.data.y2021.number_2 }}
+                    </div>
+                </template>
+            </Column>
+<!--                <div v-for="(item, idx) in tepHeader" :key="idx">-->
+<!--                    <Column :field="item.field" :header="item.header">-->
+<!--                        <template v-if="item.field.hasOwnProperty('unit')" #body="slotProps">-->
+<!--                            <div>-->
+<!--                                {{ slotProps.data.unit.name_1 }}-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                {{ slotProps.data.unit.name_2 }}-->
+<!--                            </div>-->
+<!--                        </template>-->
+
+<!--                        <template v-if="item.field.hasOwnProperty('y20')" #body="slotProps">-->
+<!--                            <div>-->
+<!--                                {{ slotProps.data.y2017.number_1 }}-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                {{ slotProps.data.y2017.number_2 }}-->
+<!--                            </div>-->
+<!--                        </template>-->
+<!--                    </Column>-->
+<!--                </div>-->
             </DataTable>
 
     </div>
