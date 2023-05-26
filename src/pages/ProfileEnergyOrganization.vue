@@ -7,7 +7,7 @@ const items = reactive([
     {
         label: 'Дэшборды',
         icon: 'pi pi-fw pi-home',
-        to: '/profile'
+        to: '/profile/dashboard'
     },
     {
         label: 'Цифровой паспорт',

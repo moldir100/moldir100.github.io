@@ -1,7 +1,9 @@
 <script setup>
 
 import Chart from 'primevue/chart';
-import {computed, reactive, ref} from 'vue'
+import {computed, onMounted, reactive, ref} from 'vue'
+import { verticalBar, doughnut, setChartOptions } from '@/models/charts/setChart'
+
 
 const technicalEconomicIndicators = reactive([
     {
@@ -638,6 +640,7 @@ const thermalEnergyTariff = reactive([
     }
 ])
 
+// header таблицы
 const teps = reactive([
     {
         id: 1,
@@ -681,63 +684,6 @@ const teps = reactive([
     }
 ])
 
-// графика charts
-const chartOptions = reactive({
-    responsive: true,
-    stacked: true,
-})
-
-const chartDataElectric = reactive({
-    labels: [ '2019', '2020', '2021', '2022'],
-    datasets: [
-        {
-            label: 'План (млн.тенге)',
-            backgroundColor: '#3b82f6',
-            data: [1212190, 993166, 1833819.396, 1356209]
-        },
-        {
-            label: 'Факт (млн.тенге)',
-            backgroundColor: '#e9b308',
-            data: [1212190, 993166, 1833819.396, 1356209]
-        },
-    ],
-
-})
-const chartDataDoughnutElectric = reactive({
-    labels: ['2019', '2020', '2021', '2022'],
-    datasets: [
-        {
-            backgroundColor: ['#23c560', '#e9b308', '#3b82f6', '#fe3e32'],
-            data: [49, 76, 64, 0]
-        }
-    ]
-})
-
-const chartDataThermo = reactive({
-    labels: [ '2019', '2020', '2021', '2022'],
-    datasets: [
-        {
-            label: 'План (млн.тенге)',
-            backgroundColor: '#3b82f6',
-            data: [1414303, 774162, 1059965, 1700589]
-        },
-        {
-            label: 'Факт (млн.тенге)',
-            backgroundColor: '#e9b308',
-            data: [1416578, 779191, 1064561, 0]
-        },
-    ],
-
-})
-const chartDataDoughnutThermo = reactive({
-    labels: ['2019', '2020', '2021', '2022'],
-    datasets: [
-        {
-            backgroundColor: ['#23c560', '#e9b308', '#3b82f6', '#fe3e32'],
-            data: [26, 7, 5, 0]
-        }
-    ]
-})
 
 //onClick readMore button
 const technicalEconomicIndicatorsSorted = computed(() => {
@@ -773,6 +719,56 @@ const toggle = function (){
     if (isClicked.value) active.value = 1
     else active.value = 0
 }
+
+
+onMounted(() => {
+    chartData.value = verticalBar(chart)
+    chartData2.value = doughnut(chart)
+    chartData3.value = verticalBar(chart2)
+    chartData4.value = doughnut(chart2)
+    chartOptions.value = setChartOptions()
+})
+
+const chartData = ref()
+const chartData2 = ref()
+const chartData3 = ref()
+const chartData4 = ref()
+const chartOptions = ref()
+
+let chart = reactive({
+    labels: [2019, 2020, 2021, 2022],
+    data: [
+        {
+            label: 'План (млн. тенге)',
+            color: 'blue',
+            data: [1212190, 993166, 1833819, 1356209]
+        },
+        {
+            label: 'Факт (млн. тенге)',
+            color: 'yellow',
+            data: [1212190, 993166, 1833819, 1356209]
+        }
+    ],
+    data2: [49, 76, 64, 0]
+})
+
+let chart2 = reactive({
+    labels: [2019, 2020, 2021, 2022],
+    data: [
+        {
+            label: 'План (млн. тенге)',
+            color: 'blue',
+            data: [1414303, 774162, 1059965, 1700589]
+        },
+        {
+            label: 'Факт (млн. тенге)',
+            color: 'yellow',
+            data: [1416578, 779191, 1064561, 0]
+        }
+    ],
+    data2: [26, 7, 5, 0]
+})
+
 </script>
 <template>
     <!-- Краткая справка -->
@@ -974,15 +970,14 @@ const toggle = function (){
             <h6 class="mr-7">Освоено:</h6>
         </div>
 
-        <div class="flex justify-content-around">
-            <div class="col-12 lg:col-8">
-                <Chart type="bar" :data="chartDataElectric" :options="chartOptions" class="w-full h-30rem"  />
+        <div class="flex  justify-content-around border-round-lg p-4 bg-white">
+            <div class=" lg:col-8">
+                <Chart type="bar" :data="chartData" :options="chartOptions" class=" h-30rem" />
             </div>
-            <div class="col-12 lg:col-4">
-                <Chart type="doughnut" :data="chartDataDoughnutElectric" :options="chartOptions" class="w-full h-30rem" />
+            <div class=" lg:col-4">
+                <Chart type="doughnut" :data="chartData2" :options="chartOptions" class=" h-30rem " />
             </div>
         </div>
-
     </div>
   <!-- Инвестиционная программа -->
 
@@ -994,18 +989,17 @@ const toggle = function (){
             <h6 class="mr-7">Освоено:</h6>
         </div>
 
-        <div class="flex">
-            <div class="col-12 lg:col-8">
-                <Chart type="bar" :data="chartDataThermo" :options="chartOptions" class="w-full h-30rem" />
+        <div class="flex  justify-content-around border-round-lg p-4 bg-white">
+            <div class=" lg:col-8">
+                <Chart type="bar" :data="chartData3" :options="chartOptions" class=" h-30rem" />
             </div>
-            <div class="col-12 lg:col-4">
-                <Chart type="doughnut" :data="chartDataDoughnutThermo" :options="chartOptions" class="w-full h-30rem"  />
+            <div class=" lg:col-4">
+                <Chart type="doughnut" :data="chartData4" :options="chartOptions" class=" h-30rem " />
             </div>
         </div>
-
-
     </div>
   <!-- Инвестиционная программа -->
+
 
 </template>
 

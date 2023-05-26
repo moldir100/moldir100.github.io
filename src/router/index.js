@@ -37,7 +37,7 @@ const router = createRouter({
                     component: ProfileEnergyOrganization,
                     children: [
                         {
-                            path: '/profile',
+                            path: '/profile/dashboard',
                             name: 'dashboardProfile',
                             component: () => import('@/components/base/energyOrganization/Dashboard.vue'),
                         },

@@ -4,7 +4,6 @@ import {ref} from "vue";
 const panelMenuItems = ref([
     {
         label: 'Общие сведения ЭПО',
-        // icon: 'pi pi-fw pi-table',
         to: '/profile/digitalPassport',
     },
     {
@@ -14,155 +13,43 @@ const panelMenuItems = ref([
     },
     {
         label: 'Тарифы',
-        icon: 'pi pi-fw pi-envelope',
-        items: [
-            {
-                label: 'Tracker',
-                icon: 'pi pi-fw pi-compass'
-            },
-            {
-                label: 'Map',
-                icon: 'pi pi-fw pi-map-marker'
-            },
-            {
-                label: 'Manage',
-                icon: 'pi pi-fw pi-pencil'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Организационная структура',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Мощности цеха, участки',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Описание основ.оборуд',
-        icon: 'pi pi-fw pi-envelope',
-        items: [
-            {
-                label: 'Tracker',
-                icon: 'pi pi-fw pi-compass'
-            },
-            {
-                label: 'Map',
-                icon: 'pi pi-fw pi-map-marker'
-            },
-            {
-                label: 'Manage',
-                icon: 'pi pi-fw pi-pencil'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Продление сроков, выбытие',
-        icon: 'pi pi-fw pi-envelope',
-        items: [
-            {
-                label: 'Tracker',
-                icon: 'pi pi-fw pi-compass'
-            },
-            {
-                label: 'Map',
-                icon: 'pi pi-fw pi-map-marker'
-            },
-            {
-                label: 'Manage',
-                icon: 'pi pi-fw pi-pencil'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Ремонтная работа',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Инвестиционная программа',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Потребители',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Информация по выбросам',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
     {
         label: 'Дополнительная информация',
-        icon: 'pi pi-fw pi-user',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
-            },
-            {
-                label: 'Billing',
-                icon: 'pi pi-fw pi-file'
-            }
-        ]
+        to: ''
     },
 ]);
 </script>
@@ -170,12 +57,10 @@ const panelMenuItems = ref([
 <template>
     <div>
         <div class="grid">
-            <div class="col-12 md:col-3 lg:col-3">
-                <div class="card">
-                    <PanelMenu :model="panelMenuItems"/>
-                </div>
+            <div class="col-12  lg:col-2">
+                <PanelMenu :model="panelMenuItems"/>
             </div>
-            <div class="col-12 md:col-9 lg:col-9">
+            <div class="col-12 md:col-9 lg:col-10">
                 <router-view></router-view>
             </div>
         </div>
