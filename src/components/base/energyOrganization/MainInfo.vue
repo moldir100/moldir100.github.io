@@ -190,7 +190,6 @@ const inputItemsMainInfo = ref([
 
 <template>
     <!--        паспортные данные-->
-
     <div class="grid pt-3 pr-3">
         <div class="card">
             <h5>Паспортные данные</h5>
@@ -295,6 +294,22 @@ const inputItemsMainInfo = ref([
             <a href="">Акт.ремонтных работ.pdf</a>
         </div>
     </div>
+    </div>
+<!--    Основное оборудование-->
+    <div class="grid pt-3 pr-3">
+        <div class="card mt-3">
+            <h5>Основное оборудование</h5>
+
+            <Button icon="pi pi-plus" severity="info" aria-label="Filter" />
+            <Button icon="pi pi-pencil" class="ml-3" severity="warning" aria-label="Bookmark" />
+            <Button icon="pi pi-times" class="ml-3" severity="danger" aria-label="Search" />
+
+            <div class="grid">
+                <div class="col-4" v-for="item in inputItemsPassport" :key="item.id">
+                    <InputLabel :label="item.label" :type="item.type" :items="item.items" />
+                </div>
+            </div>
+        </div>
     </div>
 
 </template>

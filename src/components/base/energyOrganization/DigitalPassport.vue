@@ -55,16 +55,16 @@ const panelMenuItems = ref([
 </script>
 
 <template>
-    <div>
         <div class="grid">
+
             <div class="col-12  lg:col-2">
-                <PanelMenu :model="panelMenuItems"/>
+<!--                <Menu class="w-full" :model="panelMenuItems" />-->
+                <PanelMenu class="card p-2" :model="panelMenuItems"/>
             </div>
-            <div class="col-12 md:col-9 lg:col-10">
+            <div class="col-12 lg:col-10 md:col-9">
                 <router-view></router-view>
             </div>
         </div>
-    </div>
 
 </template>
 
