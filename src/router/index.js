@@ -55,20 +55,11 @@ const router = createRouter({
                                     path: '/profile/digitalPassport/tep',
                                     name: 'tep',
                                     component: () => import('@/components/base/energyOrganization/Tep.vue'),
-                                    children: [
-                                        {
-                                            path: '/profile/digitalPassport/tep',
-                                            component: () => import('@/components/base/energyOrganization/tep/All.vue')
-                                        },
-                                        {
-                                            path: '/profile/digitalPassport/tep/positive',
-                                            component: () => import('@/components/base/energyOrganization/tep/Positive.vue')
-                                        },
-                                        {
-                                            path: '/profile/digitalPassport/tep/negative',
-                                            component: () => import('@/components/base/energyOrganization/tep/Negative.vue')
-                                        },
-                                    ]
+                                },
+                                {
+                                    path: '/profile/digitalPassport/tariffs',
+                                    name: 'tariffs',
+                                    component: () => import('@/components/base/energyOrganization/Tariffs.vue'),
                                 },
                             ]
                         },

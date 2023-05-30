@@ -62,6 +62,7 @@ const items = reactive([
                         <p>Бин: 041140002811</p>
                         <p>Ссылка: https://astana-energy.kz/</p>
                         <p>Дата последнего изменения данных: 20.08.2022 13:23:00</p>
+                        <p>Предмет деятельности согласно Устава:  Производство тепловой и электрической энергии.</p>
                     </div>
                     <div class="">
                         <Button class="bg-blue-900 border-blue-900 h-3rem mt-4 mr-4" label="Скачать PDF" icon="pi pi-file-pdf" />

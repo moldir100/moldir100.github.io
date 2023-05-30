@@ -6,14 +6,13 @@ const panelMenuItems = ref([
         label: 'Общие сведения ЭПО',
         to: '/profile/digitalPassport',
     },
-    // {
-    //     label: 'ТЭП',
-    //     // icon: 'pi pi-fw pi-table',
-    //     to: '/profile/digitalPassport/tep'
-    // },
+    {
+        label: 'ТЭП',
+        to: '/profile/digitalPassport/tep'
+    },
     {
         label: 'Тарифы',
-        to: ''
+        to: '/profile/digitalPassport/tariffs'
     },
     {
         label: 'Организационная структура',
@@ -59,7 +58,7 @@ const panelMenuItems = ref([
 
             <div class="col-12  lg:col-2">
 <!--                <Menu class="w-full" :model="panelMenuItems" />-->
-                <PanelMenu class="card p-2" :model="panelMenuItems"/>
+                <PanelMenu class="border-round-lg bg-white p-2" :model="panelMenuItems"/>
             </div>
             <div class="col-12 lg:col-10">
                 <router-view></router-view>
