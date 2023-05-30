@@ -12,8 +12,7 @@ const checked = ref(false);
 </script>
 
 <template>
-    <div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
-        <div class="flex flex-column align-items-center justify-content-center">
+        <div class="surface-ground flex flex-column align-items-center justify-content-center py-8">
             <div class="mb-5">
                 <svg width="181" height="58" viewBox="0 0 181 58" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect y="0.5" width="181" height="57" fill="url(#pattern0)"/>
@@ -56,7 +55,6 @@ const checked = ref(false);
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <style scoped>

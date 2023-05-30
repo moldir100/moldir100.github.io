@@ -108,8 +108,7 @@ import '@/assets/styles.scss';
 import Vinput from "@/components/UI/Vinput.vue";
 import CardMain from "@/components/base/CardMain.vue";
 
-
-
+import Editor from 'primevue/editor'
 
 const app = createApp(App);
 
@@ -127,6 +126,7 @@ app.directive('styleclass', StyleClass);
 
 app.component('CodeHighlight', CodeHighlight);
 app.component('BlockViewer', BlockViewer);
+app.component('Editor', Editor);
 
 app.component('V-input', Vinput)
 app.component('CardMain', CardMain)
