@@ -272,6 +272,10 @@ const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
 }
 
+const measureIndicator  = reactive([
+    'МВт', 'Гкал', 'млн.кВтч', 'тыс. Гкал', '%'
+])
+
 </script>
 
 
@@ -289,16 +293,16 @@ const formatCurrency = (value) => {
                             <InputText v-model="data[field]" />
                         </template>
                     </Column>
-                    <Column field="name_indicators" header="Наименование показателей" style="width: 20%">
+                    <Column field="name_indicators" header="Наименование показателей" >
                         <template #editor="{ data, field }">
                             <InputText v-model="data[field]" />
                         </template>
                     </Column>
-                    <Column field="unit" header="Ед. изм." style="width: 20%">
+                    <Column field="unit" header="Ед. изм." >
                         <template #editor="{ data, field }">
-                            <Dropdown v-model="data[field]" :options="statuses" optionLabel="label" optionValue="value" placeholder="Select a Status">
+                            <Dropdown v-model="data[field]" :options="measureIndicator" optionLabel="label" optionValue="value" placeholder="Select a Status">
                                 <template #option="slotProps">
-                                    <Tag :value="slotProps.option.value" :severity="getStatusLabel(slotProps.option.value)" />
+                                    <Tag :value="slotProps" :severity="getStatusLabel(slotProps.option.value)" />
                                 </template>
                             </Dropdown>
                         </template>
@@ -329,7 +333,7 @@ const formatCurrency = (value) => {
                             <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
-                    <Column :rowEditor="true" style="width: 10%; min-width: 8rem" bodyStyle="text-align:center"></Column>
+                    <Column :rowEditor="true" bodyStyle="text-align:center"></Column>
                 </DataTable>
 
                 <Button class="btn w-1 bg-blue-900 border-blue-900 mt-3"> Создать </Button>

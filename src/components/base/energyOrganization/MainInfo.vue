@@ -341,11 +341,13 @@ const company = ref([
         id:1,
         type: 'textArea',
         label: 'Наименование области',
+        value:'123'
     },
     {
         id: 2,
         type: 'textArea',
         label: 'Наименование города',
+        value: ''
     },
 ])
 
@@ -453,10 +455,11 @@ const valueFour = ref('<p>В 2013 году была выполнена моде�
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12">
                 <h5>Компания осуществляет производство электрической и тепловой энергии для потребителей</h5>
-                <div class="flex flex-row" >
-                    <div class="col-3 pb-1 pt-0" v-for="c in company" :key="c.id">
+                <div class="grid flex flex-column lg:flex-row md:flex-row mt-3" >
+                    <div class="col-12 lg:col-4 md:col-6 pb-1 pt-0" v-for="c in company" :key="c.id">
                         <h6>{{c.label}}</h6>
-                        <InputLabel  :label="c.label" :type="c.type"></InputLabel>
+                        <InputLabel  v-model="c.value" :label="c.label" :type="c.type"></InputLabel>
+                        <InlineMessage v-if="c.value === ''" class="h-1rem">Username is required</InlineMessage>
                     </div>
                 </div>
             </div>
