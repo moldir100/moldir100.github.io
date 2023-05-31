@@ -1,4 +1,5 @@
 <script>
+
 export default {
     name: "InputLabel",
     props:{
@@ -7,6 +8,9 @@ export default {
         items: Object,
         style: String,
         placeholder: String,
+        view: String,
+        dateFormat: String,
+        data: String
     },
     setup(){
         function updateValue(value) {
@@ -41,8 +45,10 @@ export default {
 
         <div v-if="type==='date'">
             <div class="p-float-label">
-                <Calendar v-model="date" showIcon  class="w-full"/>
+                <Calendar :view="view" :dateFormat="dateFormat"  :value="data"
+                          @input="$emit('update:data', $event.target.value)" showIcon  class="w-full"/>
                 <label for="dd-city">{{label}}</label>
+                {{data}}
             </div>
         </div>
 

@@ -684,7 +684,6 @@ const teps = reactive([
     }
 ])
 
-
 //onClick readMore button
 const technicalEconomicIndicatorsSorted = computed(() => {
     if(showMore.value === false){
@@ -849,28 +848,6 @@ let nestedRouteItems = ref([
     </div>
   <!-- ТЭП -->
 
-    <!-- ТЭП -->
-<!--    <div class=" border-round-lg p-4 bg-white mt-3">-->
-<!--        <div class="flex flex-row justify-content-between ">-->
-<!--            <div  class="flex">-->
-<!--                <h4 class="m-auto">Технико - экономические показатели</h4>-->
-<!--            </div>-->
-<!--            <router-link to="">-->
-<!--                <button @click="hidden =! hidden"  class="seeAll btn btn-outline-secondary" label="Activate 1st">Посметреть все-->
-<!--                    <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                        <path d="M1.5 1.16683L7.33333 7.00016L1.5 12.8335" stroke="#152957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
-<!--                    </svg>-->
-<!--                </button>-->
-<!--            </router-link>-->
-<!--        </div>-->
-
-
-<!--        <DataTable class="mt-3" :class="{hidden: hidden}" showGridlines :value="technicalEconomicIndicators">-->
-<!--            <Column v-for="tep in teps" :key="tep.id" :field="tep.field" :header="tep.header" />-->
-<!--        </DataTable>-->
-
-<!--    </div>-->
-    <!-- ТЭП -->
 
   <!-- Паспортные данные -->
     <div class=" border-round-lg p-4 bg-white mt-3">
@@ -1035,6 +1012,22 @@ let nestedRouteItems = ref([
     </div>
   <!-- Инвестиционная программа -->
 
+    <div class=" border-round-lg p-4 bg-white mt-3">
+
+        <div class="flex justify-content-between m-0">
+            <h6>Инвестиционная программа по тепловой энергии:</h6>
+            <h6 class="mr-7">Освоено:</h6>
+        </div>
+
+        <div class="flex  justify-content-around border-round-lg p-4 bg-white">
+            <div class=" lg:col-8">
+                <Chart type="bar" :data="chartData3" :options="chartOptions" class=" h-30rem" />
+            </div>
+            <div class=" lg:col-4">
+                <Chart type="doughnut" :data="chartData4" :options="chartOptions" class=" h-30rem " />
+            </div>
+        </div>
+    </div>
 
 </template>
 

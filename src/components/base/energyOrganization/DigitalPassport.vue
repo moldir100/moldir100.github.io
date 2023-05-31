@@ -58,13 +58,16 @@ const panelMenuItems = ref([
 
             <div class="col-12  lg:col-2">
 <!--                <Menu class="w-full" :model="panelMenuItems" />-->
+
+<!--                <div>-->
+<!--                    <Button class="w-full mb-3 bg-green-500 border-green-500 text-center">Сохранить все</Button>-->
+<!--                </div>-->
                 <PanelMenu class="border-round-lg bg-white p-2" :model="panelMenuItems"/>
             </div>
             <div class="col-12 lg:col-10">
                 <router-view></router-view>
             </div>
         </div>
-
 </template>
 
 

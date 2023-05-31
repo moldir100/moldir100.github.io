@@ -1,6 +1,7 @@
 <script setup>
 import {ref, onMounted, reactive} from 'vue';
 import ProductService from '@/service/ProductService.js';
+import InputLabel from "@/components/UI/Vinput.vue";
 
 const products = ref();
 const editingRows = ref([]);
@@ -276,6 +277,126 @@ const measureIndicator  = reactive([
     'МВт', 'Гкал', 'млн.кВтч', 'тыс. Гкал', '%'
 ])
 
+const teps = reactive([
+    {
+        id: 1,
+        field: 'number',
+        header: '№'
+    },
+    {
+        id: 2,
+        field: 'name_indicators',
+        header: 'Наименование показателей'
+    },
+    {
+        id: 3,
+        field: 'unit',
+        header: 'Ед. изм.'
+    },
+    {
+        id: 4,
+        field: 'y2017',
+        header: '2017'
+    },
+    {
+        id: 5,
+        field: 'y2018',
+        header: '2018'
+    },
+    {
+        id: 6,
+        field: 'y2019',
+        header: '2019'
+    },
+    {
+        id: 7,
+        field: 'y2020',
+        header: '2020'
+    },
+    {
+        id: 8,
+        field: 'y2021',
+        header: '2021'
+    }
+])
+
+const visible = ref(false)
+
+const addTep = ref([
+    {
+        id: 1,
+        name: 'Наименование показателей',
+        style: 'lg:col-4',
+        items: [
+            {
+                id:1,
+                type: 'input',
+                label: 'Полное название ЭПО',
+            },
+        ]
+    },
+    {
+        id: 2,
+        name: 'Год',
+        style: 'lg:col-4',
+        items: [
+            {
+                id:1,
+                type: 'date',
+                label: 'Полное название ЭПО',
+                dateFormat: 'yy',
+                view:'year',
+                data: '123'
+            },
+            {
+                id: 2,
+                type: 'input',
+                label: 'Значение',
+                dateFormat: 'yy',
+                view:'year',
+                data: ''
+            },
+        ]
+    },
+]);
+
+let addRow = function (){
+    addTep.value.push({
+        id: 3,
+        name: 'Год',
+        style: 'lg:col-4',
+        items: [
+            {
+                id:1,
+                type: 'date',
+                label: 'Полное название ЭПО',
+                dateFormat: 'yy',
+                view:'year',
+                data: '123'
+            },
+            {
+                id: 2,
+                type: 'input',
+                label: 'Значение',
+                dateFormat: 'yy',
+                view:'year',
+                data: ''
+            },
+        ]
+    })
+}
+
+let dropRow = function (item){
+    addTep.value.slice(2, 1)
+    // const index = addTep.value.findIndex((tep) => tep.id === i.id )
+    //
+    // if(index > -1){
+    //     console.log(index)
+    //     console.log(i)
+    //     addTep.value.slice(index, 1)
+    // }
+
+}
 </script>
 
 
@@ -286,57 +407,42 @@ const measureIndicator  = reactive([
             <div class="col-12 flex flex-column">
                 <h5>Технико - экономические показатели</h5>
 
-                <DataTable v-model:editingRows="editingRows" :value="technicalEconomicIndicators" editMode="row" dataKey="id"
+                <DataTable scrollable scrollHeight="490px" v-model:editingRows="editingRows" :value="technicalEconomicIndicators" editMode="row" dataKey="id"
                            @row-edit-save="onRowEditSave" tableClass="editable-cells-table" >
-                    <Column field="number" header="№ п/п">
+                    <Column v-for="tep in teps" :key="tep.id" :field="tep.field" :header="tep.header">
                         <template #editor="{ data, field }">
                             <InputText v-model="data[field]" />
-                        </template>
-                    </Column>
-                    <Column field="name_indicators" header="Наименование показателей" >
-                        <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
-                        </template>
-                    </Column>
-                    <Column field="unit" header="Ед. изм." >
-                        <template #editor="{ data, field }">
-                            <Dropdown v-model="data[field]" :options="measureIndicator" optionLabel="label" optionValue="value" placeholder="Select a Status">
-                                <template #option="slotProps">
-                                    <Tag :value="slotProps" :severity="getStatusLabel(slotProps.option.value)" />
-                                </template>
-                            </Dropdown>
-                        </template>
-                        <template #body="slotProps">
-                            <Tag :value="slotProps.data.inventoryStatus" :severity="getStatusLabel(slotProps.data.inventoryStatus)" />
-                        </template>
-                    </Column>
-                    <Column field="y2017" header="2017">
-                        <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
-                        </template>
-                    </Column>
-                    <Column field="y2018" header="2018">
-                        <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
-                        </template>
-                    </Column>
-                    <Column field="y2019" header="2019">
-                        <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
-                        </template>
-                    </Column>
-                    <Column field="y2020" header="2020">
-                        <template #body="{ data, field }">
-                            {{ formatCurrency(data[field]) }}
-                        </template>
-                        <template #editor="{ data, field }">
-                            <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
                     <Column :rowEditor="true" bodyStyle="text-align:center"></Column>
                 </DataTable>
 
-                <Button class="btn w-1 bg-blue-900 border-blue-900 mt-3"> Создать </Button>
+                <Button class="btn w-1 bg-blue-900 border-blue-900 mt-3 w-2 text-center" label="Show" icon="pi pi-external-link" @click="visible = true"> Создать </Button>
+
+                <Dialog v-model:visible="visible" modal header="Создать строку" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '641px': '100vw' }">
+                    <div class="grid" v-for="item in addTep" :key="item.id">
+                        <div class="col-12 text-left mt-2 pb-0"><h6>{{item.name}}</h6></div>
+                        <div class="col-12 grid pb-1 pt-0" v-if="item.items.length">
+                            <div  :class='item.style' class="col-12 lg:col-4 md:col-6  pb-0" v-for="i in item.items" :key="i.id">
+                                <InputLabel v-model="i.data" :view="i.view" :dateFormat="i.dateFormat" :label="i.label" :type="i.type" :items="i.items" />
+                            </div>
+                            <Button v-if="item.id !== 1" class="bg-red-500 border-red-300 h-2rem flex align-middle" label="" icon="pi pi-times" @click="dropRow(item)" autofocus />
+                        </div>
+<!--                        <div class="col-12 grid pb-1 pt-0">-->
+<!--                            <div  :class='item.style' class="col-12 lg:col-4 md:col-6  pb-0" v-for="i in item.items" :key="i.id">-->
+<!--                                <InputLabel v-model="i.data" :view="i.view" :dateFormat="i.dateFormat" :label="i.label" :type="i.type" :items="i.items" />-->
+<!--                            </div>-->
+<!--                            <Button v-if="item.id !== 1" class="bg-red-500 border-red-300 h-2rem" label="" icon="pi pi-times" @click="dropRow()" autofocus />-->
+<!--                        </div>-->
+                    </div>
+                    <Button class="bg-blue-500 border-blue-500" label="" icon="pi pi-plus" @click="addRow()" autofocus />
+
+                    <template #footer>
+                        <Button class="bg-blue-900 border-blue-900" label="Отменить" icon="pi pi-times" @click="visible = false" autofocus />
+                        <Button class="bg-blue-900 border-blue-900" label="Сохранить" icon="pi pi-check" @click="visible = false" autofocus />
+                    </template>
+                </Dialog>
+
             </div>
         </div>
     </div>
