@@ -1,23 +1,34 @@
-<script>
+<script setup>
+defineProps({
+    label: String,
+    type: String,
+    items: Object,
+    style: String,
+    placeholder: String,
+    view: String,
+    dateFormat: String,
+    data: String,
+})
 
-export default {
-    name: "InputLabel",
-    props:{
-        label: String,
-        type: String,
-        items: Object,
-        style: String,
-        placeholder: String,
-        view: String,
-        dateFormat: String,
-        data: String
-    },
-    setup(){
-        function updateValue(value) {
-            this.$emit("passData", { value: value });
-        }
-    }
-}
+
+//export default {
+//    name: "InputLabel",
+//    props:{
+//        label: String,
+//        type: String,
+//        items: Object,
+//        style: String,
+//        placeholder: String,
+//        view: String,
+//        dateFormat: String,
+//        data: String,
+//    },
+//    setup(){
+//        function updateValue(value) {
+//            this.$emit("passData", { value: value });
+//        }
+//    }
+//}
 </script>
 
 
@@ -36,11 +47,9 @@ export default {
 
         <div v-if="type==='select'">
             <div class="p-float-label">
-                <Dropdown v-model="selectedCity" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
+                <Dropdown v-model="selected" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
                 <label for="dd-city">{{label}}</label>
             </div>
-<!--            <label for="email1" class="block text-900 text-base font-medium mb-2">{{ label }}</label>-->
-<!--            <Dropdown class="w-full lg:w-12 md:w-12 sm:w-100 p-inputtext-sm" id="state" v-model="items.name" :options="items" optionLabel="name" placeholder="Выберите..."></Dropdown>-->
         </div>
 
         <div v-if="type==='date'">
@@ -54,7 +63,7 @@ export default {
 
         <div v-if="type==='textArea'">
             <div class="p-float-label">
-                <Textarea v-model="value" rows="5" cols="30" class="w-full" />
+                <Textarea v-model="selected" rows="5" cols="30" class="w-full" />
                 <label for="dd-city">{{label}}</label>
             </div>
         </div>

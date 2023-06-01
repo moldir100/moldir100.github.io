@@ -320,83 +320,6 @@ const teps = reactive([
     }
 ])
 
-const visible = ref(false)
-
-const addTep = ref([
-    {
-        id: 1,
-        name: 'Наименование показателей',
-        style: 'lg:col-4',
-        items: [
-            {
-                id:1,
-                type: 'input',
-                label: 'Полное название ЭПО',
-            },
-        ]
-    },
-    {
-        id: 2,
-        name: 'Год',
-        style: 'lg:col-4',
-        items: [
-            {
-                id:1,
-                type: 'date',
-                label: 'Полное название ЭПО',
-                dateFormat: 'yy',
-                view:'year',
-                data: '123'
-            },
-            {
-                id: 2,
-                type: 'input',
-                label: 'Значение',
-                dateFormat: 'yy',
-                view:'year',
-                data: ''
-            },
-        ]
-    },
-]);
-
-let addRow = function (){
-    addTep.value.push({
-        id: 3,
-        name: 'Год',
-        style: 'lg:col-4',
-        items: [
-            {
-                id:1,
-                type: 'date',
-                label: 'Полное название ЭПО',
-                dateFormat: 'yy',
-                view:'year',
-                data: '123'
-            },
-            {
-                id: 2,
-                type: 'input',
-                label: 'Значение',
-                dateFormat: 'yy',
-                view:'year',
-                data: ''
-            },
-        ]
-    })
-}
-
-let dropRow = function (item){
-    addTep.value.slice(2, 1)
-    // const index = addTep.value.findIndex((tep) => tep.id === i.id )
-    //
-    // if(index > -1){
-    //     console.log(index)
-    //     console.log(i)
-    //     addTep.value.slice(index, 1)
-    // }
-
-}
 </script>
 
 
@@ -407,7 +330,7 @@ let dropRow = function (item){
             <div class="col-12 flex flex-column">
                 <h5>Технико - экономические показатели</h5>
 
-                <DataTable scrollable scrollHeight="490px" v-model:editingRows="editingRows" :value="technicalEconomicIndicators" editMode="row" dataKey="id"
+                <DataTable scrollable  v-model:editingRows="editingRows" :value="technicalEconomicIndicators" editMode="row" dataKey="id"
                            @row-edit-save="onRowEditSave" tableClass="editable-cells-table" >
                     <Column v-for="tep in teps" :key="tep.id" :field="tep.field" :header="tep.header">
                         <template #editor="{ data, field }">
@@ -416,32 +339,6 @@ let dropRow = function (item){
                     </Column>
                     <Column :rowEditor="true" bodyStyle="text-align:center"></Column>
                 </DataTable>
-
-                <Button class="btn w-1 bg-blue-900 border-blue-900 mt-3 w-2 text-center" label="Show" icon="pi pi-external-link" @click="visible = true"> Создать </Button>
-
-                <Dialog v-model:visible="visible" modal header="Создать строку" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '641px': '100vw' }">
-                    <div class="grid" v-for="item in addTep" :key="item.id">
-                        <div class="col-12 text-left mt-2 pb-0"><h6>{{item.name}}</h6></div>
-                        <div class="col-12 grid pb-1 pt-0" v-if="item.items.length">
-                            <div  :class='item.style' class="col-12 lg:col-4 md:col-6  pb-0" v-for="i in item.items" :key="i.id">
-                                <InputLabel v-model="i.data" :view="i.view" :dateFormat="i.dateFormat" :label="i.label" :type="i.type" :items="i.items" />
-                            </div>
-                            <Button v-if="item.id !== 1" class="bg-red-500 border-red-300 h-2rem flex align-middle" label="" icon="pi pi-times" @click="dropRow(item)" autofocus />
-                        </div>
-<!--                        <div class="col-12 grid pb-1 pt-0">-->
-<!--                            <div  :class='item.style' class="col-12 lg:col-4 md:col-6  pb-0" v-for="i in item.items" :key="i.id">-->
-<!--                                <InputLabel v-model="i.data" :view="i.view" :dateFormat="i.dateFormat" :label="i.label" :type="i.type" :items="i.items" />-->
-<!--                            </div>-->
-<!--                            <Button v-if="item.id !== 1" class="bg-red-500 border-red-300 h-2rem" label="" icon="pi pi-times" @click="dropRow()" autofocus />-->
-<!--                        </div>-->
-                    </div>
-                    <Button class="bg-blue-500 border-blue-500" label="" icon="pi pi-plus" @click="addRow()" autofocus />
-
-                    <template #footer>
-                        <Button class="bg-blue-900 border-blue-900" label="Отменить" icon="pi pi-times" @click="visible = false" autofocus />
-                        <Button class="bg-blue-900 border-blue-900" label="Сохранить" icon="pi pi-check" @click="visible = false" autofocus />
-                    </template>
-                </Dialog>
 
             </div>
         </div>

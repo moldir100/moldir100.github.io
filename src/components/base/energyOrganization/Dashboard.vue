@@ -719,7 +719,6 @@ const toggle = function (){
     else active.value = 0
 }
 
-
 onMounted(() => {
     chartData.value = verticalBar(chart)
     chartData2.value = doughnut(chart)
@@ -786,9 +785,404 @@ let nestedRouteItems = ref([
     },
 ]);
 
+const allData = ref([
+    {
+    key: '0',
+    type: 'country',
+    label: 'Цех имени Айбола',
+    data: 'ar',
+    children: [
+        {
+            key: '0_0',
+            type: 'country',
+            label: 'Argentina',
+            data: 'ar',
+            children: [
+                {
+                    key: '0_0_0',
+                    type: 'country',
+                    label: 'Argentina',
+                    data: 'ar'
+                },
+                {
+                    key: '0_0_1',
+                    type: 'country',
+                    label: 'Croatia',
+                    data: 'hr'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'country',
+            label: 'France',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0',
+                    type: 'country',
+                    label: 'France',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1',
+                    type: 'country',
+                    label: 'Morocco',
+                    data: 'ma'
+                }
+            ]
+        },
+        {
+            key: '0_2',
+            type: 'country',
+            label: 'France',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0',
+                    type: 'country',
+                    label: 'France',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1',
+                    type: 'country',
+                    label: 'Morocco',
+                    data: 'ma'
+                }
+            ]
+        },
+        {
+            key: '0_3',
+            type: 'country',
+            label: 'France',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0',
+                    type: 'country',
+                    label: 'France',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1',
+                    type: 'country',
+                    label: 'Morocco',
+                    data: 'ma'
+                },
+            ]
+        },
+        {
+            key: '0_4',
+            type: 'country',
+            label: 'France',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0',
+                    type: 'country',
+                    label: 'France',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1',
+                    type: 'country',
+                    label: 'Morocco',
+                    data: 'ma'
+                }
+            ]
+        },
+    ]
+    },
+    {
+        key: '1',
+        type: 'country',
+        label: 'Kazakhstan',
+        data: 'ar',
+        children: [
+            {
+                key: '0_0',
+                type: 'country',
+                label: 'Argentina',
+                data: 'ar',
+                children: [
+                    {
+                        key: '0_0_0',
+                        type: 'country',
+                        label: 'Argentina',
+                        data: 'ar'
+                    },
+                    {
+                        key: '0_0_1',
+                        type: 'country',
+                        label: 'Croatia',
+                        data: 'hr'
+                    }
+                ]
+            },
+            {
+                key: '0_1',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    }
+                ]
+            },
+            {
+                key: '0_2',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    }
+                ]
+            },
+            {
+                key: '0_3',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    },
+                ]
+            },
+            {
+                key: '0_4',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        key: '3',
+        type: 'country',
+        label: 'Цех 3',
+        data: 'ar',
+        children: [
+            {
+                key: '0_0',
+                type: 'country',
+                label: 'Argentina',
+                data: 'ar',
+                children: [
+                    {
+                        key: '0_0_0',
+                        type: 'country',
+                        label: 'Argentina',
+                        data: 'ar'
+                    },
+                    {
+                        key: '0_0_1',
+                        type: 'country',
+                        label: 'Croatia',
+                        data: 'hr'
+                    }
+                ]
+            },
+            {
+                key: '0_1',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    }
+                ]
+            },
+            {
+                key: '0_2',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    }
+                ]
+            },
+            {
+                key: '0_3',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    },
+                ]
+            },
+            {
+                key: '0_4',
+                type: 'country',
+                label: 'France',
+                data: 'fr',
+                children: [
+                    {
+                        key: '0_1_0',
+                        type: 'country',
+                        label: 'France',
+                        data: 'fr'
+                    },
+                    {
+                        key: '0_1_1',
+                        type: 'country',
+                        label: 'Morocco',
+                        data: 'ma'
+                    }
+                ]
+            },
+        ]
+    },
+
+]);
+
+const selectedData = ref('');
+
+const visible = ref(false)
+
+const menu = ref('')
+const items = ref([
+    {
+        label: 'Посмотреть',
+        icon: 'pi pi-fw pi-eye',
+        command: (event) => {
+            console.log("посмотреть")
+            console.log("event", event.item)
+            showModal()
+        }
+    },
+    {
+        label: 'Редактировать',
+        icon: 'pi pi-fw pi-pencil',
+        command: (event) => {
+            console.log(event)
+        }
+    },
+    {
+        label: 'Удалить',
+        icon: 'pi pi-fw pi-trash',
+        command: (event) => {
+            console.log(event)
+        }
+    },
+    {
+        label: 'Удалить',
+        icon: 'pi pi-fw pi-trash',
+        command: (event) => {
+            console.log(event)
+        }
+    },
+]);
+
+const toggleMenu = ( event, i) => {
+    menu.value.toggle(event);
+    selectedData.value = i
+    console.log("z nndf",i)
+    console.log("selected data",selectedData)
+};
+
+const showModal = function (){
+    visible.value = true
+}
 
 </script>
 <template>
+<!--    шапка-->
+    <div class="border-round-lg  bg-white flex align-items-start flex-column lg:justify-content-start lg:flex-row md:flex-row sm:flex-row mb-3">
+        <div class="m-3">
+            <img src="@/assets/img/1.png" height="175" width="165" alt="" style="border: 1px solid #D8D8D8;" />
+        </div>
+        <div class="flex justify-content-between flex-column lg:justify-content-between lg:flex-row md:flex-row sm:flex-row w-full m-3">
+            <div class="">
+                <h1>АО “Астана-Энергия” ТЭЦ-2</h1>
+                <p>Бин: 041140002811</p>
+                <p>Ссылка: https://astana-energy.kz/</p>
+                <p>Дата последнего изменения данных: 20.08.2022 13:23:00</p>
+                <p>Предмет деятельности согласно Устава:  Производство тепловой и электрической энергии.</p>
+            </div>
+            <div class="">
+                <Button class="bg-blue-900 border-blue-900 h-3rem mt-4 mr-4" label="Скачать PDF" icon="pi pi-file-pdf" />
+            </div>
+        </div>
+    </div>
+
     <!-- Краткая справка -->
     <div class=" border-round-lg p-4 bg-white ">
         <div class="flex flex-row justify-content-between mb-3">
@@ -847,7 +1241,6 @@ let nestedRouteItems = ref([
 
     </div>
   <!-- ТЭП -->
-
 
   <!-- Паспортные данные -->
     <div class=" border-round-lg p-4 bg-white mt-3">
@@ -1012,23 +1405,45 @@ let nestedRouteItems = ref([
     </div>
   <!-- Инвестиционная программа -->
 
+<!--    Балансовая принадлежность-->
     <div class=" border-round-lg p-4 bg-white mt-3">
 
-        <div class="flex justify-content-between m-0">
-            <h6>Инвестиционная программа по тепловой энергии:</h6>
-            <h6 class="mr-7">Освоено:</h6>
+        <div class="flex flex-row justify-content-between mb-3">
+            <div  class="flex">
+                <h4 class="m-auto">Балансовая принадлежность</h4>
+            </div>
         </div>
 
-        <div class="flex  justify-content-around border-round-lg p-4 bg-white">
-            <div class=" lg:col-8">
-                <Chart type="bar" :data="chartData3" :options="chartOptions" class=" h-30rem" />
-            </div>
-            <div class=" lg:col-4">
-                <Chart type="doughnut" :data="chartData4" :options="chartOptions" class=" h-30rem " />
+        <div class="flex flex-column " v-for="i in allData">
+            <div class="border-round-lg flex flex-row justify-content-between p-3 pb-2 lg:w-3 mt-3" style="border: #c4c4c4 1px solid"  >
+                <div><h6>{{i.label}}</h6></div>
+                <Button icon="pi pi-ellipsis-h" class="h-1rem" type="button" @click="toggleMenu($event, i)" aria-haspopup="true" aria-controls="overlay_tmenu"/>
             </div>
         </div>
+        <Menu ref="menu" id="overlay_tmenu" :model="items"  popup />
+        <Dialog v-model:visible="visible" maximizable modal :header="data.label" :style="{ width: '70vw' }">
+            <div class="col-12 grid  ">
+                <OrganizationChart id="orgChart" class="" :value="data" collapsible :selectionMode="'single'">
+                    <template #country="slotProps">
+                        <div class="flex flex-column align-items-center">
+                            <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`w-2rem shadow-2 flag flag-${slotProps.node.data}`" />
+                            <div class="mt-3 font-medium text-lg">ТЭП {{ slotProps.node.label }}</div>
+                        </div>
+                    </template>
+                    <template #default="slotProps">
+                        <span>{{slotProps.node.data.label}}</span>
+                    </template>
+                </OrganizationChart>
+            </div>
+        </Dialog>
     </div>
 
+
+
+    <!--    тест блок-->
+    <div class=" border-round-lg p-4 bg-white mt-3 h-30rem">
+        тест блок
+    </div>
 </template>
 
 

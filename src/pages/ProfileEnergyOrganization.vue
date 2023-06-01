@@ -52,23 +52,6 @@ const items = reactive([
                 <TabMenu class="subHeader p-tabmenuitem" style=""  :model="items"/>
             </div>
 
-            <div class="border-round-lg  bg-white flex align-items-start flex-column lg:justify-content-start lg:flex-row md:flex-row sm:flex-row mb-3">
-                <div class="m-3">
-                    <img src="@/assets/img/1.png" height="175" width="165" alt="" style="border: 1px solid #D8D8D8;" />
-                </div>
-                <div class="flex justify-content-between flex-column lg:justify-content-between lg:flex-row md:flex-row sm:flex-row w-full m-3">
-                    <div class="">
-                        <h1>АО “Астана-Энергия” ТЭЦ-2</h1>
-                        <p>Бин: 041140002811</p>
-                        <p>Ссылка: https://astana-energy.kz/</p>
-                        <p>Дата последнего изменения данных: 20.08.2022 13:23:00</p>
-                        <p>Предмет деятельности согласно Устава:  Производство тепловой и электрической энергии.</p>
-                    </div>
-                    <div class="">
-                        <Button class="bg-blue-900 border-blue-900 h-3rem mt-4 mr-4" label="Скачать PDF" icon="pi pi-file-pdf" />
-                    </div>
-                </div>
-            </div>
 
             <router-view></router-view>
 
