@@ -1142,13 +1142,6 @@ const items = ref([
             console.log(event)
         }
     },
-    {
-        label: 'Удалить',
-        icon: 'pi pi-fw pi-trash',
-        command: (event) => {
-            console.log(event)
-        }
-    },
 ]);
 
 const toggleMenu = ( event, i) => {
@@ -1421,9 +1414,9 @@ const showModal = function (){
             </div>
         </div>
         <Menu ref="menu" id="overlay_tmenu" :model="items"  popup />
-        <Dialog v-model:visible="visible" maximizable modal :header="data.label" :style="{ width: '70vw' }">
+        <Dialog v-model:visible="visible" maximizable modal :header="selectedData.label" :style="{ width: '70vw' }">
             <div class="col-12 grid  ">
-                <OrganizationChart id="orgChart" class="" :value="data" collapsible :selectionMode="'single'">
+                <OrganizationChart id="orgChart" class="" :value="selectedData" collapsible :selectionMode="'single'">
                     <template #country="slotProps">
                         <div class="flex flex-column align-items-center">
                             <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`w-2rem shadow-2 flag flag-${slotProps.node.data}`" />
