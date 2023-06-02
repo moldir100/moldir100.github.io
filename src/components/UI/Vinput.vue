@@ -1,4 +1,6 @@
 <script setup>
+import {ref} from "vue";
+
 defineProps({
     label: String,
     type: String,
@@ -8,27 +10,19 @@ defineProps({
     view: String,
     dateFormat: String,
     data: String,
+
+    modelValue: String
 })
+const emit = defineEmits(['update:modelValue'])
 
+const updateValue = (event) => {
+    // emit('update:modelValue', event.target.value)
+    // emit('update:modelValue', modelValue)
+    emit('update:modelValue', event.target.value)
+}
 
-//export default {
-//    name: "InputLabel",
-//    props:{
-//        label: String,
-//        type: String,
-//        items: Object,
-//        style: String,
-//        placeholder: String,
-//        view: String,
-//        dateFormat: String,
-//        data: String,
-//    },
-//    setup(){
-//        function updateValue(value) {
-//            this.$emit("passData", { value: value });
-//        }
-//    }
-//}
+const mValue = ref('')
+
 </script>
 
 
@@ -40,14 +34,14 @@ defineProps({
 <!--            <InputText id="email1" type="text" :placeholder="placeholder" class="w-full lg:w-12 md:w-12 sm:w-100 p-inputtext-sm" v-model="email" v-on:input="updateValue($event.target.value)" />-->
 
             <span class="p-float-label">
-                <InputText class="w-full"  id="username" v-model="value" v-on:input="updateValue($event.target.value)"/>
+                <InputText class="w-full"  id="username"  v-on:input="updateValue($event.target.value)"/>
                 <label for="username">{{label}}</label>
             </span>
         </div>
 
         <div v-if="type==='select'">
             <div class="p-float-label">
-                <Dropdown v-model="selected" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
+                <Dropdown  :value="modelValue" @input="updateValue" v-model="mValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
                 <label for="dd-city">{{label}}</label>
             </div>
         </div>

@@ -791,23 +791,31 @@ const allData = ref([
     type: 'country',
     label: 'Цех имени Айбола',
     data: 'ar',
+    inf0: '',
+    main: true,
     children: [
         {
             key: '0_0',
             type: 'country',
-            label: 'Argentina',
+            label: 'СВ-1436/200-80 УХЛ4',
+            count: '6',
+            info: 'Гидрогенератор ',
             data: 'ar',
             children: [
                 {
                     key: '0_0_0',
                     type: 'country',
-                    label: 'Argentina',
-                    data: 'ar'
+                    label: 'КРУ-10 кВ ГЭС (23 яч.)',
+                    info: 'Комплектное распределительное устройство 10 кВ',
+                    count: '1',
+                    data: 'ar',
                 },
                 {
                     key: '0_0_1',
                     type: 'country',
-                    label: 'Croatia',
+                    label: 'КРУ-10 кВ ОРУ (16 яч.)',
+                    info: 'Комплектное распределительное устройство 10 кВ',
+                    count: '1',
                     data: 'hr'
                 }
             ]
@@ -815,19 +823,25 @@ const allData = ref([
         {
             key: '0_1',
             type: 'country',
-            label: 'France',
+            label: 'ТЦ-250000/242-13,8кВ',
+            count: '3',
+            info: 'Блочные трансформатор',
             data: 'fr',
             children: [
                 {
                     key: '0_1_0',
                     type: 'country',
-                    label: 'France',
+                    label: 'КТП',
+                    count: '3',
+                    info: 'Блочные трансформатор',
                     data: 'fr'
                 },
                 {
                     key: '0_1_1',
                     type: 'country',
-                    label: 'Morocco',
+                    label: 'UNITROL 6800',
+                    count: '6',
+                    info: 'Системы возбуждения гидрогенераторов',
                     data: 'ma'
                 }
             ]
@@ -835,87 +849,45 @@ const allData = ref([
         {
             key: '0_2',
             type: 'country',
-            label: 'France',
+            label: 'RESIBLOC',
+            info: 'Трансформатор возбуждения',
+            count: '6',
             data: 'fr',
             children: [
-                {
-                    key: '0_1_0',
-                    type: 'country',
-                    label: 'France',
-                    data: 'fr'
-                },
-                {
-                    key: '0_1_1',
-                    type: 'country',
-                    label: 'Morocco',
-                    data: 'ma'
-                }
             ]
-        },
-        {
-            key: '0_3',
-            type: 'country',
-            label: 'France',
-            data: 'fr',
-            children: [
-                {
-                    key: '0_1_0',
-                    type: 'country',
-                    label: 'France',
-                    data: 'fr'
-                },
-                {
-                    key: '0_1_1',
-                    type: 'country',
-                    label: 'Morocco',
-                    data: 'ma'
-                },
-            ]
-        },
-        {
-            key: '0_4',
-            type: 'country',
-            label: 'France',
-            data: 'fr',
-            children: [
-                {
-                    key: '0_1_0',
-                    type: 'country',
-                    label: 'France',
-                    data: 'fr'
-                },
-                {
-                    key: '0_1_1',
-                    type: 'country',
-                    label: 'Morocco',
-                    data: 'ma'
-                }
-            ]
-        },
+        }
     ]
     },
     {
         key: '1',
         type: 'country',
-        label: 'Kazakhstan',
+        label: 'Цех 2',
         data: 'ar',
+        main: true,
+        inf0: '',
         children: [
             {
                 key: '0_0',
                 type: 'country',
-                label: 'Argentina',
+                label: 'СВ-1436/200-80 УХЛ4',
+                count: '6',
+                info: 'Гидрогенератор ',
                 data: 'ar',
                 children: [
                     {
                         key: '0_0_0',
                         type: 'country',
-                        label: 'Argentina',
-                        data: 'ar'
+                        label: 'КРУ-10 кВ ГЭС (23 яч.)',
+                        info: 'Комплектное распределительное устройство 10 кВ',
+                        count: '1',
+                        data: 'ar',
                     },
                     {
                         key: '0_0_1',
                         type: 'country',
-                        label: 'Croatia',
+                        label: 'КРУ-10 кВ ОРУ (16 яч.)',
+                        info: 'Комплектное распределительное устройство 10 кВ',
+                        count: '1',
                         data: 'hr'
                     }
                 ]
@@ -923,19 +895,25 @@ const allData = ref([
             {
                 key: '0_1',
                 type: 'country',
-                label: 'France',
+                label: 'ТЦ-250000/242-13,8кВ',
+                count: '3',
+                info: 'Блочные трансформатор',
                 data: 'fr',
                 children: [
                     {
                         key: '0_1_0',
                         type: 'country',
-                        label: 'France',
+                        label: 'КТП',
+                        count: '3',
+                        info: 'Блочные трансформатор',
                         data: 'fr'
                     },
                     {
                         key: '0_1_1',
                         type: 'country',
-                        label: 'Morocco',
+                        label: 'UNITROL 6800',
+                        count: '6',
+                        info: 'Системы возбуждения гидрогенераторов',
                         data: 'ma'
                     }
                 ]
@@ -943,87 +921,45 @@ const allData = ref([
             {
                 key: '0_2',
                 type: 'country',
-                label: 'France',
+                label: 'RESIBLOC',
+                info: 'Трансформатор возбуждения',
+                count: '6',
                 data: 'fr',
                 children: [
-                    {
-                        key: '0_1_0',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr'
-                    },
-                    {
-                        key: '0_1_1',
-                        type: 'country',
-                        label: 'Morocco',
-                        data: 'ma'
-                    }
                 ]
-            },
-            {
-                key: '0_3',
-                type: 'country',
-                label: 'France',
-                data: 'fr',
-                children: [
-                    {
-                        key: '0_1_0',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr'
-                    },
-                    {
-                        key: '0_1_1',
-                        type: 'country',
-                        label: 'Morocco',
-                        data: 'ma'
-                    },
-                ]
-            },
-            {
-                key: '0_4',
-                type: 'country',
-                label: 'France',
-                data: 'fr',
-                children: [
-                    {
-                        key: '0_1_0',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr'
-                    },
-                    {
-                        key: '0_1_1',
-                        type: 'country',
-                        label: 'Morocco',
-                        data: 'ma'
-                    }
-                ]
-            },
+            }
         ]
     },
     {
-        key: '3',
+        key: '2',
         type: 'country',
         label: 'Цех 3',
         data: 'ar',
+        inf0: '',
+        main: true,
         children: [
             {
                 key: '0_0',
                 type: 'country',
-                label: 'Argentina',
+                label: 'СВ-1436/200-80 УХЛ4',
+                count: '6',
+                info: 'Гидрогенератор ',
                 data: 'ar',
                 children: [
                     {
                         key: '0_0_0',
                         type: 'country',
-                        label: 'Argentina',
-                        data: 'ar'
+                        label: 'КРУ-10 кВ ГЭС (23 яч.)',
+                        info: 'Комплектное распределительное устройство 10 кВ',
+                        count: '1',
+                        data: 'ar',
                     },
                     {
                         key: '0_0_1',
                         type: 'country',
-                        label: 'Croatia',
+                        label: 'КРУ-10 кВ ОРУ (16 яч.)',
+                        info: 'Комплектное распределительное устройство 10 кВ',
+                        count: '1',
                         data: 'hr'
                     }
                 ]
@@ -1031,19 +967,25 @@ const allData = ref([
             {
                 key: '0_1',
                 type: 'country',
-                label: 'France',
+                label: 'ТЦ-250000/242-13,8кВ',
+                count: '3',
+                info: 'Блочные трансформатор',
                 data: 'fr',
                 children: [
                     {
                         key: '0_1_0',
                         type: 'country',
-                        label: 'France',
+                        label: 'КТП',
+                        count: '3',
+                        info: 'Блочные трансформатор',
                         data: 'fr'
                     },
                     {
                         key: '0_1_1',
                         type: 'country',
-                        label: 'Morocco',
+                        label: 'UNITROL 6800',
+                        count: '6',
+                        info: 'Системы возбуждения гидрогенераторов',
                         data: 'ma'
                     }
                 ]
@@ -1051,69 +993,18 @@ const allData = ref([
             {
                 key: '0_2',
                 type: 'country',
-                label: 'France',
+                label: 'RESIBLOC',
+                info: 'Трансформатор возбуждения',
+                count: '6',
                 data: 'fr',
                 children: [
-                    {
-                        key: '0_1_0',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr'
-                    },
-                    {
-                        key: '0_1_1',
-                        type: 'country',
-                        label: 'Morocco',
-                        data: 'ma'
-                    }
                 ]
-            },
-            {
-                key: '0_3',
-                type: 'country',
-                label: 'France',
-                data: 'fr',
-                children: [
-                    {
-                        key: '0_1_0',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr'
-                    },
-                    {
-                        key: '0_1_1',
-                        type: 'country',
-                        label: 'Morocco',
-                        data: 'ma'
-                    },
-                ]
-            },
-            {
-                key: '0_4',
-                type: 'country',
-                label: 'France',
-                data: 'fr',
-                children: [
-                    {
-                        key: '0_1_0',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr'
-                    },
-                    {
-                        key: '0_1_1',
-                        type: 'country',
-                        label: 'Morocco',
-                        data: 'ma'
-                    }
-                ]
-            },
+            }
         ]
     },
-
 ]);
 
-const selectedData = ref('');
+const data = ref('');
 
 const visible = ref(false)
 
@@ -1146,15 +1037,17 @@ const items = ref([
 
 const toggleMenu = ( event, i) => {
     menu.value.toggle(event);
-    selectedData.value = i
-    console.log("z nndf",i)
-    console.log("selected data",selectedData)
+    data.value = i
+
 };
 
 const showModal = function (){
     visible.value = true
 }
 
+let consLog = function (node){
+    console.log("это нода" , node)
+}
 </script>
 <template>
 <!--    шапка-->
@@ -1413,14 +1306,17 @@ const showModal = function (){
                 <Button icon="pi pi-ellipsis-h" class="h-1rem" type="button" @click="toggleMenu($event, i)" aria-haspopup="true" aria-controls="overlay_tmenu"/>
             </div>
         </div>
+
         <Menu ref="menu" id="overlay_tmenu" :model="items"  popup />
-        <Dialog v-model:visible="visible" maximizable modal :header="selectedData.label" :style="{ width: '70vw' }">
+
+        <Dialog v-model:visible="visible" maximizable modal :header="data.label" :style="{ width: '70vw' }">
             <div class="col-12 grid  ">
-                <OrganizationChart id="orgChart" class="" :value="selectedData" collapsible :selectionMode="'single'">
+                <OrganizationChart id="orgChart" class="" :value="data" collapsible :selectionMode="'single'">
                     <template #country="slotProps">
                         <div class="flex flex-column align-items-center">
-                            <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`w-2rem shadow-2 flag flag-${slotProps.node.data}`" />
-                            <div class="mt-3 font-medium text-lg">ТЭП {{ slotProps.node.label }}</div>
+                            <div class="mt-3 font-medium text-lg"> {{ slotProps.node.label }}</div>
+                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Тип: {{ slotProps.node.info }}  {{consLog(slotProps.node)}}</div>
+                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Количество: {{ slotProps.node.count }} ед.</div>
                         </div>
                     </template>
                     <template #default="slotProps">
@@ -1431,12 +1327,6 @@ const showModal = function (){
         </Dialog>
     </div>
 
-
-
-    <!--    тест блок-->
-    <div class=" border-round-lg p-4 bg-white mt-3 h-30rem">
-        тест блок
-    </div>
 </template>
 
 
