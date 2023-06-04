@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 
 defineProps({
     label: String,
@@ -13,15 +13,16 @@ defineProps({
 
     modelValue: String
 })
-const emit = defineEmits(['update:modelValue'])
 
-const updateValue = (event) => {
+let selectedValue = ref('')
+
+const emit = defineEmits(['sendData'])
+
+const sendData = (event) => {
     // emit('update:modelValue', event.target.value)
     // emit('update:modelValue', modelValue)
-    emit('update:modelValue', event.target.value)
+    emit('sendData', event.target.value)
 }
-
-const mValue = ref('')
 
 </script>
 
@@ -41,7 +42,9 @@ const mValue = ref('')
 
         <div v-if="type==='select'">
             <div class="p-float-label">
-                <Dropdown  :value="modelValue" @input="updateValue" v-model="mValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
+                <!--                <Dropdown  :value="modelValue" @input="updateValue" v-model="mValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
+                <Dropdown @input="sendData"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
+
                 <label for="dd-city">{{label}}</label>
             </div>
         </div>

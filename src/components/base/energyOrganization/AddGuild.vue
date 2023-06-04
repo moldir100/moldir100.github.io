@@ -1,5 +1,4 @@
 <script setup>
-
 import InputLabel from "@/components/UI/Vinput.vue";
 
 import {inject, reactive, ref} from "vue";
@@ -30,7 +29,6 @@ const guilds = reactive([
     },
 ]);
 const guild = ref('')
-
 
 const newRow = reactive([]);
 const addRow = function (type){
@@ -81,6 +79,9 @@ const addRow = function (type){
     )
 }
 
+const putValue = function (data){
+        console.log('child component said login', data)
+}
 
 </script>
 
@@ -92,7 +93,7 @@ const addRow = function (type){
             <div class="col-12 lg:col-4 md:col-6 pb-1 pt-0" v-for="i in guilds" :key="i.id">
                 <h6>{{i.label}}</h6>
 <!--                <InputLabel  :label="i.name" v-model:modelValue="guild" :type="i.type" :items="i.items"></InputLabel>-->
-                <InputLabel  :label="i.name" :type="i.type" :items="i.items"></InputLabel>
+                <InputLabel @sendData="putValue"   :label="i.name" :type="i.type" :items="i.items"></InputLabel>
             </div>
 <!--            <div v-if="guild !== '' " class="col-12 lg:col-4 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">-->
             <div class="col-12 lg:col-6 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">
@@ -121,7 +122,6 @@ const addRow = function (type){
                 </div>
             </div>
         </div>
-
 
 <!--        footer кнопка сохранить-->
         <div class="flex justify-content-start mt-8">
