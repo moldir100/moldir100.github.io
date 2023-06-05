@@ -16,13 +16,7 @@ defineProps({
 
 let selectedValue = ref('')
 
-const emit = defineEmits(['sendData'])
-
-const sendData = (event) => {
-    // emit('update:modelValue', event.target.value)
-    // emit('update:modelValue', modelValue)
-    emit('sendData', event.target.value)
-}
+defineEmits(['update:sendData'])
 
 </script>
 
@@ -43,7 +37,8 @@ const sendData = (event) => {
         <div v-if="type==='select'">
             <div class="p-float-label">
                 <!--                <Dropdown  :value="modelValue" @input="updateValue" v-model="mValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
-                <Dropdown @input="sendData"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
+<!--                <Dropdown @update:modelValue="selectedValue = $event"  @input="sendData"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
+                <Dropdown @input="$emit('update:sendData', $event.target.value)" @update:modelValue="modelValue => selectedValue = modelValue"   v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
 
                 <label for="dd-city">{{label}}</label>
             </div>
