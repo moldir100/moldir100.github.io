@@ -16,11 +16,11 @@ const panelMenuItems = ref([
     },
     {
         label: 'Организационная структура',
-        to: ''
+        to: '/profile/digitalPassport/organizationStructure'
     },
     {
         label: 'Мощности цеха, участки',
-        to: ''
+        to: '/profile/digitalPassport/power'
     },
     {
         label: 'Описание основ.оборуд',

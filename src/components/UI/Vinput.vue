@@ -1,5 +1,5 @@
 <script setup>
-import {reactive, ref} from "vue";
+import {ref} from "vue";
 
 defineProps({
     label: String,
@@ -11,12 +11,23 @@ defineProps({
     dateFormat: String,
     data: String,
 
-    modelValue: String
+    // selectedValue: String
 })
 
-let selectedValue = ref('')
 
-defineEmits(['update:sendData'])
+const emit = defineEmits(['update:modelValue'])
+
+let modelValue = ref('')
+// const update = function (event){
+//     console.log('eventyy', event.name)
+//     console.log('eventyy', event)
+//     modelValue = event.name
+//     return modelValue
+// }
+
+const updateValue = (event) => {
+    emit('update:modelValue', event.target.value)
+}
 
 </script>
 
@@ -36,9 +47,8 @@ defineEmits(['update:sendData'])
 
         <div v-if="type==='select'">
             <div class="p-float-label">
-                <!--                <Dropdown  :value="modelValue" @input="updateValue" v-model="mValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
-<!--                <Dropdown @update:modelValue="selectedValue = $event"  @input="sendData"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
-                <Dropdown @input="$emit('update:sendData', $event.target.value)" @update:modelValue="modelValue => selectedValue = modelValue"   v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
+<!--                <Dropdown @update:modelValue="selectedValue = $event.name"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
+                <Dropdown :value="modelValue" @input="updateValue" @update:modelValue="modelValue = $event.name"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />
 
                 <label for="dd-city">{{label}}</label>
             </div>

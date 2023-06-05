@@ -1,5 +1,6 @@
 <script setup>
 import InputLabel from "@/components/UI/Vinput.vue";
+defineEmits(['update:modelValue'])
 
 import {inject, reactive, ref} from "vue";
 
@@ -40,7 +41,7 @@ const addRow = function (type){
     }
     newRow.push(
         {
-            id: 1,
+            id: newRow.length +1,
             label: label,
             inputs: [
                 {
@@ -48,6 +49,7 @@ const addRow = function (type){
                     type: 'select',
                     label: 'Тип',
                     placeholder: 'Пусто',
+
                     items: [
                         {
                             name: 'Гидрогенератор '
@@ -74,9 +76,108 @@ const addRow = function (type){
                     placeholder: 'Пусто',
                     style: "lg:w-12 md:w-12 sm:w-100",
                 },
-            ]
+            ],
+            subRow: []
         }
     )
+}
+
+const dropRow = function (id){
+    console.log('id', id)
+    const index = newRow.findIndex(object =>{
+        console.log(object)
+        return object.id === id
+    });
+
+    console.log('index',index)
+
+    newRow.splice(index, 1)
+}
+const addSubRow = function(id){
+    const sweetArray = [2, 3, 4, 5, 35]
+    const sweeterArray = sweetArray.map(sweetItem => {
+        return sweetItem * 2
+    })
+    console.log(sweeterArray)
+
+    newRow.map(item => {
+        const index = item.id === id
+        console.log('index', index)
+        console.log('item', item)
+        item.subRow.push(
+            {
+                id: item.subRow.length +1,
+                inputs: [
+                    {
+                        id: 1,
+                        type: 'select',
+                        label: 'Тип',
+                        placeholder: 'Пусто',
+
+                        items: [
+                            {
+                                name: 'Гидрогенератор '
+                            },
+                            {
+                                name: 'Блочные трансформатор'
+                            },
+                            {
+                                name: 'Трансформатор собственных нужд'
+                            }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        type: 'input',
+                        label: 'Наименование',
+                        placeholder: 'Пусто',
+                        style: "lg:w-12 md:w-12 sm:w-100",
+                    },
+                    {
+                        id: 3,
+                        type: 'input',
+                        label: 'Количество',
+                        placeholder: 'Пусто',
+                        style: "lg:w-12 md:w-12 sm:w-100",
+                    },
+                ],
+            }
+            // [{
+            //     id: 1,
+            //     type: 'select',
+            //     label: 'Тип',
+            //     placeholder: 'Пусто',
+            //
+            //     items: [
+            //         {
+            //             name: 'Гидрогенератор '
+            //         },
+            //         {
+            //             name: 'Блочные трансформатор'
+            //         },
+            //         {
+            //             name: 'Трансформатор собственных нужд'
+            //         }
+            //     ]
+            // },
+            // {
+            //     id: 2,
+            //     type: 'input',
+            //     label: 'Наименование',
+            //     placeholder: 'Пусто',
+            //     style: "lg:w-12 md:w-12 sm:w-100",
+            // },
+            // {
+            //     id: 3,
+            //     type: 'input',
+            //     label: 'Количество',
+            //     placeholder: 'Пусто',
+            //     style: "lg:w-12 md:w-12 sm:w-100",
+            // },]
+        )
+        return newRow
+    })
+
 }
 
 </script>
@@ -88,8 +189,8 @@ const addRow = function (type){
         <div class="flex ">
             <div class="col-12 lg:col-4 md:col-6 pb-1 pt-0" v-for="i in guilds" :key="i.id">
                 <h6>{{i.label}}</h6>
-<!--                <InputLabel  :label="i.name" v-model:modelValue="guild" :type="i.type" :items="i.items"></InputLabel>-->
-                <InputLabel @update:sendData="value => modelValue = value"  :label="i.name" :type="i.type" :items="i.items"></InputLabel>
+<!--                <InputLabel @update:modelValue="modelValue = $event.name" v-model:modelValue="modelValue" @update:sendData="value => modelValue = value"  :label="i.name" :type="i.type" :items="i.items"></InputLabel>-->
+                <InputLabel  v-model="modelValue" @update:modelValue="modelValue = $event.name"  :label="i.name" :type="i.type" :items="i.items"></InputLabel>
             </div>
 <!--            <div v-if="guild !== '' " class="col-12 lg:col-4 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">-->
             <div class="col-12 lg:col-6 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">
@@ -99,24 +200,40 @@ const addRow = function (type){
         </div>
 
 <!--        form lines-->
-        <div class="flex flex-column mt-3" v-for="i in newRow" :key="i.id">
+        <div class="flex flex-column mt-3" v-for="(i,idx) in newRow" :key="i.id">
             <div class="flex flex-row">
                 <div><h6>{{i.label}}</h6></div>
             </div>
+<!--            row-->
             <div class="flex flex-row">
                 <div class="col-1">
-                    {{i.id}}
+                    {{idx+1}}
                 </div>
-                <div class="col-9 flex flex-row justify-content-between ">
+                <div class="col-8 flex flex-row justify-content-between ">
                     <div class="col-3  p-0 m-0" v-for="item in i.inputs" :key="i.id">
                         <InputLabel :label="item.name" :type="item.type" :items="item.items"></InputLabel>
                     </div>
                 </div>
-                <div class="col-2 flex justify-content-evenly">
-                    <Button icon="pi pi-plus" severity="warning" rounded aria-label="Filter" />
+                <div class="col-3 flex justify-content-evenly">
+                    <Button @click="addSubRow(i.id)" icon="pi pi-plus" severity="warning" rounded aria-label="Filter" />
+                    <Button @click="dropRow(i.id)"  icon="pi pi-times" severity="danger" rounded aria-label="Filter" />
+                </div>
+            </div>
+<!--            subRow-->
+            <div class="flex flex-row justify-content-end"  v-for="(item, index) in i.subRow" :key="index">
+                <div class="col-1">
+                    {{idx+1}}.{{index+1}}
+                </div>
+                <div class="col-7 flex flex-row justify-content-between ">
+                    <div class="col-3  p-0 m-0" v-for="item in i.inputs" :key="i.id">
+                        <InputLabel :label="item.name" :type="item.type" :items="item.items"></InputLabel>
+                    </div>
+                </div>
+                <div class="col-3 flex justify-content-evenly">
                     <Button  icon="pi pi-times" severity="danger" rounded aria-label="Filter" />
                 </div>
             </div>
+
         </div>
 
 <!--        footer кнопка сохранить-->

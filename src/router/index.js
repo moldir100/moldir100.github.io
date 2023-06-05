@@ -61,6 +61,16 @@ const router = createRouter({
                                     name: 'tariffs',
                                     component: () => import('@/components/base/energyOrganization/Tariffs.vue'),
                                 },
+                                {
+                                    path: '/profile/digitalPassport/organizationStructure',
+                                    name: 'organizationStructure',
+                                    component: () => import('@/components/base/energyOrganization/OrganizationStructure.vue'),
+                                },
+                                {
+                                    path: '/profile/digitalPassport/power',
+                                    name: 'power',
+                                    component: () => import('@/components/base/energyOrganization/Power.vue'),
+                                },
                             ]
                         },
                         {
