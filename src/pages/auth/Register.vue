@@ -193,7 +193,6 @@ const cities = ref([
 
 
 <style scoped>
-#auth{ background-image: url( '@/assets/background.svg' ); }
 /* signup */
 
 .nav-link {
