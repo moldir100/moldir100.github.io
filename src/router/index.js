@@ -71,6 +71,21 @@ const router = createRouter({
                                     name: 'power',
                                     component: () => import('@/components/base/energyOrganization/Power.vue'),
                                 },
+                                {
+                                    path: '/profile/digitalPassport/equipmentDescription',
+                                    name: 'equipmentDescription',
+                                    component: () => import('@/components/base/energyOrganization/EquipmentDescription.vue'),
+                                },
+                                {
+                                    path: '/profile/digitalPassport/extension',
+                                    name: 'extension',
+                                    component: () => import('@/components/base/energyOrganization/Extension.vue'),
+                                },
+                                {
+                                    path: '/profile/digitalPassport/repairWork',
+                                    name: 'repairWork',
+                                    component: () => import('@/components/base/energyOrganization/RepairWork.vue'),
+                                },
                             ]
                         },
                         {

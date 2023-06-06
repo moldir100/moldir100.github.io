@@ -35,12 +35,8 @@ const updateValue = (event) => {
 <template>
     <div>
         <div v-if="type==='input'">
-<!--            <label for="email1" class="block text-900 text-base font-medium mb-2">{{ label }}</label>-->
-            <!--        <InputText id="email1" type="text" placeholder="Пусто" class="w-2 md:w-30rem mb-5" style="padding: 1rem" v-model="email" />-->
-<!--            <InputText id="email1" type="text" :placeholder="placeholder" class="w-full lg:w-12 md:w-12 sm:w-100 p-inputtext-sm" v-model="email" v-on:input="updateValue($event.target.value)" />-->
-
             <span class="p-float-label">
-                <InputText class="w-full"  id="username"  v-on:input="updateValue($event.target.value)"/>
+                <InputText v-model="modelValue" class="w-full"  id="username"  v-on:input="updateValue($event.target.value)"/>
                 <label for="username">{{label}}</label>
             </span>
         </div>

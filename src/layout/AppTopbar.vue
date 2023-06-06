@@ -68,7 +68,7 @@ const isOutsideClicked = (event) => {
 
         <router-link to="/mainpage" class="layout-topbar-logo">
 <!--            <img :src="logoUrl" alt="logo" />-->
-            <span style="color: #ffffff">KOREM CPE</span>
+            <span style="color: #ffffff">Цифровая платформа энергетики</span>
         </router-link>
 
 <!--        <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">-->

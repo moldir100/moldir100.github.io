@@ -24,15 +24,15 @@ const panelMenuItems = ref([
     },
     {
         label: 'Описание основ.оборуд',
-        to: ''
+        to: '/profile/digitalPassport/equipmentDescription'
     },
     {
         label: 'Продление сроков, выбытие',
-        to: ''
+        to: '/profile/digitalPassport/extension'
     },
     {
         label: 'Ремонтная работа',
-        to: ''
+        to: '/profile/digitalPassport/repairWork'
     },
     {
         label: 'Инвестиционная программа',

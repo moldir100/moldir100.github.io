@@ -24,7 +24,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 2,
         name: 'Юридический адрес',
@@ -121,7 +120,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 5,
         name: 'Геолокация',
@@ -142,7 +140,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 6,
         name: 'БИН*',
@@ -162,7 +159,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 7,
         name: 'Первый руководитель',
@@ -202,7 +198,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 8,
         name: 'Главный инженер',
@@ -245,7 +240,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 9,
         name: 'Форма собственности',
@@ -268,7 +262,6 @@ const inputItemsPassport = reactive([
             }
         ]
     },
-
     {
         id: 10,
         name: 'Учредители и доли участия',
@@ -283,7 +276,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
     {
         id: 11,
         name: 'Климатические условия',
@@ -306,7 +298,6 @@ const inputItemsPassport = reactive([
             }
         ]
     },
-
     {
         id: 12,
         name: 'Контакты',
@@ -335,7 +326,6 @@ const inputItemsPassport = reactive([
             },
         ]
     },
-
 ]);
 
 const company = reactive([
@@ -669,7 +659,7 @@ const showAddModal = function (){
     })
 }
 
-
+const inputValue=ref(null)
 </script>
 
 
@@ -723,7 +713,7 @@ const showAddModal = function (){
                     <div class="col-12 text-left mt-2 pb-0"><h6>{{item.name}}</h6></div>
                     <div class="col-12 grid pb-1 pt-0">
                         <div  :class='item.style' class="col-12 lg:col-3 md:col-6  pb-0" v-for="i in item.items" :key="i.id">
-                            <InputLabel :label="i.label" :type="i.type" :items="i.items" />
+                            <InputLabel v-model="inputValue" :label="i.label" :type="i.type" :items="i.items" />
                         </div>
                     </div>
                     <hr class="sm:block">

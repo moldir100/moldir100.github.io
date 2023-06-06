@@ -812,7 +812,8 @@ const tabChange = function (event){
                            @row-edit-save="onRowEditSave" tableClass="editable-cells-table" >
                     <Column v-for="tep in teps" :key="tep.id" :field="tep.field" :header="tep.header">
                         <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
+                            <InputText v-if="field === 'name_indicators'" v-model="data[field]" />
+                            <InputText v-if="field !== 'name_indicators'"  class="w-5rem" v-model="data[field]" />
                         </template>
                     </Column>
                     <Column :rowEditor="true" bodyStyle="text-align:center"></Column>
