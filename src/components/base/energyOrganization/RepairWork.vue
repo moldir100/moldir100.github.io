@@ -202,7 +202,7 @@ const getSeverity = (status) => {
 
                 <DataTable showGridlines :value="data" rowGroupMode="rowspan" groupRowsBy="representative.year" sortMode="single" sortField="representative.year" :sortOrder="1" tableStyle="min-width: 50rem"
                            @row-edit-save="onRowEditSave" v-model:editingRows="editingRows" tableClass="editable-cells-table" editMode="row" dataKey="id"
-                           :globalFilterFields="['name', 'representative.name', 'type', 'description']"
+                           :globalFilterFields="['name', 'representative.year', 'type', 'description']"
                             filterDisplay="menu" v-model:filters="filters">
 
                     <ColumnGroup type="header">
