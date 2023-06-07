@@ -248,7 +248,7 @@ const getSeverity = (status) => {
                         </template>
 
                         <template #editor="{ data, field }">
-                            <Calendar v-model="data[field]" showIcon />
+                            <Calendar v-model="data[field]" view="year" dateFormat="yy"  showIcon />
                         </template>
                     </Column>
                     <Column header="Наименование Ст. №" field="name"  style="min-width: 200px">
@@ -256,14 +256,14 @@ const getSeverity = (status) => {
                             <InputText v-model="data[field]" />
                         </template>
                     </Column>
-                    <Column header="Вид ремонта" field="type"  style="min-width: 200px">
+                    <Column header="Вид ремонта" field="type">
                         <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
+                            <InputText class="w-8rem" v-model="data[field]" />
                         </template>
                     </Column>
-                    <Column header="Начало" field="dateStart"  style="min-width: 200px">
+                    <Column header="Начало" field="dateStart" >
                         <template #editor="{ data, field }">
-                            <InputText v-model="data[field]" />
+                            <InputText class="w-8rem" v-model="data[field]" />
                         </template>
                     </Column>
                     <Column header="Окончание" field="dateEnd"  style="min-width: 200px">
@@ -273,7 +273,7 @@ const getSeverity = (status) => {
                     </Column>
                     <Column header="Описание выполненных работ" field="description" style="min-width: 100px">
                         <template #editor="{ data, field }">
-                            <Calendar v-model="data[field]" showIcon />
+                            <InputText v-model="data[field]" />
                         </template>
                     </Column>
                     <Column :rowEditor="true" bodyStyle="text-align:center"></Column>
