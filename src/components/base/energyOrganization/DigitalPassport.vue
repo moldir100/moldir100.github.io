@@ -36,11 +36,11 @@ const panelMenuItems = ref([
     },
     {
         label: 'Инвестиционная программа',
-        to: ''
+        to: '/profile/digitalPassport/investmentProgram'
     },
     {
         label: 'Потребители',
-        to: ''
+        to: '/profile/digitalPassport/consumers'
     },
     {
         label: 'Информация по выбросам',

@@ -1,23 +1,14 @@
 <script setup>
 import {ref, onMounted, reactive} from 'vue';
-import ProductService from '@/service/ProductService.js';
-import InputLabel from "@/components/UI/Vinput.vue";
 
 const products = ref();
 const editingRows = ref([]);
-const statuses = ref([
-    { label: 'In Stock', value: 'INSTOCK' },
-    { label: 'Low Stock', value: 'LOWSTOCK' },
-    { label: 'Out of Stock', value: 'OUTOFSTOCK' }
-]);
-
 
 const onRowEditSave = (event) => {
     let { newData, index } = event;
 
     products.value[index] = newData;
 };
-
 
 const data =  reactive([
     {
@@ -134,24 +125,9 @@ const data =  reactive([
     },
 ])
 
-
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
 
-// const customers = ref();
-const selectedCustomers = ref();
 const filters = ref();
-const representatives = ref([
-    { year: '2019' },
-    { year: '2020' },
-    { year: '2021' },
-    { year: '2022' },
-
-]);
-
-// onMounted(() => {
-//     data.value = getCustomers(data);
-// });
-
 
 const initFilters = () => {
     filters.value = {
@@ -166,11 +142,6 @@ const initFilters = () => {
 };
 
 initFilters();
-
-
-// const clearFilter = () => {
-//     initFilters();
-// };
 
 const getSeverity = (status) => {
     switch (status) {
@@ -202,7 +173,7 @@ const getSeverity = (status) => {
 
                 <DataTable showGridlines :value="data" rowGroupMode="rowspan" groupRowsBy="representative.year" sortMode="single" sortField="representative.year" :sortOrder="1" tableStyle="min-width: 50rem"
                            @row-edit-save="onRowEditSave" v-model:editingRows="editingRows" tableClass="editable-cells-table" editMode="row" dataKey="id"
-                           :globalFilterFields="['name', 'representative.year', 'type', 'description']"
+                           :globalFilterFields="['name','year', 'representative.year', 'type', 'description']"
                             filterDisplay="menu" v-model:filters="filters">
 
                     <ColumnGroup type="header">
@@ -226,11 +197,16 @@ const getSeverity = (status) => {
                     </ColumnGroup>
 
                     <template #header>
-                        <div class="flex justify-content-between">
-                            <span class="p-input-icon-left">
+                        <div class="flex justify-content-start">
+<!--                            <span class="p-input-icon-left">-->
+<!--                                <i class="pi pi-search" />-->
+<!--                                <Calendar v-model="filters['global'].value"  placeholder="Сортировать по дате" view="year" dateFormat="yy"  showIcon />-->
+<!--                            </span>-->
+                            <span class="ml-3 p-input-icon-left">
                                 <i class="pi pi-search" />
-                                <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
+                                <InputText v-model="filters['global'].value" placeholder="Год" />
                             </span>
+
                         </div>
                     </template>
                     <template #empty> ничего не найдено</template>

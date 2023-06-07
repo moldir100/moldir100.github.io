@@ -86,6 +86,16 @@ const router = createRouter({
                                     name: 'repairWork',
                                     component: () => import('@/components/base/energyOrganization/RepairWork.vue'),
                                 },
+                                {
+                                    path: '/profile/digitalPassport/investmentProgram',
+                                    name: 'investmentProgram',
+                                    component: () => import('@/components/base/energyOrganization/InvestmentProgram.vue'),
+                                },
+                                {
+                                    path: '/profile/digitalPassport/consumers',
+                                    name: 'consumers',
+                                    component: () => import('@/components/base/energyOrganization/Consumers.vue'),
+                                },
                             ]
                         },
                         {

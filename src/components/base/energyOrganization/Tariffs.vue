@@ -808,7 +808,7 @@ const tabChange = function (event){
 
                 <TabMenu v-model:activeIndex="active" :model="nestedRouteItems" @tab-change="tabChange" />
 
-                <DataTable scrollable  v-model:editingRows="editingRows" :value="tariffs" editMode="row" dataKey="id"
+                <DataTable showGridlines scrollable  v-model:editingRows="editingRows" :value="tariffs" editMode="row" dataKey="id"
                            @row-edit-save="onRowEditSave" tableClass="editable-cells-table" >
                     <Column v-for="tep in teps" :key="tep.id" :field="tep.field" :header="tep.header">
                         <template #editor="{ data, field }">

@@ -1,5 +1,5 @@
 <script setup>
-import {reactive} from "vue";
+import {inject, reactive, ref} from "vue";
 
 const equipments = reactive([
     {
@@ -18,79 +18,47 @@ const equipments = reactive([
 ])
 
 const data = reactive([
-    {
-        "id": "1",
-        "name": "",
-        "consumption": "",
-        "parameters": "",
-        "norm": "",
-        "fact": "",
-        "recourse": "",
-        "operating": null,
-        "work": null,
-    },
+    // {
+    //     "id": "1",
+    //     "name": "",
+    //     "consumption": "",
+    //     "parameters": "",
+    //     "norm": "",
+    //     "fact": "",
+    //     "recourse": "",
+    //     "operating": null,
+    //     "work": null,
+    // },
 ])
 
-// const addRow = function (){
-//     let last = data[data.length - 1]
-//     console.log("last", last)
-//     if(last.name === ''){
-//         console.log("введите все данные")
-//     }else{
-//         data.push(
-//             {
-//                 "id": data.length+1,
-//                 "name": "",
-//                 "consumption": "",
-//                 "parameters": "",
-//                 "norm": "",
-//                 "fact": "",
-//                 "recourse": "",
-//                 "operating": null,
-//                 "work": null,
-//             },
-//         )
-//     }
-// }
-
-import { useField, useForm } from 'vee-validate';
-
-const { handleSubmit, resetForm } = useForm();
-
-const { value, errorMessage } = useField('value', validateField);
-
-function  validateField(value){
-    if(!value){
-        return 'Введите...'
-    }
-    return true
-}
-
-const addRow = handleSubmit((values) => {
+const addRow = function () {
     let last = data[data.length - 1]
     console.log("last", last)
-    // if(last.name === '' && values.value){
-    if(1<2){
+    data.push(
+        {
+            "id": data.length+1,
+            "name": "",
+            "consumption": "",
+            "parameters": "",
+            "norm": "",
+            "fact": "",
+            "recourse": "",
+            "operating": null,
+            "work": null,
+        },
+    )
+}
 
-        console.log("введите все данные")
-    }else{
-        data.push(
-            {
-                "id": data.length+1,
-                "name": "",
-                "consumption": "",
-                "parameters": "",
-                "norm": "",
-                "fact": "",
-                "recourse": "",
-                "operating": null,
-                "work": null,
-            },
-        )
-    }
-})
+const dropRow = function (data){
+    console.log(data.id)
 
+}
 
+const dialogRef = inject("dialogRef");
+
+const closeDialog = (e) => {
+    dialogRef.value.close(e);
+};
 </script>
 
 
@@ -112,6 +80,7 @@ const addRow = handleSubmit((values) => {
                 <Column bodyStyle="text-align:center" header="Парковый ресурс, час" :rowspan="2"  />
                 <Column header="Наработка, час " :rowspan="2"  />
                 <Column header="Износ, %" :rowspan="2"  />
+                <Column header="" :rowspan="2"  />
             </Row>
 
             <Row>
@@ -130,16 +99,13 @@ const addRow = handleSubmit((values) => {
         </Column>
         <Column field="name" bodyStyle="text-align:center" header="Status" style="width: 20%">
             <template #body="{ data, field }">
-                <Dropdown :class="{ 'p-invalid': errorMessage }" v-model="data[field]"  :options="equipments" optionLabel="label" optionValue="value" placeholder="Select a Status">
-                    <template #option="slotProps">
-                        {{slotProps.option.name}}
-                    </template>
+                <Dropdown v-model="data[field]" :options="equipments" optionLabel="name" optionValue="name" placeholder="Select a Status">
                 </Dropdown>
             </template>
         </Column>
         <Column field="consumption" header="Name" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText :class="{ 'p-invalid': errorMessage }" class="w-5rem" v-model="data[field]" />
+                <InputText class="w-5rem" v-model="data[field]" />
             </template>
         </Column>
         <Column field="parameters" header="Name" bodyStyle="text-align:center" style="width: 20%">
@@ -169,15 +135,21 @@ const addRow = handleSubmit((values) => {
         </Column>
         <Column field="work" header="Price" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText :class="{ 'p-invalid': errorMessage }" class="w-5rem" v-model="data[field]" />
+                <InputText class="w-5rem" v-model="data[field]" />
             </template>
         </Column>
+        <Column field="work" header="Price" bodyStyle="text-align:center">
+            <template #body="{ data, field }">
+                <Button @click="dropRow(data)" icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
+            </template>
+        </Column>
+
     </DataTable>
-    <Button @click="addRow()" class="mt-3" icon="pi pi-plus" rounded aria-label="Filter" />
+    <Button size="small" @click="addRow()" class="mt-3" icon="pi pi-plus" rounded aria-label="Filter" />
 
   <!--        footer кнопка сохранить-->
     <div class="flex justify-content-start mt-8">
-        <Button type="button" label="Сохранить" icon="pi pi-check" @click="closeDialog({ buttonType: 'Yes' })" autofocus></Button>
+        <Button type="button" label="Сохранить" icon="pi pi-check" @click="closeDialog(data)" autofocus></Button>
         <Button type="button" label="Отменить" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
     </div>
 

@@ -102,7 +102,7 @@ const teps = reactive([
             <div class="col-12 flex flex-column">
                 <h5>Информация по продлению сроков эксплуатации основного оборудования</h5>
 
-                <DataTable scrollable  v-model:editingRows="editingRows" :value="extensions" editMode="row" dataKey="id"
+                <DataTable showGridlines scrollable  v-model:editingRows="editingRows" :value="extensions" editMode="row" dataKey="id"
                            @row-edit-save="onRowEditSave" tableClass="editable-cells-table" >
                     <Column bodyStyle="text-align:center" v-for="tep in teps" :key="tep.id" :field="tep.field" :header="tep.header">
                         <template #editor="{ data, field }">
