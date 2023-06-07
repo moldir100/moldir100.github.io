@@ -163,13 +163,14 @@ const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
 }
 
-const AddEquipmentTable = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddEquipmentTable.vue'));
+const AddEquipmentTable1 = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddEquipmentTable1.vue'));
+const AddEquipmentTable2 = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddEquipmentTable2.vue'));
 
 const dialog = useDialog();
-const showAddModal = function (values){
-    dialog.open( AddEquipmentTable,{
+const showAddModal = function (value, name){
+    dialog.open( value,{
         props: {
-            header: 'Основные технические характеристики основного котельного оборудования:',
+            header: name,
             style: {
                 width: '80vw',
             },
@@ -194,7 +195,7 @@ const showAddModal = function (values){
             <div class="col-12 flex flex-column">
                 <h5>Основные технические характеристики основного котельного оборудования:</h5>
 
-                <Button class="mb-3 w-12rem" label="Создать" @click="showAddModal"/>
+                <Button class="mb-3 w-12rem" label="Создать" @click="showAddModal(AddEquipmentTable1, 'Основные технические характеристики основного котельного оборудования:')"/>
                 <DynamicDialog/>
 
                 <DataTable columnResizeMode="fit"  showGridlines  v-model:editingRows="editingRows" :value="data" editMode="row" dataKey="id"
@@ -285,6 +286,92 @@ const showAddModal = function (values){
         <div class="col-12 border-round-lg bg-white ml-0 mt-3">
             <div class="col-12 flex flex-column">
                 <h5>Основные технические характеристики основного турбинного оборудования</h5>
+
+                <Button class="mb-3 w-12rem" label="Создать" @click="showAddModal(AddEquipmentTable2, 'Основные технические характеристики основного турбинного оборудования')"/>
+                <DynamicDialog/>
+
+                <DataTable columnResizeMode="fit"  showGridlines  v-model:editingRows="editingRows" :value="data" editMode="row" dataKey="id"
+                           @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+
+                    <ColumnGroup type="header">
+                        <Row>
+                            <Column header="#" :rowspan="3" />
+                            <Column header="Наименование энергетического или водогрейного котла (станционный №, тип, марка, год ввода)" :rowspan="3" />
+                        </Row>
+                        <Row>
+                            <Column header="Производительность, тонн/час." />
+                            <Column header="Параметры пара (давление, кгс/см2 температура оС)."  />
+                            <Column bodyStyle="text-align:center" header="КПД котла брутто/ нетто" :colspan="2" />
+                            <Column bodyStyle="text-align:center" header="Парковый ресурс, час" :rowspan="2"  />
+                            <Column header="Наработка, час " :rowspan="2"  />
+                            <Column header="Износ, %" :rowspan="2"  />
+                            <Column header="" :rowspan="2"  />
+                        </Row>
+
+                        <Row>
+                            <Column header="Расход сетевой воды, тонн/час"   />
+                            <Column header="Параметры сетевой воды (давление, температура до и после котла)"  />
+                            <Column header="Проектное"  />
+                            <Column header="Фактическое" />
+                        </Row>
+
+                    </ColumnGroup>
+
+                    <Column field="id" bodyStyle="text-align:center" header="Code">
+                        <template >
+                            <InputText style="width: 20%" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="name" bodyStyle="text-align:center" header="Status" style="width: 20%">
+                        <template #editor="{ data, field }">
+                            <Dropdown v-model="data[field]" :options="equipments" optionLabel="label" optionValue="value" placeholder="Select a Status">
+                                <template #option="slotProps">
+                                    {{slotProps.option.name}}
+                                </template>
+                            </Dropdown>
+                        </template>
+                        <template #body="slotProps">
+                            <!--                            <Tag :value="slotProps.data.inventoryStatus" :severity="slotProps.data.inventoryStatus" />-->
+                            {{slotProps.data.name}}
+                        </template>
+                    </Column>
+                    <Column field="consumption" header="Name" bodyStyle="text-align:center">
+                        <template #editor="{ data, field }">
+                            <InputText class="w-5rem" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="parameters" header="Name" bodyStyle="text-align:center" style="width: 20%">
+                        <template #editor="{ data, field }">
+                            <InputText class="w-5rem" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="norm" header="Name" bodyStyle="text-align:center">
+                        <template #editor="{ data, field }">
+                            <InputText v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="fact" header="Name" bodyStyle="text-align:center">
+                        <template #editor="{ data, field }">
+                            <InputText class="w-5rem" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="recourse" header="Price" bodyStyle="text-align:center" >
+                        <template #editor="{ data, field }">
+                            <InputText class="w-5rem" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="operating" header="Price" bodyStyle="text-align:center" style="width: 20%">
+                        <template #editor="{ data, field }">
+                            <InputText class="w-5rem" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column field="work" header="Price" bodyStyle="text-align:center">
+                        <template #editor="{ data, field }">
+                            <InputText class="w-5rem" v-model="data[field]" />
+                        </template>
+                    </Column>
+                    <Column :rowEditor="true" bodyStyle="text-align:center"></Column>
+                </DataTable>
             </div>
         </div>
 
