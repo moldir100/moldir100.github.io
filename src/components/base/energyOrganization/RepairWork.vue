@@ -1,5 +1,7 @@
 <script setup>
-import {ref, onMounted, reactive} from 'vue';
+import {ref, onMounted, reactive, defineAsyncComponent} from 'vue';
+
+const AddRepairWorkTable = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddRepairWorkTable.vue'));
 
 const products = ref();
 const editingRows = ref([]);
@@ -7,7 +9,7 @@ const editingRows = ref([]);
 const onRowEditSave = (event) => {
     let { newData, index } = event;
 
-    products.value[index] = newData;
+    data[index] = newData;
 };
 
 const data =  reactive([
@@ -19,9 +21,7 @@ const data =  reactive([
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
 
-        "representative": {
-            "year": "2021",
-        }
+        "year": "2021",
     },
     {
         "id": 1001,
@@ -31,9 +31,7 @@ const data =  reactive([
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
 
-        "representative": {
-            "year": "2019",
-        }
+        "year": "2019",
     },
     {
         "id": 1002,
@@ -42,9 +40,8 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
-            "year": "2021",
-        }
+
+        "year": "2021",
     },
     {
         "id": 1004,
@@ -53,9 +50,7 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
-            "year": "2023",
-        }
+        "year": "2023",
     },
     {
         "id": 1005,
@@ -64,9 +59,7 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
-            "year": "2019",
-        }
+        "year": "2019",
     },
     {
         "id": 1006,
@@ -75,9 +68,8 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
-            "year": "2020",
-        }
+        "year": "2020",
+
     },
     {
         "id": 1007,
@@ -86,9 +78,7 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
             "year": "2023",
-        }
     },
     {
         "id": 1009,
@@ -97,9 +87,8 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
             "year": "2023",
-        }
+
     },
     {
         "id": 1010,
@@ -108,9 +97,7 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
-            "year": "2020",
-        }
+        "year": "2020",
     },
     {
         "id": 1012,
@@ -119,13 +106,12 @@ const data =  reactive([
         "dateStart": "2015-09-13",
         "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
-        "representative": {
-            "year": "2021",
-        }
+        "year": "2021",
     },
 ])
 
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
+import {useDialog} from "primevue/usedialog";
 
 const filters = ref();
 
@@ -133,7 +119,6 @@ const initFilters = () => {
     filters.value = {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
         name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        representative: { value: null, matchMode: FilterMatchMode.IN },
         type: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
         dateStart: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
         dateEnd: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
@@ -143,24 +128,27 @@ const initFilters = () => {
 
 initFilters();
 
-const getSeverity = (status) => {
-    switch (status) {
-        case 'unqualified':
-            return 'danger';
-
-        case 'qualified':
-            return 'success';
-
-        case 'new':
-            return 'info';
-
-        case 'negotiation':
-            return 'warning';
-
-        case 'renewal':
-            return null;
-    }
-};
+const dialog = useDialog()
+const showAddModal = function (value, name, object ){
+    dialog.open( value,{
+        props: {
+            header: name,
+            dataLength: object.length,
+            style: {
+                width: '80vw',
+            },
+            breakpoints:{
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            modal: true
+        },
+        onClose: (options) => {
+            const newData = options.data;
+            data.push(...newData)
+        }
+    })
+}
 
 </script>
 
@@ -171,9 +159,9 @@ const getSeverity = (status) => {
             <div class="col-12 flex flex-column">
                 <h5>Ремонтная кампания за 2019-2021 годы по основному оборудованию:</h5>
 
-                <DataTable showGridlines :value="data" rowGroupMode="rowspan" groupRowsBy="representative.year" sortMode="single" sortField="representative.year" :sortOrder="1" tableStyle="min-width: 50rem"
+                <DataTable showGridlines :value="data" rowGroupMode="rowspan" groupRowsBy="year" sortMode="single" sortField="year" :sortOrder="1" tableStyle="min-width: 50rem"
                            @row-edit-save="onRowEditSave" v-model:editingRows="editingRows" tableClass="editable-cells-table" editMode="row" dataKey="id"
-                           :globalFilterFields="['name','year', 'representative.year', 'type', 'description']"
+                           :globalFilterFields="['name','year', 'year', 'type', 'description']"
                             filterDisplay="menu" v-model:filters="filters">
 
                     <ColumnGroup type="header">
@@ -198,15 +186,11 @@ const getSeverity = (status) => {
 
                     <template #header>
                         <div class="flex justify-content-start">
-<!--                            <span class="p-input-icon-left">-->
-<!--                                <i class="pi pi-search" />-->
-<!--                                <Calendar v-model="filters['global'].value"  placeholder="Сортировать по дате" view="year" dateFormat="yy"  showIcon />-->
-<!--                            </span>-->
+                            <Button @click="showAddModal(AddRepairWorkTable, 'Ремонтная кампания за 2019-2021 годы по основному оборудованию:', data)" label="Создать" class="mr-3"/>
                             <span class="ml-3 p-input-icon-left">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters['global'].value" placeholder="Год" />
                             </span>
-
                         </div>
                     </template>
                     <template #empty> ничего не найдено</template>
@@ -216,10 +200,10 @@ const getSeverity = (status) => {
                             {{ slotProps.index + 1 }}
                         </template>
                     </Column>
-                    <Column header="Год" field="representative.year" >
+                    <Column header="Год" field="year" >
                         <template #body="slotProps">
                             <div class="flex align-items-center gap-2">
-                                <span>{{ slotProps.data.representative.year }}</span>
+                                <span>{{ slotProps.data.year }}</span>
                             </div>
                         </template>
 
@@ -262,6 +246,8 @@ const getSeverity = (status) => {
                 <h5>Перспективный план ремонта  основного оборудования</h5>
             </div>
         </div>
+
+        <DynamicDialog/>
     </div>
 </template>
 
