@@ -1,5 +1,5 @@
 <script setup>
-import {inject, reactive} from "vue";
+import {inject, reactive, ref} from "vue";
 
 const equipments = reactive([
     {
@@ -23,7 +23,7 @@ const closeDialog = (e) => {
     dialogRef.value.close(e);
 };
 
-const data = reactive([
+const repairDone = reactive([
     {
         "id": dialogRef.value.options.props.dataLength + 1,
         "name": "",
@@ -34,39 +34,69 @@ const data = reactive([
         "year": "",
     },
 ])
+const repairPlan = reactive([
+    {
+        "id": dialogRef.value.options.props.dataLength + 1,
+        "name": "",
+        "type": "",
+        "description": "",
+        "year": "",
+    },
+])
 
-const addRow = function () {
-    let last = data[data.length - 1]
-
-    data.push(
-        {
-            "id": last.id + 1,
-            "name": "",
-            "type": "",
-            "dateStart": "",
-            "dateEnd": "",
-            "description": "",
-            "year": "",
-        },
-    )
+const checkValue = function (type){
+    if(type === 'repairDone') return repairDone
+    if(type === 'repairPlan') return repairPlan
 }
+const addRow = function (type) {
+    let repairDoneLast = repairDone[repairDone.length - 1]
+    let repairPlanLast = repairPlan[repairPlan.length - 1]
 
+    console.log('repairDoneLast', repairDoneLast)
+    console.log('repairPlanLast', repairPlanLast)
+    if(type === 'repairDone'){
+        repairDone.push(
+            {
+                "id": repairDoneLast.id + 1,
+                "name": "",
+                "type": "",
+                "dateStart": "",
+                "dateEnd": "",
+                "description": "",
+                "year": "",
+            },
+        )
+    }
+    // else
+    // if(type === 'repairPlan'){
+    //     repairPlan.push(
+    //         {
+    //             "id": repairPlanLast.id + 1,
+    //             "name": "",
+    //             "type": "",
+    //             "description": "",
+    //             "year": "",
+    //         },
+    //     )
+    // }
+}
 const dropRow = function (obj){
     const objWithIdIndex = data.findIndex((x) => x.id === obj.id);
     data.splice(objWithIdIndex, 1);
     return data;
 }
 
+const type = ref(dialogRef.value.options.props.type)
+
 </script>
 
 
 <template>
-
   <!--    таблица-->
-    <DataTable editMode="cell"  columnResizeMode="fit"  showGridlines  v-model:editingRows="editingRows" :value="data"  dataKey="id"
-               @row-edit-save="onRowEditSave" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
+    <DataTable editMode="cell"  columnResizeMode="fit"  showGridlines :value="checkValue(type)"  dataKey="id"
+               tableClass="editable-cells-table" tableStyle="min-width: 50rem">
 
-        <ColumnGroup type="header">
+        <ColumnGroup v-if="type === 'repairDone'" type="header">
             <Row>
                 <Column header="#" :rowspan="3" />
                 <Column header="Год" :rowspan="3" />
@@ -86,39 +116,39 @@ const dropRow = function (obj){
 
         </ColumnGroup>
 
-        <Column field="id" bodyStyle="text-align:center" header="Code">
+        <Column field="id" bodyStyle="text-align:center" header="№">
             <template >
-                <InputText v-model="data[field]" />
+                <InputText v-model="checkValue(type)[field]" />
             </template>
         </Column>
-        <Column field="year" header="Name" bodyStyle="text-align:center">
+        <Column field="year" header="Год" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  v-model="data[field]" />
+                <InputText  v-model="checkValue(type)[field]" />
             </template>
         </Column>
-        <Column field="name" header="Name" bodyStyle="text-align:center">
+        <Column field="name" header="Наименование" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  v-model="data[field]" />
+                <InputText  v-model="checkValue(type)[field]" />
             </template>
         </Column>
-        <Column field="type" header="Name" bodyStyle="text-align:center">
+        <Column field="type" header="Вид ремонта" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  class="w-5rem" v-model="data[field]" />
+                <InputText  class="w-5rem" v-model="checkValue(type)[field]" />
             </template>
         </Column>
-        <Column field="dateStart" header="Price" bodyStyle="text-align:center" >
+        <Column v-if="type === 'repairDone'" field="dateStart" header="Price" bodyStyle="text-align:center" >
             <template #body="{ data, field }">
-                <InputText  class="w-5rem" v-model="data[field]" />
+                <InputText  class="w-5rem" v-model="checkValue(type)[field]" />
             </template>
         </Column>
-        <Column field="dateEnd" header="Price" bodyStyle="text-align:center">
+        <Column v-if="type === 'repairDone'" field="dateEnd" header="Price" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  class="w-5rem" v-model="data[field]" />
+                <InputText  class="w-5rem" v-model="checkValue(type)[field]" />
             </template>
         </Column>
-        <Column field="description" header="Price" bodyStyle="text-align:center">
+        <Column field="description" header="Описание планируемых работ" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText v-model="data[field]" />
+                <InputText v-model="checkValue(type)[field]" />
             </template>
         </Column>
 
@@ -129,11 +159,11 @@ const dropRow = function (obj){
         </Column>
 
     </DataTable>
-    <Button size="small" @click="addRow()" class="mt-3" icon="pi pi-plus" rounded aria-label="Filter" />
+    <Button size="small" @click="addRow(type)" class="mt-3" icon="pi pi-plus" rounded aria-label="Filter" />
 
   <!--        footer кнопка сохранить-->
     <div class="flex justify-content-start mt-8">
-        <Button type="button" label="Сохранить" icon="pi pi-check" @click="closeDialog(data)" autofocus></Button>
+<!--        <Button type="button" label="Сохранить" icon="pi pi-check" @click="closeDialog(data)" autofocus></Button>-->
         <Button type="button" label="Отменить" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
     </div>
 
