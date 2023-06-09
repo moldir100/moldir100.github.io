@@ -1,22 +1,6 @@
 <script setup>
 import {inject, reactive, ref} from "vue";
 
-const equipments = reactive([
-    {
-        id: 1,
-        name: 'Ст.№ 7, ЦКТИ-75-39, 1953 г.',
-        type: 'Котельные оборудования',
-        count: 2
-    },
-    {
-        id: 1,
-        name: 'Ст.№ 8, ЦКТИ-75-39, 1956 г.',
-        type: 'Котельные оборудования',
-        count: 2
-    },
-
-])
-
 const dialogRef = inject("dialogRef");
 
 const closeDialog = (e) => {
@@ -52,8 +36,6 @@ const addRow = function (type) {
     let repairDoneLast = repairDone[repairDone.length - 1]
     let repairPlanLast = repairPlan[repairPlan.length - 1]
 
-    console.log('repairDoneLast', repairDoneLast)
-    console.log('repairPlanLast', repairPlanLast)
     if(type === 'repairDone'){
         repairDone.push(
             {
@@ -67,23 +49,29 @@ const addRow = function (type) {
             },
         )
     }
-    // else
-    // if(type === 'repairPlan'){
-    //     repairPlan.push(
-    //         {
-    //             "id": repairPlanLast.id + 1,
-    //             "name": "",
-    //             "type": "",
-    //             "description": "",
-    //             "year": "",
-    //         },
-    //     )
-    // }
+    else if(type === 'repairPlan'){
+        repairPlan.push(
+            {
+                "id": repairPlanLast.id + 1,
+                "name": "",
+                "type": "",
+                "description": "",
+                "year": "",
+            },
+        )
+    }
 }
-const dropRow = function (obj){
-    const objWithIdIndex = data.findIndex((x) => x.id === obj.id);
-    data.splice(objWithIdIndex, 1);
-    return data;
+const dropRow = function (obj, type){
+    console.log(obj, type)
+    if(type === 'repairDone'){
+        const objWithIdIndex = repairDone.findIndex((x) => x.id === obj.id);
+        repairDone.splice(objWithIdIndex, 1);
+        return repairDone;
+    }else if(type === 'repairPlan'){
+        const objWithIdIndex = repairPlan.findIndex((x) => x.id === obj.id);
+        repairPlan.splice(objWithIdIndex, 1);
+        return repairPlan;
+    }
 }
 
 const type = ref(dialogRef.value.options.props.type)
@@ -108,7 +96,6 @@ const type = ref(dialogRef.value.options.props.type)
                 <Column bodyStyle="text-align:center" header="Описание выполненных работ" :rowspan="2"  />
                 <Column header="" :rowspan="2"  />
             </Row>
-
             <Row>
                 <Column header="Начало"  />
                 <Column header="Окончание" />
@@ -117,44 +104,42 @@ const type = ref(dialogRef.value.options.props.type)
         </ColumnGroup>
 
         <Column field="id" bodyStyle="text-align:center" header="№">
-            <template >
-                <InputText v-model="checkValue(type)[field]" />
-            </template>
+
         </Column>
         <Column field="year" header="Год" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  v-model="checkValue(type)[field]" />
+                <InputText  v-model="data[field]" />
             </template>
         </Column>
         <Column field="name" header="Наименование" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  v-model="checkValue(type)[field]" />
+                <InputText  v-model="data[field]" />
             </template>
         </Column>
         <Column field="type" header="Вид ремонта" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  class="w-5rem" v-model="checkValue(type)[field]" />
+                <InputText  class="w-5rem" v-model="data[field]" />
             </template>
         </Column>
         <Column v-if="type === 'repairDone'" field="dateStart" header="Price" bodyStyle="text-align:center" >
             <template #body="{ data, field }">
-                <InputText  class="w-5rem" v-model="checkValue(type)[field]" />
+                <InputText  class="w-5rem" v-model="data[field]" />
             </template>
         </Column>
         <Column v-if="type === 'repairDone'" field="dateEnd" header="Price" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText  class="w-5rem" v-model="checkValue(type)[field]" />
+                <InputText  class="w-5rem" v-model="data[field]" />
             </template>
         </Column>
         <Column field="description" header="Описание планируемых работ" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <InputText v-model="checkValue(type)[field]" />
+                <InputText v-model="data[field]" />
             </template>
         </Column>
 
         <Column field="work" header="" bodyStyle="text-align:center">
             <template #body="{ data, field }">
-                <Button @click="dropRow(data)" icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
+                <Button @click="dropRow(data, type)" icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
             </template>
         </Column>
 
@@ -163,7 +148,7 @@ const type = ref(dialogRef.value.options.props.type)
 
   <!--        footer кнопка сохранить-->
     <div class="flex justify-content-start mt-8">
-<!--        <Button type="button" label="Сохранить" icon="pi pi-check" @click="closeDialog(data)" autofocus></Button>-->
+        <Button type="button" label="Сохранить" icon="pi pi-check" @click="closeDialog(checkValue(type))" autofocus></Button>
         <Button type="button" label="Отменить" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
     </div>
 

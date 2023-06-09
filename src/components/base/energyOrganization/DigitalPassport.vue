@@ -44,7 +44,7 @@ const panelMenuItems = ref([
     },
     {
         label: 'Информация по выбросам',
-        to: ''
+        to: '/profile/digitalPassport/emissionInformation'
     },
     {
         label: 'Дополнительная информация',

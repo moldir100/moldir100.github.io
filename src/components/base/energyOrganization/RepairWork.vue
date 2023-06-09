@@ -1,5 +1,8 @@
 <script setup>
-import {ref, onMounted, reactive, defineAsyncComponent} from 'vue';
+import {defineAsyncComponent, reactive, ref} from 'vue';
+import {FilterMatchMode, FilterOperator} from 'primevue/api';
+import {useDialog} from "primevue/usedialog";
+import moment from "moment";
 
 const AddRepairWorkTable = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddRepairWorkTable.vue'));
 
@@ -49,15 +52,6 @@ const repairDone =  reactive([
         "year": "2021",
     },
     {
-        "id": 1004,
-        "name": "Гидроагрегат Ст. №1 ",
-        "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
-        "description": "Текущий ремонт в объеме заводской инструкции",
-        "year": "2023",
-    },
-    {
         "id": 1005,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
@@ -76,51 +70,12 @@ const repairDone =  reactive([
         "year": "2020",
 
     },
-    {
-        "id": 1007,
-        "name": "Гидроагрегат Ст. №1 ",
-        "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
-        "description": "Текущий ремонт в объеме заводской инструкции",
-            "year": "2023",
-    },
-    {
-        "id": 1009,
-        "name": "Гидроагрегат Ст. №1 ",
-        "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
-        "description": "Текущий ремонт в объеме заводской инструкции",
-            "year": "2023",
-
-    },
-    {
-        "id": 1010,
-        "name": "Гидроагрегат Ст. №1 ",
-        "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
-        "description": "Текущий ремонт в объеме заводской инструкции",
-        "year": "2020",
-    },
-    {
-        "id": 1012,
-        "name": "Гидроагрегат Ст. №1 ",
-        "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
-        "description": "Текущий ремонт в объеме заводской инструкции",
-        "year": "2021",
-    },
 ])
 const repairPlan =  reactive([
     {
         "id": 1000,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
 
         "year": "2021",
@@ -129,8 +84,6 @@ const repairPlan =  reactive([
         "id": 1001,
         "name": "Гидроагрегат Ст. №2",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
 
         "year": "2019",
@@ -139,8 +92,6 @@ const repairPlan =  reactive([
         "id": 1002,
         "name": "Гидроагрегат Ст. №1",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
 
         "year": "2021",
@@ -149,8 +100,6 @@ const repairPlan =  reactive([
         "id": 1004,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
         "year": "2023",
     },
@@ -158,8 +107,6 @@ const repairPlan =  reactive([
         "id": 1005,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
         "year": "2019",
     },
@@ -167,8 +114,6 @@ const repairPlan =  reactive([
         "id": 1006,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
         "year": "2020",
 
@@ -177,8 +122,6 @@ const repairPlan =  reactive([
         "id": 1007,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
             "year": "2023",
     },
@@ -186,8 +129,6 @@ const repairPlan =  reactive([
         "id": 1009,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
             "year": "2023",
 
@@ -196,8 +137,6 @@ const repairPlan =  reactive([
         "id": 1010,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
         "year": "2020",
     },
@@ -205,15 +144,10 @@ const repairPlan =  reactive([
         "id": 1012,
         "name": "Гидроагрегат Ст. №1 ",
         "type": "текущий",
-        "dateStart": "2015-09-13",
-        "dateEnd": "2015-09-13",
         "description": "Текущий ремонт в объеме заводской инструкции",
         "year": "2021",
     },
 ])
-
-import { FilterMatchMode, FilterOperator } from 'primevue/api';
-import {useDialog} from "primevue/usedialog";
 
 const filters = ref();
 
@@ -247,12 +181,22 @@ const showAddModal = function (value, name, object, type ){
             modal: true
         },
         onClose: (options) => {
-            const newData = options.data;
-            data.push(...newData)
+            if(type=== 'repairDone'){
+                const newData = options.data;
+                repairDone.push(...newData)
+            }else if(type==='repairPlan'){
+                const newData = options.data;
+                repairPlan.push(...newData)
+            }
+
         }
     })
 }
-
+const formatYear = function (date){
+    const year =  moment(date).format('YYYY')
+    console.log(year)
+    return year
+}
 </script>
 
 
@@ -303,15 +247,16 @@ const showAddModal = function (value, name, object, type ){
                             {{ slotProps.index + 1 }}
                         </template>
                     </Column>
+
                     <Column header="Год" field="year" >
                         <template #body="slotProps">
                             <div class="flex align-items-center gap-2">
-                                <span>{{ slotProps.data.year }}</span>
+                                <span>{{formatYear(slotProps.data.year) }}</span>
                             </div>
                         </template>
 
                         <template #editor="{ data, field }">
-                            <Calendar v-model="data[field]" view="year" dateFormat="yy"  showIcon />
+                            <Calendar @change="formatYear(data[field])" v-model="data[field]" view="year" dateFormat="yy"  showIcon />
                         </template>
                     </Column>
                     <Column header="Наименование Ст. №" field="name"  style="min-width: 200px">
@@ -390,7 +335,7 @@ const showAddModal = function (value, name, object, type ){
                             <InputText class="w-8rem" v-model="data[field]" />
                         </template>
                     </Column>
-                    <Column header="Описание выполненных работ" field="description" style="min-width: 100px">
+                    <Column header="Описание выполненных работ" field="description" >
                         <template #editor="{ data, field }">
                             <InputText v-model="data[field]" />
                         </template>

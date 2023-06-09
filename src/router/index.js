@@ -96,6 +96,11 @@ const router = createRouter({
                                     name: 'consumers',
                                     component: () => import('@/components/base/energyOrganization/Consumers.vue'),
                                 },
+                                {
+                                    path: '/profile/digitalPassport/emissionInformation',
+                                    name: 'emissionInformation',
+                                    component: () => import('@/components/base/energyOrganization/EmissionInformation.vue'),
+                                },
                             ]
                         },
                         {
