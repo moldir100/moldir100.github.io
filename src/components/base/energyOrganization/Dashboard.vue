@@ -5,7 +5,7 @@ import {computed, onMounted, reactive, ref} from 'vue'
 import { verticalBar, doughnut, setChartOptions } from '@/models/charts/setChart'
 
 
-const technicalEconomicIndicators = reactive([
+ const technicalEconomicIndicators = reactive([
     {
         id: 1,
         number: 1,
@@ -791,7 +791,6 @@ const allData = ref([
     type: 'country',
     label: 'Цех имени Айбола',
     data: 'ar',
-    inf0: '',
     main: true,
     children: [
         {
@@ -1014,25 +1013,9 @@ const items = ref([
         label: 'Посмотреть',
         icon: 'pi pi-fw pi-eye',
         command: (event) => {
-            console.log("посмотреть")
-            console.log("event", event.item)
             showModal()
         }
-    },
-    {
-        label: 'Редактировать',
-        icon: 'pi pi-fw pi-pencil',
-        command: (event) => {
-            console.log(event)
-        }
-    },
-    {
-        label: 'Удалить',
-        icon: 'pi pi-fw pi-trash',
-        command: (event) => {
-            console.log(event)
-        }
-    },
+    }
 ]);
 
 const toggleMenu = ( event, i) => {

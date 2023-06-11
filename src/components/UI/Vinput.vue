@@ -18,16 +18,6 @@ defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 let modelValue = ref('')
-// const update = function (event){
-//     console.log('eventyy', event.name)
-//     console.log('eventyy', event)
-//     modelValue = event.name
-//     return modelValue
-// }
-
-const updateValue = (event) => {
-    emit('update:modelValue', event.target.value)
-}
 
 </script>
 

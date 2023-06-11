@@ -29,7 +29,80 @@ const guilds = reactive([
         ]
     },
 ]);
-const modelValue = ref('')
+
+const data =  {
+    key: '1', //ключ 1
+    type: 'country',
+    label: '', //цех 2
+    data: 'ar',
+    main: true,
+    children: [
+        {
+            key: '0_0', //ключ 1_0
+            type: 'country',
+            label: 'СВ-1436/200-80 УХЛ4',
+            count: '6',
+            info: 'Гидрогенератор ',
+            data: 'ar',
+            children: [
+                {
+                    key: '0_0_0', //ключ 0_0_0
+                    type: 'country',
+                    label: 'КРУ-10 кВ ГЭС (23 яч.)',
+                    info: 'Комплектное распределительное устройство 10 кВ',
+                    count: '1',
+                    data: 'ar',
+                },
+                {
+                    key: '0_0_1', //ключ 0_0_1
+                    type: 'country',
+                    label: 'КРУ-10 кВ ОРУ (16 яч.)',
+                    info: 'Комплектное распределительное устройство 10 кВ',
+                    count: '1',
+                    data: 'hr'
+                }
+            ]
+        },
+        {
+            key: '0_1', //ключ 0_1
+            type: 'country',
+            label: 'ТЦ-250000/242-13,8кВ',
+            count: '3',
+            info: 'Блочные трансформатор',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0', //ключ 0_1_0
+                    type: 'country',
+                    label: 'КТП',
+                    count: '3',
+                    info: 'Блочные трансформатор',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1', //ключ 0_1_1
+                    type: 'country',
+                    label: 'UNITROL 6800',
+                    count: '6',
+                    info: 'Системы возбуждения гидрогенераторов',
+                    data: 'ma'
+                }
+            ]
+        },
+        {
+            key: '0_2',
+            type: 'country',
+            label: 'RESIBLOC',
+            info: 'Трансформатор возбуждения',
+            count: '6',
+            data: 'fr',
+            children: [
+            ]
+        }
+    ]
+}
+
+const  modelValue = ref('')
 
 const newRow = reactive([]);
 const addRow = function (type){
@@ -100,11 +173,6 @@ const dropRow = function (id){
     newRow.splice(index, 1)
 }
 const addSubRow = function(id){
-    const sweetArray = [2, 3, 4, 5, 35]
-    const sweeterArray = sweetArray.map(sweetItem => {
-        return sweetItem * 2
-    })
-    console.log(sweeterArray)
 
     newRow.map(item => {
         const index = item.id === id
@@ -169,11 +237,12 @@ const addSubRow = function(id){
         <div class="flex ">
             <div class="col-12 lg:col-4 md:col-6 pb-1 pt-0" v-for="i in guilds" :key="i.id">
                 <h6>{{i.label}}</h6>
-<!--                <InputLabel @update:modelValue="modelValue = $event.name" v-model:modelValue="modelValue" @update:sendData="value => modelValue = value"  :label="i.name" :type="i.type" :items="i.items"></InputLabel>-->
-                <InputLabel  v-model="modelValue" @update:modelValue="modelValue = $event.name"  :label="i.name" :type="i.type" :items="i.items"></InputLabel>
+                <div class="p-float-label">
+                    <Dropdown v-model:modelValue="modelValue" inputId="dd-city" :options="i.items" optionLabel="name" placeholder="Выберите" class="w-full" />
+                </div>
             </div>
-<!--            <div v-if="guild !== '' " class="col-12 lg:col-4 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">-->
-            <div class="col-12 lg:col-6 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">
+
+            <div v-if="modelValue !== ''" class="col-12 lg:col-6 md:col-6 pb-1 pt-0 flex align-content-end pt-5" v-for="i in guilds" :key="i.id">
                 <Button class="h-3rem" type="button" label="Основное оборуд" icon="pi pi-plus" @click="addRow('main')"></Button>
                 <Button class="h-3rem ml-3" type="button" severity="warning" label="Вспом. оборудование" icon="pi pi-plus" @click="addRow('dop')"></Button>
             </div>
@@ -191,7 +260,20 @@ const addSubRow = function(id){
                 </div>
                 <div class="col-8 flex flex-row justify-content-between ">
                     <div class="col-3  p-0 m-0" v-for="item in i.inputs" :key="i.id">
-                        <InputLabel :label="item.name" :type="item.type" :items="item.items"></InputLabel>
+<!--                        <Dropdown :value="modelValue"  v-model:modelValue="data.children" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
+                        <div v-if="item.type==='input'">
+                            <span class="p-float-label">
+                                <InputText v-model="modelValue" class="w-full"  id="username"/>
+                                <label for="username">{{item.label}}</label>
+                            </span>
+                        </div>
+
+                        <div v-if="item.type==='select'">
+                            <div class="p-float-label">
+                                <Dropdown :value="modelValue" v-model:modelValue="modelValue" inputId="dd-city" :options="item.items" optionLabel="name" placeholder="Выберите" class="w-full" />
+                                <label for="dd-city">{{i.label}}</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-3 flex justify-content-evenly">

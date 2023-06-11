@@ -5,7 +5,6 @@ import {defineAsyncComponent, markRaw, reactive, ref} from "vue";
 import { useDialog } from 'primevue/usedialog';
 const AddGuild = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddGuild.vue'));
 
-
 const inputItemsPassport = reactive([
     {
         id: 1,
@@ -361,9 +360,6 @@ const balance = reactive([
             },
         ]
     },
-
-
-
 ]);
 
 const value = ref('<p><strong>Усть-Каменогорская ТЭЦ</strong>&nbsp;— ТОО «Усть-Каменогорская ТЭЦ» - теплоэлектроцентраль, расположенная в городе Усть-Каменогорске Восточно-Казахстанской области, Казахстан. Принадлежит ТОО «Шыгыс Energo («Шыгыс Энерго»)» (находится в частной собственности). Площадка ТОО «Усть-Каменогорская ТЭЦ» расположена в черте города в пределах второй надпойменной террасы р. Ульба. Занимаемая площадь 42 га. Установленная мощность ТОО «Усть-Каменогорская ТЭЦ» по состоянию на 01.01.2022г. года составляет:</p><p>- электрическая - 372,5 МВт</p><p>- тепловая – 859,9 Гкал/ч.</p>')
@@ -648,7 +644,8 @@ const showAddModal = function (){
         },
 
         onClose: (options) => {
-            // const data = options.data;
+            const data = options.data;
+            console.log("data", data)
             // if (data) {
             //     const buttonType = data.buttonType;
             //     const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data.name };
