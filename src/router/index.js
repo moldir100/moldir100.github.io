@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router';
+ import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router';
 import AppLayout from '@/layout/AppLayout.vue';
 import ProfileEnergyOrganization from "@/pages/ProfileEnergyOrganization.vue";
 import MainPage from "@/pages/MainPage.vue";
@@ -100,6 +100,11 @@ const router = createRouter({
                                     path: '/profile/digitalPassport/emissionInformation',
                                     name: 'emissionInformation',
                                     component: () => import('@/components/base/energyOrganization/EmissionInformation.vue'),
+                                },
+                                {
+                                    path: '/profile/digitalPassport/moreInformation',
+                                    name: 'moreInformation',
+                                    component: () => import('@/components/base/energyOrganization/MoreInformation.vue'),
                                 },
                             ]
                         },
