@@ -81,6 +81,7 @@ const onRowEditSaveInformationNDT= (event) => {
     let { newData, index } = event;
     informationNDT[index] = newData;
 };
+
 import {useDialog} from "primevue/usedialog";
 const dialog = useDialog()
 const showAddModal = function (value, name, object, type ){

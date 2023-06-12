@@ -2,7 +2,8 @@
 
 import InputLabel from "@/components/UI/Vinput.vue";
 import {defineAsyncComponent, markRaw, reactive, ref} from "vue";
-import { useDialog } from 'primevue/usedialog';
+import {useDialog} from 'primevue/usedialog';
+
 const AddGuild = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddGuild.vue'));
 
 const inputItemsPassport = reactive([
@@ -12,14 +13,16 @@ const inputItemsPassport = reactive([
         style: 'lg:col-4',
         items: [
             {
-                id:1,
+                id: 1,
                 type: 'input',
                 label: 'Полное название ЭПО',
+                modelValue: ''
             },
             {
                 id: 2,
                 type: 'input',
                 label: 'Короткое название ЭПО',
+                modelValue: ''
             },
         ]
     },
@@ -29,11 +32,12 @@ const inputItemsPassport = reactive([
         style: 'lg:col-4',
         items: [
             {
-                id:1,
+                id: 1,
                 type: 'select',
                 label: 'Город',
                 placeholder: 'Пусто',
                 icon: 'pi pi-fw pi-user',
+                modelValue: '',
                 items: [
                     {
                         name: 'Актау'
@@ -52,6 +56,7 @@ const inputItemsPassport = reactive([
                 label: 'Адрес',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -61,11 +66,12 @@ const inputItemsPassport = reactive([
         style: 'lg:col-4',
         items: [
             {
-                id:1,
+                id: 1,
                 type: 'select',
                 label: 'Город',
                 placeholder: 'Пусто',
                 icon: 'pi pi-fw pi-user',
+                modelValue: '',
                 items: [
                     {
                         name: 'Актау'
@@ -84,6 +90,7 @@ const inputItemsPassport = reactive([
                 label: 'Адрес',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -93,11 +100,12 @@ const inputItemsPassport = reactive([
         style: 'lg:col-4',
         items: [
             {
-                id:1,
+                id: 1,
                 type: 'select',
                 label: 'Город',
                 placeholder: 'Пусто',
                 icon: 'pi pi-fw pi-user',
+                modelValue: '',
                 items: [
                     {
                         name: 'Актау'
@@ -116,6 +124,7 @@ const inputItemsPassport = reactive([
                 label: 'Адрес',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -130,12 +139,14 @@ const inputItemsPassport = reactive([
                 label: 'Широта',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             }, {
                 id: 2,
                 type: 'input',
                 label: 'Долгота',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -150,11 +161,13 @@ const inputItemsPassport = reactive([
                 label: 'БИН*',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
             {
                 id: 2,
                 type: 'date',
                 label: 'Дата первичной регистрации',
+                modelValue: '',
             },
         ]
     },
@@ -168,6 +181,7 @@ const inputItemsPassport = reactive([
                 type: 'input',
                 label: 'ФИО',
                 placeholder: 'Пусто',
+                modelValue: '',
             },
             {
                 id: 2,
@@ -181,19 +195,22 @@ const inputItemsPassport = reactive([
                     {
                         name: 'Главный инженер'
                     },
-                ]
+                ],
+                modelValue: '',
             },
             {
                 id: 3,
                 type: 'input',
                 label: 'Мобильный номер',
                 placeholder: 'Пусто',
+                modelValue: '',
             },
             {
                 id: 4,
                 type: 'input',
                 label: 'Городской номер',
                 placeholder: 'Пусто',
+                modelValue: '',
             },
         ]
     },
@@ -207,6 +224,7 @@ const inputItemsPassport = reactive([
                 label: 'ФИО',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
             {
                 id: 2,
@@ -214,6 +232,7 @@ const inputItemsPassport = reactive([
                 label: 'Должность',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
                 items: [
                     {
                         name: 'Генеральный директор'
@@ -229,6 +248,7 @@ const inputItemsPassport = reactive([
                 label: 'Мобильный номер',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
             {
                 id: 4,
@@ -236,6 +256,7 @@ const inputItemsPassport = reactive([
                 label: 'Городской номер',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -250,6 +271,7 @@ const inputItemsPassport = reactive([
                 label: 'Форма собственности',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
                 items: [
                     {
                         name: 'Частная'
@@ -272,6 +294,7 @@ const inputItemsPassport = reactive([
                 label: 'Учредители и доли участия',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -286,6 +309,7 @@ const inputItemsPassport = reactive([
                 label: 'Форма собственности',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
                 items: [
                     {
                         name: 'Частная'
@@ -308,6 +332,7 @@ const inputItemsPassport = reactive([
                 label: 'Телефон приемной',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
             {
                 id: 2,
@@ -315,6 +340,7 @@ const inputItemsPassport = reactive([
                 label: 'Телефон канцелярии',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
             {
                 id: 3,
@@ -322,6 +348,7 @@ const inputItemsPassport = reactive([
                 label: 'Электронная почта',
                 placeholder: 'Пусто',
                 style: "lg:w-12 md:w-12 sm:w-100",
+                modelValue: '',
             },
         ]
     },
@@ -329,10 +356,10 @@ const inputItemsPassport = reactive([
 
 const company = reactive([
     {
-        id:1,
+        id: 1,
         type: 'textArea',
         label: 'Наименование области',
-        value:'123'
+        value: '123'
     },
     {
         id: 2,
@@ -349,7 +376,7 @@ const balance = reactive([
         style: 'lg:col-4',
         items: [
             {
-                id:1,
+                id: 1,
                 type: 'input',
                 label: 'Полное название ЭПО',
             },
@@ -368,7 +395,6 @@ const valueThree = ref('<p>Основные этапы развития стан
 const valueFour = ref('<p>В 2013 году была выполнена модернизация турбины типа Т-100-130 ст. № 11 с повышением электрической мощности до 120 МВт и заменой цилиндра высокого давления.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p>В 2014 году была выполнена замена проточной части (ротора и цилиндра высокого давления) турбины типа Р-38-130-34&nbsp;&nbsp;ст.№9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p>В 2019 году была выполнена&nbsp;реконструкция золоотвала №3.</p>')
 
 const selected = ref('')
-
 
 const allData = reactive([
     {
@@ -438,8 +464,7 @@ const allData = reactive([
                 info: 'Трансформатор возбуждения',
                 count: '6',
                 data: 'fr',
-                children: [
-                ]
+                children: []
             }
         ]
     },
@@ -510,8 +535,7 @@ const allData = reactive([
                 info: 'Трансформатор возбуждения',
                 count: '6',
                 data: 'fr',
-                children: [
-                ]
+                children: []
             }
         ]
     },
@@ -582,8 +606,7 @@ const allData = reactive([
                 info: 'Трансформатор возбуждения',
                 count: '6',
                 data: 'fr',
-                children: [
-                ]
+                children: []
             }
         ]
     },
@@ -621,22 +644,22 @@ const items = reactive([
     },
 ]);
 
-const toggleMenu = ( event, i) => {
+const toggleMenu = (event, i) => {
     menu.value.toggle(event);
     data.value = i
 };
-const showModal = function (){
+const showModal = function () {
     visible2.value = true
 }
 const dialog = useDialog();
-const showAddModal = function (){
-    dialog.open( AddGuild,{
+const showAddModal = function () {
+    dialog.open(AddGuild, {
         props: {
             header: 'Балансовая принадлежность',
             style: {
                 width: '50vw',
             },
-            breakpoints:{
+            breakpoints: {
                 '960px': '75vw',
                 '640px': '90vw'
             },
@@ -656,61 +679,94 @@ const showAddModal = function (){
     })
 }
 
-const inputValue=ref(null)
+const inputValue = ref(null)
 </script>
 
 
 <template>
-    <!--        1. Краткая справка:-->
+  <!--        1. Краткая справка:-->
     <div class="flex">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12 flex flex-column">
                 <h5>Краткая справка</h5>
-                <Editor  v-model="value" editorStyle="height: 120px" />
+                <Editor v-model="value" editorStyle="height: 120px"/>
             </div>
         </div>
     </div>
-
-    <!--        2. Общие сведения:-->
+  <!--        2. Общие сведения:-->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12 flex flex-column">
                 <h5>Общие сведения</h5>
-                <Editor  v-model="valueTwo" editorStyle="height: 170px" />
+                <Editor v-model="valueTwo" editorStyle="height: 170px"/>
             </div>
         </div>
     </div>
-
-    <!--        3. История строительства и эксплуатации:-->
+  <!--        3. История строительства и эксплуатации:-->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12 flex flex-column">
                 <h5>История строительства и эксплуатации</h5>
-                <Editor  v-model="valueThree" editorStyle="height: 200px" />
+                <Editor v-model="valueThree" editorStyle="height: 200px"/>
             </div>
         </div>
     </div>
-
-    <!--        4. Модернизация:-->
+  <!--        4. Модернизация:-->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12 flex flex-column">
                 <h5>Модернизация</h5>
-                <Editor  v-model="valueFour" editorStyle="height: 100px" />
+                <Editor v-model="valueFour" editorStyle="height: 100px"/>
             </div>
         </div>
     </div>
-
-    <!--        5. Паспортные данные: -->
+  <!--        5. Паспортные данные: -->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white">
             <div class="col-12 flex flex-column">
                 <h5>Паспортные данные</h5>
                 <div class="grid" v-for="item in inputItemsPassport" :key="item.id">
-                    <div class="col-12 text-left mt-2 pb-0"><h6>{{item.name}}</h6></div>
+                    <div class="col-12 text-left mt-2 pb-0"><h6>{{ item.name }}</h6></div>
                     <div class="col-12 grid pb-1 pt-0">
-                        <div  :class='item.style' class="col-12 lg:col-3 md:col-6  pb-0" v-for="i in item.items" :key="i.id">
-                            <InputLabel v-model="inputValue" :label="i.label" :type="i.type" :items="i.items" />
+                        <div :class='item.style' class="col-12 lg:col-3 md:col-6  pb-0" v-for="i in item.items"
+                             :key="i.id">
+
+                            <div v-if="i.type==='input'">
+                                    <span class="p-float-label">
+                                        <InputText v-model="i.modelValue" class="w-full" id="username"/>
+                                        <label for="username">{{ i.label }}</label>
+                                    </span>
+                            </div>
+
+                            <div v-if="i.type==='select'">
+                                <div class="p-float-label">
+                                    <!--                <Dropdown @update:modelValue="selectedValue = $event.name"  v-model:modelValue="selectedValue" inputId="dd-city" :options="items" optionLabel="name" placeholder="Выберите" class="w-full" />-->
+                                    <Dropdown :value="modelValue" @input="updateValue"
+                                              @update:modelValue="modelValue = $event.name"
+                                              v-model:modelValue="selectedValue" inputId="dd-city" :options="i.items"
+                                              optionLabel="name" placeholder="Выберите" class="w-full"/>
+
+                                    <label for="dd-city">{{ label }}</label>
+                                </div>
+                            </div>
+
+                            <div v-if="i.type==='date'">
+                                <div class="p-float-label">
+                                    <Calendar :view="view" :dateFormat="dateFormat" :value="data"
+                                              @input="$emit('update:data', $event.target.value)" showIcon
+                                              class="w-full"/>
+                                    <label for="dd-city">{{ label }}</label>
+                                    {{ data }}
+                                </div>
+                            </div>
+
+                            <div v-if="i.type==='textArea'">
+                                <div class="p-float-label">
+                                    <Textarea v-model="selected" rows="5" cols="30" class="w-full"/>
+                                    <label for="dd-city">{{ label }}</label>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <hr class="sm:block">
@@ -718,48 +774,45 @@ const inputValue=ref(null)
             </div>
         </div>
     </div>
-
-    <!--        6. Предмет деятельности согласно Устава: -->
+  <!--        6. Предмет деятельности согласно Устава: -->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12 flex flex-column">
                 <h5>Предмет деятельности согласно Устава</h5>
-                <Editor  v-model="valueFour" editorStyle="height: 100px" />
+                <Editor v-model="valueFour" editorStyle="height: 100px"/>
             </div>
         </div>
     </div>
-
-    <!--        7. Компания осуществляет производство электрической и тепловой энергии для потребителей: -->
+  <!--        7. Компания осуществляет производство электрической и тепловой энергии для потребителей: -->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12">
                 <h5>Компания осуществляет производство электрической и тепловой энергии для потребителей</h5>
-                <div class="grid flex flex-column lg:flex-row md:flex-row mt-3" >
+                <div class="grid flex flex-column lg:flex-row md:flex-row mt-3">
                     <div class="col-12 lg:col-4 md:col-6 pb-1 pt-0" v-for="c in company" :key="c.id">
-                        <h6>{{c.label}}</h6>
-                        <InputLabel :selected="selected" v-model="selected" :label="c.label" :type="c.type"></InputLabel>
+                        <h6>{{ c.label }}</h6>
+                        <InputLabel :selected="selected" v-model="selected" :label="c.label"
+                                    :type="c.type"></InputLabel>
                         <InlineMessage v-if="c.value === ''" class="h-1rem">Username is required</InlineMessage>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--        8. Описание регулируемой деятельности-->
+  <!--        8. Описание регулируемой деятельности-->
     <div class="flex mt-3">
         <div class="col-12 border-round-lg bg-white ml-0">
             <div class="col-12 flex flex-column">
                 <h5>Описание регулируемой деятельности</h5>
-                <Editor  v-model="valueFour" editorStyle="height: 100px" />
+                <Editor v-model="valueFour" editorStyle="height: 100px"/>
             </div>
         </div>
     </div>
-
-    <!--        9. Балансовая принадлежность организации включает: -->
+  <!--        9. Балансовая принадлежность организации включает: -->
     <div class=" border-round-lg p-4 bg-white mt-3">
 
         <div class="flex flex-row justify-content-between mb-3">
-            <div  class="flex">
+            <div class="flex">
                 <h4 class="m-auto">Балансовая принадлежность</h4>
             </div>
         </div>
@@ -768,12 +821,14 @@ const inputValue=ref(null)
         <DynamicDialog/>
 
         <div class="flex flex-column " v-for="i in allData">
-            <div class="border-round-lg flex flex-row justify-content-between p-3 pb-2 lg:w-3 mt-3" style="border: #c4c4c4 1px solid"  >
-                <div><h6>{{i.label}}</h6></div>
-                <Button icon="pi pi-ellipsis-h" class="h-1rem" type="button" @click="toggleMenu($event, i)" aria-haspopup="true" aria-controls="overlay_tmenu"/>
+            <div class="border-round-lg flex flex-row justify-content-between p-3 pb-2 lg:w-3 mt-3"
+                 style="border: #c4c4c4 1px solid">
+                <div><h6>{{ i.label }}</h6></div>
+                <Button icon="pi pi-ellipsis-h" class="h-1rem" type="button" @click="toggleMenu($event, i)"
+                        aria-haspopup="true" aria-controls="overlay_tmenu"/>
             </div>
         </div>
-        <Menu ref="menu" id="overlay_tmenu" :model="items"  popup />
+        <Menu ref="menu" id="overlay_tmenu" :model="items" popup/>
 
         <Dialog v-model:visible="visible" maximizable modal :header="data.label" :style="{ width: '70vw' }">
             <div class="col-12 grid  ">
@@ -781,24 +836,27 @@ const inputValue=ref(null)
                     <template #country="slotProps">
                         <div class="flex flex-column align-items-center">
                             <div class="mt-3 font-medium text-lg"> {{ slotProps.node.label }}</div>
-                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Тип: {{ slotProps.node.info }}</div>
-                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Количество: {{ slotProps.node.count }} ед.</div>
+                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Тип:
+                                {{ slotProps.node.info }}
+                            </div>
+                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Количество:
+                                {{ slotProps.node.count }} ед.
+                            </div>
                         </div>
                     </template>
                     <template #default="slotProps">
-                        <span>{{slotProps.node.data.label}}</span>
+                        <span>{{ slotProps.node.data.label }}</span>
                     </template>
                 </OrganizationChart>
             </div>
         </Dialog>
     </div>
 
-
 </template>
 
 
 <style scoped>
-#digitalPassport{
+#digitalPassport {
     background: #FFFFFF;
     /* In progress */
 
@@ -806,8 +864,9 @@ const inputValue=ref(null)
     border-radius: 8px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.18));
 }
+
 /*passport Details*/
-#passportDetails{
+#passportDetails {
     background: #FFFFFF;
     /* In progress */
 
@@ -841,7 +900,8 @@ const inputValue=ref(null)
     outline: none;
     padding: 0 8px;
 }
-#required{
+
+#required {
     color: red
 }
 </style>
