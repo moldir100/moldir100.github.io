@@ -67,18 +67,5 @@ const panelMenuItems = ref([
 
 
 <style scoped>
-.card{
-    margin-bottom: 0;
-}
-
-
-/*.flex{*/
-/*    display: flex;*/
-/*    margin-bottom: 0;*/
-/*}*/
-
-.flex-row{
-    /*margin-bottom: -10px !important;*/
-}
 
 </style>

@@ -23,6 +23,12 @@ const model = ref([
         ]
     },
     {
+        label: 'Админстрирование',
+        items: [
+            { label: 'Панель админстратора' , icon: 'pi pi-fw pi-id-card', to: '/adminPanel/users' },
+        ]
+    },
+    {
         label: 'Функционал надзорного органа',
         items: [
             { label: 'Перечень субъектов', icon: 'pi pi-fw pi-id-card', to: '' },

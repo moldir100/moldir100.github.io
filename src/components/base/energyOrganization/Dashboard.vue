@@ -1019,6 +1019,7 @@ const items = ref([
 ]);
 
 const toggleMenu = ( event, i) => {
+    console.log(i)
     menu.value.toggle(event);
     data.value = i
 
@@ -1026,10 +1027,6 @@ const toggleMenu = ( event, i) => {
 
 const showModal = function (){
     visible.value = true
-}
-
-let consLog = function (node){
-    console.log("это нода" , node)
 }
 </script>
 <template>
@@ -1293,12 +1290,12 @@ let consLog = function (node){
         <Menu ref="menu" id="overlay_tmenu" :model="items"  popup />
 
         <Dialog v-model:visible="visible" maximizable modal :header="data.label" :style="{ width: '70vw' }">
-            <div class="col-12 grid  ">
+            <div class="col-12 grid">
                 <OrganizationChart id="orgChart" class="" :value="data" collapsible :selectionMode="'single'">
                     <template #country="slotProps">
                         <div class="flex flex-column align-items-center">
                             <div class="mt-3 font-medium text-lg"> {{ slotProps.node.label }}</div>
-                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Тип: {{ slotProps.node.info }}  {{consLog(slotProps.node)}}</div>
+                            <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Тип: {{ slotProps.node.info }}</div>
                             <div class="mt-3 font-normal text-lg" v-if="slotProps.node.main !== true">Количество: {{ slotProps.node.count }} ед.</div>
                         </div>
                     </template>

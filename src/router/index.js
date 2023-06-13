@@ -17,6 +17,25 @@ const router = createRouter({
                     component: () => import('@/pages/Dashboard.vue')
                 },
                 {
+                    path: '/adminPanel/users',
+                    name: 'adminPanel',
+                    component: () => import('@/pages/AdminPanel.vue'),
+                    children: [
+                        {
+                            path: '/adminPanel/users',
+                            component: ()=> import('@/components/base/adminPanel/Users.vue')
+                        },
+                        {
+                            path: '/adminPanel/organizations',
+                            component: ()=> import('@/components/base/adminPanel/Organizations.vue')
+                        },
+                        {
+                            path: '/adminPanel/organizationGroup',
+                            component: ()=> import('@/components/base/adminPanel/Organizations.vue')
+                        }
+                    ]
+                },
+                {
                     path: '/dashboard/analytics1',
                     name: 'analytics1',
                     component: () => import('@/pages/Analytics1.vue')
@@ -33,7 +52,6 @@ const router = createRouter({
                 },
                 {
                     path: '/profile',
-                    // name: 'profile',
                     component: ProfileEnergyOrganization,
                     children: [
                         {
@@ -43,7 +61,6 @@ const router = createRouter({
                         },
                         {
                             path: '/profile/digitalPassport',
-                            // name: 'digitalPassport',
                             component: () => import('@/components/base/energyOrganization/DigitalPassport.vue'),
                             children: [
                                 {
