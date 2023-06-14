@@ -1,12 +1,13 @@
 <script setup>
-import {reactive, ref} from "vue";
+import {defineAsyncComponent, reactive, ref} from "vue";
+import {useDialog} from "primevue/usedialog";
 
+const AddUser = defineAsyncComponent(() => import('@/components/base/adminPanel/AddUser.vue'));
 const users = reactive([
     {
         id: 1,
         name: 'София',
         surname: 'Алексеева',
-
         email: 'john@gmail.com',
         organization: 'АО "КОРЭМ"',
         position: 'Энергетик',
@@ -14,7 +15,33 @@ const users = reactive([
         status: 'block',
         online: true,
         img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
-        registerDate: '21.10.2022 13:20:22'
+        registerDate: '21.10.2022 13:20:22',
+        permissions: [
+            {
+                id: 1,
+                name: "Цифровой паспорт",
+                read: true,
+                create: true,
+                update: false,
+                delete: false,
+            },
+            {
+                id: 2,
+                name: "Кабинет",
+                read: false,
+                create: true,
+                update: false,
+                delete: true
+            },
+            {
+                id: 3,
+                name: "Журнал",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+        ]
     },
     {
         id: 2,
@@ -27,7 +54,33 @@ const users = reactive([
         status: 'active',
         online: false,
         img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
-        registerDate: '10.01.2019 12:10:20'
+        registerDate: '10.01.2019 12:10:20',
+        permissions: [
+            {
+                id: 1,
+                name: "Цифровой паспорт",
+                read: true,
+                create: true,
+                update: false,
+                delete: false,
+            },
+            {
+                id: 2,
+                name: "Кабинет",
+                read: false,
+                create: true,
+                update: false,
+                delete: true
+            },
+            {
+                id: 3,
+                name: "Журнал",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+        ]
     },
     {
         id: 3,
@@ -40,7 +93,33 @@ const users = reactive([
         status: 'block',
         online: false,
         img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
-        registerDate: '10.01.2019 12:10:20'
+        registerDate: '10.01.2019 12:10:20',
+        permissions: [
+            {
+                id: 1,
+                name: "Цифровой паспорт",
+                read: true,
+                create: true,
+                update: false,
+                delete: false,
+            },
+            {
+                id: 2,
+                name: "Кабинет",
+                read: false,
+                create: true,
+                update: false,
+                delete: true
+            },
+            {
+                id: 3,
+                name: "Журнал",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+        ]
     },
     {
         id: 4,
@@ -53,119 +132,108 @@ const users = reactive([
         status: 'active',
         online: false,
         img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
-        registerDate: '10.01.2019 12:10:20'
+        registerDate: '10.01.2019 12:10:20',
+        permissions: [
+            {
+                id: 1,
+                name: "Цифровой паспорт",
+                read: true,
+                create: true,
+                update: false,
+                delete: false,
+            },
+            {
+                id: 2,
+                name: "Кабинет",
+                read: false,
+                create: true,
+                update: false,
+                delete: true
+            },
+            {
+                id: 3,
+                name: "Журнал",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+        ]
     },
-    {
-        id: 5,
-        name: 'John',
-        surname: '222',
-        email: 'john@gmail.com',
-        organization: 'АО "КОРЭМ"',
-        position: 'HR менеджер',
-        role: 'admin',
-        status: 'active',
-        online: false,
-        img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
-        registerDate: '10.01.2019 12:10:20'
-    },
-    {
-        id: 6,
-        name: 'John',
-        surname: '222',
-        email: 'john@gmail.com',
-        organization: 'АО "КОРЭМ"',
-        position: 'HR менеджер',
-        role: 'admin',
-        status: 'active',
-        online: false,
-        img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
-        registerDate: '10.01.2019 12:10:20'
-    },
-])
 
+])
 const items = reactive([
     {
         label: 'Заблокировать',
         icon: 'pi pi-fw pi-lock',
         command: (event) => {
-            console.log("посмотреть")
-            console.log("event", event.item)
+
         }
     },
     {
         label: 'Редактировать',
         icon: 'pi pi-fw pi-pencil',
         command: (event) => {
-            console.log(event)
+            console.log("event", event)
+            console.log("data", selectedData)
+            showAddModal(AddUser, 'Редактировать','' , 'update', selectedData )
         }
     },
     {
         label: 'Удалить',
         icon: 'pi pi-fw pi-trash',
         command: (event) => {
-            console.log(event)
         }
     },
 ]);
-
-const roles = reactive(['admin', 'user'])
+const selectedData = ref('')
 const rowStyle = (data) => {
     if (data.status === 'block') {
         return { backgroundColor: '#F4DADA'  };
+    }else{
+        return { backgroundColor: 'white'}
     }
 };
-const toggleMenu = (event, i) => {
-    console.log("i", i)
-    console.log("i", i.status)
-    if(i.status === 'block'){
-        console.log("Разблокр")
-        items[0].label === 'blocked'
-    }else{
-        console.log("blocked")
-    }
+const toggleMenu = ( event, i) => {
+    console.log("i",i)
     menu.value.toggle(event);
-    data.value = i
+    selectedData.value = i
+    // console.log("selectedData", selectedData)
 };
 
 const menu = ref('')
-const visible = ref(false)
 
-const newUser = reactive( {
-    id: users.length + 1,
-    name: '',
-    surname: '',
-    userName: '',
-    iin: '',
-    email: '',
-    organization: '',
-    position: '',
-    role: '',
-    status: '',
-    online: '',
-    img: '',
-    registerDate: new Date().toLocaleString()
-})
+const dialog = useDialog()
+const showAddModal = function (value, name, object, type, selected ){
+    dialog.open( value,{
+        props: {
+            header: name,
+            dataLength: object.length,
+            selected: selected,
+            type: type,
+            style: {
+                width: '80vw',
+            },
+            breakpoints:{
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            modal: true
+        },
+        onClose: (options) => {
+            if(type === 'create'){
+                const newData = options.data;
+                users.push(newData)
+            }else if(type === 'update'){
+                //find ip in users
+                const user = users.find(item => item.id === options.data.id)
+                console.log("uu", user)
+                //update user by id
 
-const addNewUser = function (newUser){
-    users.push(newUser)
-    visible.value = false
-    newUser.value =  {
-        id: users.length + 1,
-        name: '',
-        surname: '',
-        userName: '',
-        iin: '',
-        email: '',
-        organization: '',
-        position: '',
-        role: '',
-        status: '',
-        online: '',
-        img: '',
-        registerDate: new Date().toLocaleString()
-    }
+            }
+        }
+    })
 }
-
 </script>
 
 
@@ -174,17 +242,18 @@ const addNewUser = function (newUser){
         <div class="mt-3 col-12 border-round-lg bg-white">
             <div class="flex justify-content-between align-items-center">
                 <h5>Пользователи (550)</h5>
-                <Button @click="visible = true" label="Добавить"/>
-            </div>
+<!--                <Button @click="visible = true" label="Добавить"/>-->
+                <Button class="mb-3 w-12rem" label="Создать" @click="showAddModal(AddUser, 'Создать', users, 'create', selectedData)"/>
 
-            <DataTable class="mt-3" :rowStyle="rowStyle"  :value="users" tableStyle="min-width: 50rem">
+            </div>
+            <DataTable :rowStyle="rowStyle" class="mt-3"  :value="users" tableStyle="min-width: 50rem">
                 <Column field="id" header="№" ></Column>
                 <Column field="name" header="ФИО" class="p-0">
                     <template #body="slotProps">
                         <div class="flex justify-content-start">
-                            <div class="col-3">
-                                <img :src="slotProps.data.img" width="60" alt=""/>
-                            </div>
+<!--                            <div class="col-3" v-if="slotProps.data.img">-->
+<!--                                <img :src="slotProps.data.img" width="60" alt=""/>-->
+<!--                            </div>-->
                             <div class="col-9">
                                 <p style="font-size: 16px; line-height: 16px;">{{ slotProps.data.name }} {{slotProps.data.surname}}</p>
                                 <p style="font-size: 13px; color: #4B4A4A; line-height: 14px;">{{ slotProps.data.position }}</p>
@@ -222,55 +291,10 @@ const addNewUser = function (newUser){
                     </template>
                 </Column>
             </DataTable>
+
             <Menu ref="menu" id="overlay_tmenu" :model="items" popup/>
-            <Dialog v-model:visible="visible" maximizable modal :header="'Добавить'" :style="{ width: '70vw' }">
-                <div class="col-12 grid">
-                    <div class="col-4">
-                        <p>Фамилия</p>
-                        <InputText v-model="newUser.surname" placeholder="Введите..." class="w-full"/>
-                    </div>
 
-                    <div class="col-4">
-                        <p>Имя</p>
-                        <InputText v-model="newUser.name" placeholder="Введите..." class="w-full"/>
-                    </div>
-
-                    <div class="col-4">
-                        <p>ИИН</p>
-                        <InputText v-model="newUser.iin" placeholder="Введите..." class="w-full"/>
-                    </div>
-
-                    <div class="col-4">
-                        <p>Роль</p>
-                        <Dropdown v-model="newUser.role" class="w-full" :options="roles"  placeholder="Выберите роль" />
-                    </div>
-
-                    <div class="col-4">
-                        <p>Имя пользователя</p>
-                        <InputText v-model="newUser.userName" placeholder="Введите..." class="w-full"/>
-                    </div>
-
-                    <div class="col-4">
-                        <p>E-mail</p>
-                        <InputText v-model="newUser.email" placeholder="Введите..." class="w-full"/>
-                    </div>
-
-                    <div class="col-4">
-                        <p>Организация</p>
-                        <InputText v-model="newUser.organization" placeholder="Введите..." class="w-full"/>
-                    </div>
-
-                    <div class="col-4">
-                        <p>Должность </p>
-                        <InputText v-model="newUser.position" placeholder="Введите..." class="w-full"/>
-                    </div>
-
-                </div>
-                <template #footer>
-                    <Button label="Отменить" icon="pi pi-times" @click="visible = false" text />
-                    <Button label="Сохранить" icon="pi pi-check" @click="addNewUser(newUser)" autofocus />
-                </template>
-            </Dialog>
+            <DynamicDialog/>
 
         </div>
     </div>

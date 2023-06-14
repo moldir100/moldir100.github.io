@@ -1022,7 +1022,6 @@ const toggleMenu = ( event, i) => {
     console.log(i)
     menu.value.toggle(event);
     data.value = i
-
 };
 
 const showModal = function (){
