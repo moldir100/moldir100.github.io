@@ -103,7 +103,7 @@ const organizations = reactive([
     { name: 'АЭС Актобе', code: 'RM' },
     { name: 'КАЭНК', code: 'LDN' },
     { name: 'ТЭЦ 1', code: 'IST' },
-    { name: 'ТЭЦ 7', code: 'PRS' }
+    { name: 'ТЭЦ 7', code: 'PRS' },
 ]);
 </script>
 
