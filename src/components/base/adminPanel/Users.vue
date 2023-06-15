@@ -8,8 +8,10 @@ const users = reactive([
         id: 1,
         name: 'София',
         surname: 'Алексеева',
+        patronymic: 'Сергеевна',
         email: 'john@gmail.com',
-        organization: 'АО "КОРЭМ"',
+        organization: { name: 'АО "КОРЭМ"', code: 'NY' },
+        iin: '992255512875',
         position: 'Энергетик',
         role: 'admin',
         status: 'block',
@@ -22,23 +24,23 @@ const users = reactive([
                 name: "Цифровой паспорт",
                 read: true,
                 create: true,
-                update: false,
-                delete: false,
+                update: true,
+                delete: true,
             },
             {
                 id: 2,
                 name: "Кабинет",
-                read: false,
+                read: true,
                 create: true,
-                update: false,
+                update: true,
                 delete: true
             },
             {
                 id: 3,
                 name: "Журнал",
                 read: true,
-                create: false,
-                update: false,
+                create: true,
+                update: true,
                 delete: false
             },
         ]
@@ -48,7 +50,8 @@ const users = reactive([
         name: 'John',
         surname: '222',
         email: 'john@gmail.com',
-        organization: 'АО "КОРЭМ"',
+        organization: { name: 'АО "КОРЭМ"', code: 'NY' },
+        iin: '992255512875',
         position: 'HR менеджер',
         role: 'user',
         status: 'active',
@@ -87,7 +90,8 @@ const users = reactive([
         name: 'John',
         surname: '222',
         email: 'john@gmail.com',
-        organization: 'АО "КОРЭМ"',
+        organization: { name: 'АО "КОРЭМ"', code: 'NY' },
+        iin: '992255512875',
         position: 'HR менеджер',
         role: 'admin',
         status: 'block',
@@ -126,7 +130,8 @@ const users = reactive([
         name: 'John',
         surname: '222',
         email: 'john@gmail.com',
-        organization: 'АО "КОРЭМ"',
+        organization: {},
+        iin: '992255512875',
         position: 'HR менеджер',
         role: 'user',
         status: 'active',
@@ -162,47 +167,45 @@ const users = reactive([
     },
 
 ])
+const toggleMenu = ( event, i) => {
+    menu.value.toggle(event);
+    selectedData.value = i
+
+    status.value = i.status === 'block' ? 'Разблокировать' :  'Заблокировать'
+
+};
+const selectedData = ref('')
+const status = ref('')
 const items = reactive([
     {
-        label: 'Заблокировать',
+        label: status,
         icon: 'pi pi-fw pi-lock',
         command: (event) => {
-
+            selectedData.value.status =  selectedData.value.status === 'active' ? 'block' : 'active'
         }
     },
     {
         label: 'Редактировать',
         icon: 'pi pi-fw pi-pencil',
         command: (event) => {
-            console.log("event", event)
-            console.log("data", selectedData)
-            showAddModal(AddUser, 'Редактировать','' , 'update', selectedData )
+            showAddModal(AddUser, 'Редактировать','' , 'update', selectedData.value )
         }
     },
     {
         label: 'Удалить',
         icon: 'pi pi-fw pi-trash',
         command: (event) => {
+
         }
     },
 ]);
-const selectedData = ref('')
 const rowStyle = (data) => {
     if (data.status === 'block') {
-        return { backgroundColor: '#F4DADA'  };
-    }else{
-        return { backgroundColor: 'white'}
+        return { backgroundColor: '#F4DADA'};
     }
+    return { backgroundColor: 'white'}
 };
-const toggleMenu = ( event, i) => {
-    console.log("i",i)
-    menu.value.toggle(event);
-    selectedData.value = i
-    // console.log("selectedData", selectedData)
-};
-
 const menu = ref('')
-
 const dialog = useDialog()
 const showAddModal = function (value, name, object, type, selected ){
     dialog.open( value,{
@@ -225,10 +228,6 @@ const showAddModal = function (value, name, object, type, selected ){
                 const newData = options.data;
                 users.push(newData)
             }else if(type === 'update'){
-                //find ip in users
-                const user = users.find(item => item.id === options.data.id)
-                console.log("uu", user)
-                //update user by id
 
             }
         }
@@ -238,25 +237,32 @@ const showAddModal = function (value, name, object, type, selected ){
 
 
 <template>
-    <div class="flex w-full">
+    <div class="flex flex-column w-full">
         <div class="mt-3 col-12 border-round-lg bg-white">
-            <div class="flex justify-content-between align-items-center">
-                <h5>Пользователи (550)</h5>
-<!--                <Button @click="visible = true" label="Добавить"/>-->
-                <Button class="mb-3 w-12rem" label="Создать" @click="showAddModal(AddUser, 'Создать', users, 'create', selectedData)"/>
+            <h6>Фильтр</h6>
 
+            <div class="flex justify-content-start">
+                <InputText class="col-3 mr-3" placeholder="ФИО"/>
+                <InputText class="col-3" placeholder="ИИН"/>
             </div>
+        </div>
+        <div class="mt-3 col-12 border-round-lg bg-white">
+
+            <div class="flex justify-content-between align-items-center">
+                <h5>Пользователи ({{users.length}})</h5>
+                <Button class="mb-3 w-12rem" label="Создать" @click="showAddModal(AddUser, 'Создать', users, 'create', selectedData)"/>
+            </div>
+
             <DataTable :rowStyle="rowStyle" class="mt-3"  :value="users" tableStyle="min-width: 50rem">
-                <Column field="id" header="№" ></Column>
+                <Column field="id" header="№"/>
                 <Column field="name" header="ФИО" class="p-0">
                     <template #body="slotProps">
                         <div class="flex justify-content-start">
-<!--                            <div class="col-3" v-if="slotProps.data.img">-->
-<!--                                <img :src="slotProps.data.img" width="60" alt=""/>-->
-<!--                            </div>-->
-                            <div class="col-9">
-                                <p style="font-size: 16px; line-height: 16px;">{{ slotProps.data.name }} {{slotProps.data.surname}}</p>
-                                <p style="font-size: 13px; color: #4B4A4A; line-height: 14px;">{{ slotProps.data.position }}</p>
+                            <div class="">
+                                <p style="font-size: 16px; line-height: 16px;">{{ slotProps.data.name }} {{slotProps.data.surname}} {{slotProps.data.patronymic}}</p>
+                                <p style="font-size: 13px; color: #4B4A4A; line-height: 14px;">
+                                    <span v-if="slotProps.data.position">{{ slotProps.data.position }} </span> <span v-else> - </span>
+                                    <span v-if="slotProps.data.organization.name">/ {{slotProps.data.organization.name}}</span><span v-else> / -</span></p>
                             </div>
                         </div>
                     </template>
@@ -271,8 +277,9 @@ const showAddModal = function (value, name, object, type, selected ){
                 </Column>
                 <Column field="status" header="Статус">
                     <template #body="slotProps" class="text-center">
-                        <div class="flex align-items-center gap-2">
-                            <p style="color: red" v-if="slotProps.data.status === 'block'">{{slotProps.data.status}}</p>
+                        <div class="flex align-items-center gap-2" v-if="slotProps.data.status === 'block'">
+                            <i class="pi pi-lock" style="color: red"></i>
+                            <p style="color: red">Заблокирован</p>
                         </div>
                     </template>
                 </Column>
@@ -285,7 +292,7 @@ const showAddModal = function (value, name, object, type, selected ){
                 </Column>
                 <Column field="" header="">
                     <template #body="slotProps">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex align-items-center">
                             <Button @click="toggleMenu($event, slotProps.data)" icon="pi pi-ellipsis-h " class="h-1rem" type="button"  aria-haspopup="true" aria-controls="overlay_tmenu"/>
                         </div>
                     </template>

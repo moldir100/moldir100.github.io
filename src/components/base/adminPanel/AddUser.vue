@@ -1,5 +1,5 @@
 <script setup>
-import {inject, onBeforeMount, onMounted, reactive, ref} from "vue";
+import {inject, onBeforeMount, onMounted, onUpdated, reactive, ref} from "vue";
 
 const dialogRef = inject("dialogRef");
 const type = ref(dialogRef.value.options.props.type)
@@ -11,96 +11,78 @@ const closeDialog = (e) => {
     dialogRef.value.close(e);
 };
 
-const user = ref(null)
-// const user = reactive({
-//     id: dialogRef.value.options.props.dataLength + 1,
-//     name: '',
-//     surname: '',
-//     userName: '',
-//     iin: '',
-//     email: '',
-//     organization: '',
-//     position: '',
-//     role: 'user',
-//     status: 'active',
-//     online: '',
-//     img: '',
-//     registerDate: new Date().toLocaleString(),
-//     permissions: [
-//         {
-//             id: 1,
-//             name: "Цифровой паспорт",
-//             read: true,
-//             create: true,
-//             update: false,
-//             delete: false,
-//         },
-//         {
-//             id: 2,
-//             name: "Кабинет",
-//             read: false,
-//             create: true,
-//             update: false,
-//             delete: true
-//         },
-//         {
-//             id: 3,
-//             name: "Журнал",
-//             read: true,
-//             create: false,
-//             update: false,
-//             delete: false
-//         },
-//     ]
-// })
-
-onBeforeMount(() => {
-    if(type === 'create'){
-        user.value = {
-            id: dialogRef.value.options.props.dataLength + 1,
-            name: '',
-            surname: '',
-            userName: '',
-            iin: '',
-            email: '',
-            organization: '',
-            position: '',
-            role: 'user',
-            status: 'active',
-            online: '',
-            img: '',
-            registerDate: new Date().toLocaleString(),
-            permissions: [
-                {
-                    id: 1,
-                    name: "Цифровой паспорт",
-                    read: true,
-                    create: true,
-                    update: false,
-                    delete: false,
-                },
-                {
-                    id: 2,
-                    name: "Кабинет",
-                    read: false,
-                    create: true,
-                    update: false,
-                    delete: true
-                },
-                {
-                    id: 3,
-                    name: "Журнал",
-                    read: true,
-                    create: false,
-                    update: false,
-                    delete: false
-                },
-            ]
-        }
-    }else{
-        user.value = dialogRef.value.options.props.selected
+const user = ref('')
+if(type.value === 'create') {
+    user.value = {
+        id: dialogRef.value.options.props.dataLength + 1,
+        name: '',
+        surname: '',
+        userName: '',
+        iin: '',
+        email: '',
+        organization: '',
+        position: '',
+        role: 'user',
+        status: 'active',
+        online: '',
+        img: '',
+        registerDate: new Date().toLocaleString(),
+        permissions: [
+            {
+                id: 1,
+                name: "Кабинет",
+                read: true,
+                create: true,
+                update: false,
+                delete: false,
+            },
+            {
+                id: 2,
+                name: "Цифровой паспорт",
+                read: true,
+                create: true,
+                update: false,
+                delete: false
+            },
+            {
+                id: 3,
+                name: "Журнал",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+            {
+                id: 4,
+                name: "Карта генерации",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+            {
+                id: 5,
+                name: "Тариф",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+            {
+                id: 6,
+                name: "Панель админстратора",
+                read: false,
+                create: false,
+                update: false,
+                delete: false
+            },
+        ]
     }
-})
+}
+
+if(type.value === 'update'){
+    user.value = dialogRef.value.options.props.selected
+}
 
 const selectedCustomers = ref();
 const selectAll = ref(false);
@@ -115,9 +97,6 @@ const onSelectAllChange = (event) => {
         selectedCustomers.value = [];
     }
 };
-const onRowUnselect = () => {
-    selectAll.value = false;
-};
 
 const organizations = reactive([
     { name: 'АО "КОРЭМ"', code: 'NY' },
@@ -126,7 +105,6 @@ const organizations = reactive([
     { name: 'ТЭЦ 1', code: 'IST' },
     { name: 'ТЭЦ 7', code: 'PRS' }
 ]);
-
 </script>
 
 
@@ -142,7 +120,7 @@ const organizations = reactive([
         </div>
         <div class="col-4">
             <h6>ИИН</h6>
-            <InputText v-model="user.iin" class="w-full" label="Имя" placeholder="Введите"/>
+            <InputText maxlength="12" type="number" v-model="user.iin" class="w-full" label="Имя" placeholder="Введите"/>
         </div>
         <div class="col-4">
             <h6>E-mail</h6>
@@ -154,11 +132,15 @@ const organizations = reactive([
         </div>
         <div class="col-4">
             <h6>Должность</h6>
-            <InputText v-model="user.position" class="w-full" label="Имя" placeholder="Введите"/>
+            <InputText v-model="user.position"  class="w-full" label="Имя" placeholder="Введите"/>
         </div>
     </div>
 
-    <div class="flex align-items-center">
+    <div class="mb-3 flex flex-row align-items-between">
+        <Tag :style="{background: user.status === 'block' ? 'red' : 'green'}" class="">{{user.status}}</Tag>
+    </div>
+
+    <div class="flex flex-row align-items-between">
         <Checkbox v-model="user.role" inputId="ingredient1" name="pizza" value="Cheese" />
         <label for="ingredient1" class="ml-2"> Назначить локальным админстратором </label>
     </div>
@@ -166,9 +148,8 @@ const organizations = reactive([
     <h5>Пользовательские права доступа</h5>
 
     <DataTable :value="user.permissions" ref="dt" dataKey="id"
-               v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
+               v-model:selection="selectedCustomers" :selectAll="selectAll" tableStyle="min-width: 75rem">
 
-        <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
         <Column field="name" header="">
         </Column>
         <Column field="read" header="Просмотр">
