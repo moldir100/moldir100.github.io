@@ -31,7 +31,7 @@ const router = createRouter({
                         },
                         {
                             path: '/adminPanel/organizationGroup',
-                            component: ()=> import('@/components/base/adminPanel/Organizations.vue')
+                            component: ()=> import('@/components/base/adminPanel/OrganizationGroups.vue')
                         }
                     ]
                 },

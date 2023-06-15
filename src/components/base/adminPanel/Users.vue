@@ -200,7 +200,7 @@ const items = reactive([
     },
 ]);
 const rowStyle = (data) => {
-    if (data.status === 'block') {
+    if (data && data.status === 'block') {
         return { backgroundColor: '#F4DADA'};
     }
     return { backgroundColor: 'white'}
