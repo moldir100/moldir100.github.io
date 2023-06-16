@@ -1,10 +1,19 @@
 <script setup>
-import {inject, onBeforeMount, onMounted, onUpdated, reactive, ref} from "vue";
+import {inject, onBeforeMount, onMounted, reactive, ref} from "vue";
+
+const currentUser = ref({
+    id: 1,
+    name: 'Наташа',
+    surname: 'Сергеевна',
+    role: 'superadmin'
+})
 
 const dialogRef = inject("dialogRef");
 const type = ref(dialogRef.value.options.props.type)
 
 const send = (e) => {
+    if(type.value === 'update'){ alert('Вы уверены?') }
+
     dialogRef.value.close(e);
 };
 const closeDialog = (e) => {
@@ -75,7 +84,7 @@ if(type.value === 'create') {
                 create: false,
                 update: false,
                 delete: false
-            },
+            }
         ]
     }
 }
@@ -120,7 +129,7 @@ const organizations = reactive([
         </div>
         <div class="col-4">
             <h6>ИИН</h6>
-            <InputText maxlength="12" type="number" v-model="user.iin" class="w-full" label="Имя" placeholder="Введите"/>
+            <InputText maxlength="10" type="number" v-model="user.iin" class="w-full" label="Имя" placeholder="Введите"/>
         </div>
         <div class="col-4">
             <h6>E-mail</h6>
@@ -140,7 +149,7 @@ const organizations = reactive([
         <Tag :style="{background: user.status === 'block' ? 'red' : 'green'}" class="">{{user.status}}</Tag>
     </div>
 
-    <div class="flex flex-row align-items-between">
+    <div class="flex flex-row align-items-between" v-if="currentUser.role === 'superadmin'">
         <Checkbox v-model="user.role" inputId="ingredient1" name="pizza" value="Cheese" />
         <label for="ingredient1" class="ml-2"> Назначить локальным админстратором </label>
     </div>

@@ -27,6 +27,7 @@ const router = createRouter({
                         },
                         {
                             path: '/adminPanel/organizations',
+                            name: 'organizations',
                             component: ()=> import('@/components/base/adminPanel/Organizations.vue')
                         },
                         {

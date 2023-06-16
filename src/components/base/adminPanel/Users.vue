@@ -3,6 +3,14 @@ import {defineAsyncComponent, reactive, ref} from "vue";
 import {useDialog} from "primevue/usedialog";
 
 const AddUser = defineAsyncComponent(() => import('@/components/base/adminPanel/AddUser.vue'));
+
+const currentUser = reactive({
+    id: 1,
+    name: 'Молдир',
+    surname: 'Куанышбаева',
+    role: 'admin'
+})
+
 const users = reactive([
     {
         id: 1,
@@ -93,7 +101,7 @@ const users = reactive([
         organization: { name: 'АО "КОРЭМ"', code: 'NY' },
         iin: '992255512875',
         position: 'HR менеджер',
-        role: 'admin',
+        role: 'superadmin',
         status: 'block',
         online: false,
         img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
@@ -127,8 +135,8 @@ const users = reactive([
     },
     {
         id: 4,
-        name: 'John',
-        surname: '222',
+        name: 'Кайрат',
+        surname: 'Тлеуов',
         email: 'john@gmail.com',
         organization: {},
         iin: '992255512875',
@@ -165,7 +173,46 @@ const users = reactive([
             },
         ]
     },
-
+    {
+        id: 5,
+        name: 'Арман',
+        surname: 'Арманов',
+        email: 'john@gmail.com',
+        organization: {},
+        iin: '992255512875',
+        position: 'HR менеджер',
+        role: 'user',
+        status: 'active',
+        online: false,
+        img: 'https://onlinepngtools.com/images/examples-onlinepngtools/man-on-the-mountain-edge-avatar.png',
+        registerDate: '10.01.2019 12:10:20',
+        permissions: [
+            {
+                id: 1,
+                name: "Цифровой паспорт",
+                read: true,
+                create: true,
+                update: false,
+                delete: false,
+            },
+            {
+                id: 2,
+                name: "Кабинет",
+                read: false,
+                create: true,
+                update: false,
+                delete: true
+            },
+            {
+                id: 3,
+                name: "Журнал",
+                read: true,
+                create: false,
+                update: false,
+                delete: false
+            },
+        ]
+    },
 ])
 const toggleMenu = ( event, i) => {
     menu.value.toggle(event);
@@ -195,7 +242,8 @@ const items = reactive([
         label: 'Удалить',
         icon: 'pi pi-fw pi-trash',
         command: (event) => {
-
+           const foundIndex = users.findIndex((item) => { return item.id === selectedData.value.id})
+            users.splice(foundIndex, 1)
         }
     },
 ]);
@@ -254,8 +302,9 @@ const showAddModal = function (value, name, object, type, selected ){
             </div>
 
             <DataTable :rowStyle="rowStyle" class="mt-3"  :value="users" tableStyle="min-width: 50rem">
+                <template #empty> Ничего не найдено </template>
                 <Column field="id" header="№"/>
-                <Column field="name" header="ФИО" class="p-0">
+                <Column field="name" header="ФИО" class="p-0 p-3">
                     <template #body="slotProps">
                         <div class="flex justify-content-start">
                             <div class="">
@@ -272,6 +321,7 @@ const showAddModal = function (value, name, object, type, selected ){
                         <div class="flex align-items-center gap-2">
                             <Tag class="w-8 h-2rem" v-if="slotProps.data.role === 'user'" severity="success" :value="slotProps.data.role" rounded>Пользователь</Tag>
                             <Tag class="w-8 h-2rem"  v-if="slotProps.data.role === 'admin'" severity="primary" :value="slotProps.data.role" rounded>Админ</Tag>
+                            <Tag class="w-8 h-2rem"  v-if="slotProps.data.role === 'superadmin'" severity="warning" :value="slotProps.data.role" rounded>Суперадмин</Tag>
                         </div>
                     </template>
                 </Column>
