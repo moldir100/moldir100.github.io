@@ -29,7 +29,12 @@ const organizations = reactive([
         id: 1,
         name: 'АО “Астана-Энергия” ТЭЦ-2',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        type: 'energySupply',
+        // type: 'energySupply',
+        type: {
+            id: 1,
+            type: 'energySupply',
+            name: 'Энергопередающие'
+        },
         status: 'block',
     },
     {

@@ -29,6 +29,7 @@ const closeDialog = (e) => {
 };
 
 const organization = ref('')
+
 if(type.value === 'create') {
     organization.value = {
         id: dialogRef.value.options.props.dataLength + 1,
@@ -59,7 +60,7 @@ if(type.value === 'update'){
         </div>
         <div class="col-4">
             <h6>Тип организации</h6>
-            <Dropdown v-model="organization.type"  :options="organizationType" optionLabel="name" placeholder="Выберите организацию" class="w-full" />
+            <Dropdown showClear v-model="organization.type"   :options="organizationType" optionLabel="name" placeholder="Выберите организацию" class="w-full" />
         </div>
     </div>
 
