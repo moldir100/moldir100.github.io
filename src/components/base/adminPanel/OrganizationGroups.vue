@@ -3,7 +3,6 @@ import {reactive} from "vue";
 import {useRoute, useRouter} from "vue-router";
 const route = useRoute()
 const router = useRouter()
-
 const organizationType = reactive([
     {
         id: 1,
@@ -82,20 +81,18 @@ const organizationType = reactive([
     },
 
 ])
-
 const selectedOrganization = function (i){
     console.log('clicked', i)
     router.push({
         path: '/adminPanel/organizations',
         query: {
-            type: 'supply'
+            type: i.type
         },
         params: {
-            type: 'supply'
+            type: i.type
         }
     })
 }
-
 </script>
 
 
@@ -113,7 +110,6 @@ const selectedOrganization = function (i){
                 <h5>Группы ({{organizationType.length}})</h5>
             </div>
         </div>
-
         <div class="grid">
             <div class="col-12 md:col-4 lg:col-4 pt-1" v-for="i in organizationType" @click="selectedOrganization(i)">
                 <div class="bg-white border-round-lg col-12 flex flex-row">

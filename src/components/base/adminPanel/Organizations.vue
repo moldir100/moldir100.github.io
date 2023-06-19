@@ -1,5 +1,5 @@
 <script setup>
-import {defineAsyncComponent, defineComponent, reactive, ref, watch} from "vue";
+import {defineAsyncComponent, defineComponent, onBeforeMount, reactive, ref, watch} from "vue";
 import {background} from "quill/ui/icons";
 import {useDialog} from "primevue/usedialog";
 import router from "@/router";
@@ -131,6 +131,16 @@ const showAddModal = function (value, name, object, type, selected ){
     })
 }
 
+const sortOrganizations = function(organizations) {
+    if(!route.query.hasOwnProperty('type')){
+        return organizations
+    }else if(route.query.type){
+        return organizations.filter((item)=>{
+                return item.type === route.query.type
+            })
+    }
+}
+
 const value = ref('off');
 
 const filter = reactive({
@@ -139,10 +149,6 @@ const filter = reactive({
         status: ''
     })
 
-if(route.query === 'supply'){
-    console.log('supply')
-
-}
 </script>
 
 
@@ -159,7 +165,7 @@ if(route.query === 'supply'){
             <h4>Организации ({{organizations.length}})</h4>
             <Button class="w-12rem" label="Создать" @click="showAddModal(AddOrganization, 'Создать', organizations, 'create', selectedData)"/>
         </div>
-        <div v-for="item in organizations" class="mt-2 flex border-round-lg col-12" :style="{'background-color' : item.status === 'block' ? 'rgb(244, 218, 218)' : 'white' }">
+        <div v-for="item in sortOrganizations(organizations)" class="mt-2 flex border-round-lg col-12" :style="{'background-color' : item.status === 'block' ? 'rgb(244, 218, 218)' : 'white' }">
             <div class="col-11 p-0 flex justify-content-between pl-4">
                 <section>
                     <h5>{{item.name}}</h5>
