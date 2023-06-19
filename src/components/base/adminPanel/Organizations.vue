@@ -160,7 +160,7 @@ const sortOrganizations = function(organizations) {
         return organizations
     }else if(route.query.type){
         return organizations.filter((item)=>{
-                return item.type === route.query.type
+                return item.type.type === route.query.type
             })
     }
 }
