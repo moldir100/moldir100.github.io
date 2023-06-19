@@ -10,7 +10,7 @@ const organizationType = reactive([
     {
         id: 2,
         type: 'energyTransfer',
-        name: 'Энергоснабжащие'
+        name: 'Энергоснабжающие'
     },
     {
         id: 3,

@@ -29,7 +29,6 @@ const organizations = reactive([
         id: 1,
         name: 'АО “Астана-Энергия” ТЭЦ-2',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        // type: 'energySupply',
         type: {
             id: 1,
             type: 'energySupply',
@@ -41,36 +40,56 @@ const organizations = reactive([
         id: 2,
         name: 'ТОО "МАЭК-Казатомпром"',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        type: 'energyTransfer',
+        type: {
+            id: 1,
+            type: 'energyTransfer',
+            name: 'Энергопередающие'
+        },
         status: 'active',
     },
     {
         id: 3,
         name: 'ТОО «Экибастузская ГРЭС-1»',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        type: 'energyProducer',
+        type: {
+            id: 3,
+            type: 'energyProducer',
+            name: 'Энергопроизводящие'
+        },
         status: 'block',
     },
     {
         id: 4,
         name: 'ЭС АО «ЕЭК» ERG, «Евразийская группа»',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        type: 'energySupply',
+        type: {
+            id: 1,
+            type: 'energySupply',
+            name: 'Энергопередающие'
+        },
         status: 'active',
     },
     {
         id: 5,
         name: 'ТОО «Главная распределительная энергостанция Топар»',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        type: 'energyProducer',
+        type: {
+            id: 3,
+            type: 'energyProducer',
+            name: 'Энергопроизводящие'
+        },
         status: 'active',
     },
     {
         id: 6,
         name: 'АО «Жамбылская ГРЭС» им. Т.И. Батурова',
         address: 'г.Нур-Султан, район “Байконыр” Промзона ТЭЦ-2 ',
-        type: 'energyProducer',
-        status: '',
+        type: {
+            id: 3,
+            type: 'energyProducer',
+            name: 'Энергопроизводящие'
+        },
+        status: 'active',
     },
 ])
 const menu = ref('')

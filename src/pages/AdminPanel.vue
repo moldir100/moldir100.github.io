@@ -1,6 +1,24 @@
 <script setup>
 import {reactive} from "vue";
 
+const items = reactive([
+    {
+        label: 'Организации',
+        icon: 'pi pi-fw pi-home',
+        to: '/adminPanel/organizations'
+    },
+    {
+        label: 'Пользовалтели',
+        icon: 'pi pi-fw pi-calendar',
+        to: '/adminPanel/users'
+    },
+    {
+        label: 'Группа организации ',
+        icon: 'pi pi-fw pi-pencil',
+        to: '/adminPanel/organizationGroup'
+    },
+])
+
 </script>
 
 
@@ -8,11 +26,7 @@ import {reactive} from "vue";
     <div class="grid">
         <div class="col-12 border-round-lg bg-white">
             <h4>Панель администрирования</h4>
-
-            <router-link to="/adminPanel/organizations">Организации     </router-link>
-            <router-link to="/adminPanel/users">/ Пользовалтели  </router-link>  /
-            <router-link to="/adminPanel/organizationGroup">   Группа организации      </router-link>
-
+            <TabMenu class="subHeader p-tabmenuitem" style=""  :model="items"/>
         </div>
         <router-view></router-view>
     </div>

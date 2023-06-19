@@ -1023,7 +1023,6 @@ const toggleMenu = ( event, i) => {
     menu.value.toggle(event);
     data.value = i
 };
-
 const showModal = function (){
     visible.value = true
 }
