@@ -202,7 +202,7 @@ const filter = reactive({
                         <span v-if="item.status === 'block'" style="color: red">Заблокирован</span>
                         <span v-else style="color: green">-</span>
                     </p>
-                    <p >{{item.type}}</p>
+                    <p >{{item.type.name}}</p>
                 </section>
             </div>
             <div class="col-1 p-0 flex justify-content-end ">
