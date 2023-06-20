@@ -1,5 +1,6 @@
 <script setup>
 const selected = ref('')
+const AddGuild = defineAsyncComponent(() => import('@/components/base/energyOrganization/AddGuild.vue'));
 
 const allData = reactive([
     {
@@ -246,7 +247,7 @@ const items = reactive([
     },
 ]);
 
-import {reactive, ref} from "vue";
+import {defineAsyncComponent, reactive, ref} from "vue";
 import {useDialog} from "primevue/usedialog";
 
 const toggleMenu = (event, i) => {
