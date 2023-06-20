@@ -173,8 +173,7 @@ const addChildren = function(id){
         if(item.id === id){
             item.children.push({
                 id: id +1,
-                    inputs: [
-                {
+                inputs: [{
                     id: 1,
                     type: 'select',
                     label: 'Тип',
@@ -197,8 +196,8 @@ const addChildren = function(id){
                             name: 'остальные'
                         }
                     ]
-                },
-                {
+                    },
+                         {
                     id: 2,
                     type: 'input',
                     label: 'Наименование',
@@ -206,25 +205,22 @@ const addChildren = function(id){
                     value: '',
                     style: "lg:w-12 md:w-12 sm:w-100",
                 },
-                {
+                         {
                     id: 3,
                     type: 'input',
                     label: 'Количество',
                     placeholder: 'Пусто',
                     value: '',
                     style: "lg:w-12 md:w-12 sm:w-100",
-                },
-            ],
+                }],
             })
         }
         // return item.id === id
     })
-
-
 }
 
 const arrToCreate = reactive({
-        key: dialogRef.value.options.props.length,
+        key: dialogRef.value.options.props.length + 1,
         type: 'country',
         label: '',
         data: 'ar',
@@ -328,7 +324,7 @@ const arrToCreate = reactive({
 
                         <div v-if="item.type==='select'">
                             <div class="p-float-label">
-                                <Dropdown :value="item.value" v-model:modelValue="modelValue" inputId="dd-city" :options="item.items" optionLabel="name" placeholder="Выберите" class="w-full" />
+                                <Dropdown  v-model="item.value" inputId="dd-city" :options="item.items" optionLabel="name" placeholder="Выберите" class="w-full" />
                                 <label for="dd-city">{{i.label}}</label>
                             </div>
                         </div>

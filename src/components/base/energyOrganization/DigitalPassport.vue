@@ -11,6 +11,10 @@ const panelMenuItems = ref([
         to: '/profile/digitalPassport/tep'
     },
     {
+        label: 'Балансовая принадлежность',
+        to: '/profile/digitalPassport/balance'
+    },
+    {
         label: 'Тарифы',
         to: '/profile/digitalPassport/tariffs'
     },

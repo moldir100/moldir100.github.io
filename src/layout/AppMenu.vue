@@ -12,7 +12,7 @@ const model = ref([
             { label: 'Кабинет потребителя', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/1.png'},
             { label: 'Cloud ЭСО “Смена поставщика э/э”', to: '', src: '../src/assets/icons/sidebar/2.png' },
             { label: 'Тариф', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/3.png' },
-            { label: 'Согласование планов ремонтов', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/4.png'},
+            { label: 'Согласование планов ремонтов', icon: 'pi pi-fw pi-id-card', to: '/repairPlan', src: '../src/assets/icons/sidebar/4.png'},
             { label: 'Карта ВИЭ', icon: 'pi pi-fw pi-id-card', to: '' , src: '../src/assets/icons/sidebar/5.png'},
             { label: 'Карта линии электропередач и подстанций', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/6.png' },
             { label: 'Карта гидропотенциала', icon: 'pi pi-fw pi-id-card', to: '', src: '../src/assets/icons/sidebar/7.png' },

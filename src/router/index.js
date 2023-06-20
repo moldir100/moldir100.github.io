@@ -37,6 +37,11 @@ const router = createRouter({
                     ]
                 },
                 {
+                    path: '/repairPlan',
+                    name: 'repairPlan',
+                    component: () => import('@/pages/RepairPlan.vue')
+                },
+                {
                     path: '/dashboard/analytics1',
                     name: 'analytics1',
                     component: () => import('@/pages/Analytics1.vue')
@@ -73,6 +78,11 @@ const router = createRouter({
                                     path: '/profile/digitalPassport/tep',
                                     name: 'tep',
                                     component: () => import('@/components/base/energyOrganization/Tep.vue'),
+                                },
+                                {
+                                    path: '/profile/digitalPassport/balance',
+                                    name: 'balance',
+                                    component: () => import('@/components/base/energyOrganization/Balance.vue'),
                                 },
                                 {
                                     path: '/profile/digitalPassport/tariffs',
